@@ -32,8 +32,8 @@
                                     <td>{{$employee_list->user_name}}</td>
                                     <td>{{$employee_list->phone_no}}</td>
                                  {{-- <td><img src="assets/img/eye.svg" wire:click="view_employee()" class="navbar-logo" alt="logo"><img src="assets/img/edit.svg" class="navbar-logo" alt="logo"></td> --}}
-                                    <td><button class="btn" wire:click="view_employee({{$employee_list->id}})">view</button>
-                                    <button class="btn" wire:click="edit_employee({{$employee_list->id}})">Edit</button></td>
+                                    <td><button class="btn btn-primary" wire:click="view_employee({{$employee_list->id}})">view</button>
+                                    <button class="btn btn-warning" wire:click="edit_employee({{$employee_list->id}})">Edit</button></td>
                                 </tr>
                                 @endforeach
                             </tbody>

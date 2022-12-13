@@ -18,6 +18,7 @@
     <link href="{{asset('plugins/sweetalerts/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('plugins/sweetalerts/sweetalert.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/components/custom-sweetalert.css')}}" rel="stylesheet" type="text/css" />
+    {{--  --}}
 
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/datatables.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/dt-global_style.css')}}">
@@ -64,19 +65,7 @@
         display: none;
         }
         /*inputs*/
-        #msform input {
-            background-color :#e9e9ed;
-            /*border: 1px solid #999; */
-        }
-        #msform select{
-            background-color :#e9e9ed;
-            /*border: 1px solid #999; */
-        }
-        #msform textarea{
-            background-color :#e9e9ed;
-            /*border: 1px solid #999; */
-        }
-        #msform input, #msform textarea ,#msform select{
+        .form_input{
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 3px;
@@ -86,6 +75,7 @@
         font-family: montserrat;
         color: #2C3E50;
         font-size: 13px;
+        background-color :#e9e9ed;
         }
         /*buttons*/
         #msform .action-button {
@@ -234,7 +224,7 @@
 
 <script src="{{asset('plugins/sweetalerts/sweetalert2.min.js')}}"></script>
 <script src="{{asset('plugins/sweetalerts/custom-sweetalert.js')}}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{asset('plugins/table/datatable/datatables.js')}}"></script>
     <script>

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\chennai\EmployeeController;
-
+use App\Http\Controllers\Chennai\EmployeeController;
+use App\Http\Controllers\Chennai\ProjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +23,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/test', function () {return view('test');})->name('test');
     Route::get('/add-employee',[EmployeeController::class,'add_employee'])->name('add-employee');
     Route::get('/all-employee',[EmployeeController::class,'all_employee'])->name('all-employee');
+
 });
+Route::get('/add-activity',[ProjectController::class,'add_activity'])->name('add-activity');
+Route::get('/add-task',[ProjectController::class,'add_task'])->name('add-task');
+Route::get('/add-project',[ProjectController::class,'add_project'])->name('add-project');
+
