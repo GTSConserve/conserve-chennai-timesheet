@@ -94,10 +94,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="components" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('add-activity')}}"><b>Add Activity</b></a>
+                        <a href="{{route('add-activity')}}"><b>Activity</b></a>
                     </li>
                     <li>
-                        <a href="{{route('add-project')}}"><b>Add Project</b></a>
+                        <a href="{{route('add-project')}}"><b>Project</b></a>
                     </li>
                     {{-- <li>
                         <a href="component_tabs.html"> Tabs </a>

@@ -9,8 +9,14 @@ use Livewire\Component;
 
 class AddProject extends Component
 {
-    public $activity,$name,$man_hours,$activity_mapping;
-
+    public $activity,$status,$view_projects;
+    public $name,$man_hours,$activity_mapping;
+    public function add(){
+        $this->status= 1;
+    }
+    public function back(){
+        $this->status= "";
+    }
     public function add_project(){
         $project = new Project;
         $project->name = $this->name;
@@ -26,10 +32,15 @@ class AddProject extends Component
         }
         $this->reset();
         $this->emit('UpdateEmployee');
+        $this->status= "";
+    }
+    public function edit_project($project_id){
+        $this->status= 2;
     }
     public function render()
     {
+        $this->view_projects = Project::with('mapping_view')->get();
         $this->activity = Activity::all();
-        return view('livewire.chennai.project.add-project',['activities' => $this->activity]);
+        return view('livewire.chennai.project.add-project',['view_projects' => $this->view_projects,'activities' => $this->activity]);
     }
 }
