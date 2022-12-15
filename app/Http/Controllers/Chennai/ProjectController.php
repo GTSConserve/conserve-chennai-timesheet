@@ -9,7 +9,7 @@ class ProjectController extends Controller
 {
     public function add_activity(){
         return view('chennai.project.add-activity');
-    }
+    } 
     public function add_project(){
         return view('chennai.project.add-project');
     }

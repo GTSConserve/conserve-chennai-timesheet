@@ -2,7 +2,7 @@
     @if ($status == 1)
         <div class="page-header row">
             <div class="col-11">
-                <h3 >New Project</h3>
+                <h3 ><b>New Project</b></h3>
             </div>
             <div class="col-1">
                 <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
@@ -44,7 +44,7 @@
     @elseif  ($status == 2)
         <div class="page-header row">
             <div class="col-11">
-                <h3 >Edit Project</h3>
+                <h3 ><b>Edit Project</b></h3>
             </div>
             <div class="col-1">
                 <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
@@ -55,15 +55,15 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <label id="lable">Project Name</label>
-                        <input type="text" class="form_input" wire:model="name" placeholder="Project Name">
+                        <input type="text" class="form_input" wire:model="update_name" placeholder="Project Name">
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Man Hours</label>
-                        <input type="text" class="form_input" wire:model="man_hours" placeholder="Man Hours">
+                        <input type="text" class="form_input" wire:model="update_man_hours" placeholder="Man Hours">
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Activity Mapping</label>
-                        <select name="" class="form_input" id="" multiple wire:model="activity_mapping">
+                        <select name="" class="form_input" id="" multiple wire:model="update_activity_mapping">
                             <option value="">-Select--</option>
                             @foreach ($activities as $activity)
                             <option value="{{$activity->id}}">{{$activity->name}}</option>
@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-sm-10"></div>
                     <div class="col-sm-2">
-                        <input type="button" name="next" class="next action-button" wire:click="update_project()" value="Save" >
+                        <input type="button" name="next" class="next action-button" wire:click="update_project()" value="Update" >
                     </div>
                 </div>
             </fieldset>
@@ -85,7 +85,7 @@
     @else
         <div class="page-header row">
             <div class="col-11">
-                <h3 >All Project</h3>
+                <h3 ><b>All Project</b></h3>
             </div>
             <div class="col-1">
                 <input type="button" name="next" class="btn btn-warning" wire:click="add()" value="Add" >

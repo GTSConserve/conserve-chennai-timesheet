@@ -246,9 +246,11 @@
            Livewire.on('UpdateEmployee', () => {
                swal({
                title: 'Good job!',
-               text: "Emloyee Details Store Successfully",
+               text: "Details Store Successfully",
                type: 'success',
-               padding: '1em'
+               showConfirmButton: false,
+               timer: 900,
+               padding: '50px'
                });
            });
        }

@@ -1,17 +1,96 @@
 <?php
 
 namespace App\Http\Livewire\Chennai\Project;
+use App\Models\Task;
+use App\Models\SubTask;
 
 use Livewire\Component;
 
 class AddTask extends Component
 {
-    public $task_status1,$task_name;
+    public $inputs = [];
+    public $i=0;
+    public $sub_account_name=[];
+    public $edit_inputs = [];
+    public $edit_i=0;
+    public $edit_sub_account_name=[];
+    public $status,$sub_task;
+    public $update_id;
+    public $task_name,$sub_task_status;
+    public $edit_task_name,$edit_sub_task_status;
+    public function add(){
+        $this->status = 1;
+    }
+    public function back(){
+        $this->status = "";
+    }
+    public function sub_task_yes(){
+        $this->sub_task = 1;
+    }public function sub_task_no(){
+        $this->sub_task = "";
+        $this->inputs = [];
+        $this->edit_inputs = [];
+    }
+    public function addDiv($increment)
+    {
+        $this->i = $increment+1;
+        $this->sub_account_name[$increment+1]='';
+        array_push($this->inputs, $increment+1);
+    }
+    public function removeDiv($decrement){
+        if($decrement!=1)
+        {
+         $this->i=$decrement-1;
+        }
+        else{
+         $this->i=$this->i-$decrement;
+        }
+         unset($this->inputs[$decrement-1]);
+         unset($this->sub_account_name[$decrement]);
+    }
     public function add_task(){
-        dd("jdkkgusdghsdkgjhwrgmrwgerjg");
+        $add_task = new Task;
+        $add_task->name = $this->task_name;
+        $add_task->status = $this->sub_task_status;
+        $add_task->save();
+        if($this->sub_account_name !=""){
+            foreach($this->sub_account_name as $key => $value){
+                $add_sub_task = new SubTask;
+                $add_sub_task->task_id = $add_task->id;
+                $add_sub_task->name = $this->sub_account_name[$key];
+                $add_sub_task->save();
+            }
+        }
+        $this->reset();
+        $this->emit('UpdateEmployee');
+    }
+    public function edit($id){
+        $this->update_id = $id;
+        $this->status = 2;
+        $edit_task = Task::where('id',$this->update_id)->first();
+        $this->edit_task_name = $edit_task->name;
+        $this->edit_sub_task_status = $edit_task->status;
+        if($this->edit_sub_task_status == 1){
+            $this->sub_task = 1;
+        }else{
+            $this->sub_task = 0;
+        }
+        $edit_sub_task = SubTask::where('task_id',$this->update_id)->get();
+
+        if($edit_sub_task !=""){
+            $this->edit_i = 0;
+            $this->edit_inputs = [];
+            $this->edit_i++;
+            foreach($edit_sub_task as $key => $value)
+            {
+                $this->edit_sub_account_name[$key] = $value->name;
+                array_push($this->edit_inputs,$this->edit_i);
+            }
+        }
     }
     public function render()
     {
-        return view('livewire.chennai.project.add-task');
+        $task_view = Task::all();
+        return view('livewire.chennai.project.add-task',['task_views' => $task_view]);
     }
 }

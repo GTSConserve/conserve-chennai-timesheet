@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ActivityLink extends Model
+class SubTask extends Model
 {
     use HasFactory;
-    public $table="activity_links";
 }

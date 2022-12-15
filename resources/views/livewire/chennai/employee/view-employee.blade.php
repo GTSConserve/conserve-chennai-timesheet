@@ -51,7 +51,7 @@
                                                     <b>Employee Id</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->emp_id}}
+                                                    {{$view_employee_list->emp_code}}
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <b>Date of Joining</b>

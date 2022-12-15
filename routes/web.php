@@ -25,7 +25,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/all-employee',[EmployeeController::class,'all_employee'])->name('all-employee');
 
 });
-Route::get('/add-activity',[ProjectController::class,'add_activity'])->name('add-activity');
-Route::get('/add-task',[ProjectController::class,'add_task'])->name('add-task');
-Route::get('/add-project',[ProjectController::class,'add_project'])->name('add-project');
+Route::get('/activity',[ProjectController::class,'add_activity'])->name('activity');
+Route::get('/task',[ProjectController::class,'add_task'])->name('task');
+Route::get('/project',[ProjectController::class,'add_project'])->name('project');
 
