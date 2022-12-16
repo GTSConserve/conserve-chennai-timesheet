@@ -176,8 +176,33 @@
     <!--  END LOADER -->
 
     <!--  BEGIN NAVBAR  -->
-    @include('layouts.navbar')
-    {{--  --}}
+    @if(Auth::user()->user_group_id==1)
+    @include('layouts.navbars.super-admin')
+    @endif
+    @if(Auth::user()->user_group_id==2)
+    @include('layouts.navbars.location-head')
+    @endif
+    @if(Auth::user()->user_group_id==3)
+    @include('layouts.navbars.hr-head')
+    @endif
+    @if(Auth::user()->user_group_id==4)
+    @include('layouts.navbars.admin')
+    @endif
+    @if(Auth::user()->user_group_id==5)
+    @include('layouts.navbars.project-manager-head')
+    @endif
+    @if(Auth::user()->user_group_id==6)
+    @include('layouts.navbars.project-manager')
+    @endif
+    @if(Auth::user()->user_group_id==7)
+    @include('layouts.navbars.project-lead')
+    @endif
+    @if(Auth::user()->user_group_id==8)
+    @include('layouts.navbars.team-lead')
+    @endif
+    @if(Auth::user()->user_group_id==9)
+    @include('layouts.navbars.employee')
+    @endif
     <!--  END NAVBAR  -->
 
     <!--  BEGIN MAIN CONTAINER  -->
