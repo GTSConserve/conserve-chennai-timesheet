@@ -18,16 +18,18 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
-    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
-    Route::get('/test', function () {return view('test');})->name('test');
-    Route::get('/add-employee',[EmployeeController::class,'add_employee'])->name('add-employee');
-    Route::get('/all-employee',[EmployeeController::class,'all_employee'])->name('all-employee');
-});
+// Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+   
+// });
 Route::group(['prefix' => 'super-admin', 'middleware' => [
     'auth:sanctum', config('jetstream.auth_session'), 'verified',
     'superAdmin'
 ],'namespace' => 'Chennai'], function () {
+    // Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+    Route::get('/add-employee',[EmployeeController::class,'add_employee'])->name('add-employee');
+    Route::get('/all-employee',[EmployeeController::class,'all_employee'])->name('all-employee');
+
 
 });
 Route::group(['prefix' => 'location-head', 'middleware' => [
