@@ -5,11 +5,7 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-<<<<<<< HEAD
-    "file": "assets/app.c60554c9.css",
-=======
-    "file": "assets/app.cdb5e059.css",
->>>>>>> 7057e77 (testinstall file)
+    "file": "assets/app.997d411d.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }
