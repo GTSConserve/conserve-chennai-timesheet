@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('usergroups', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name');
-            $table->integer('group_id');
             $table->enum('status',['0','1'])->default('1');
             $table->timestamps();
             $table->softDeletes();
