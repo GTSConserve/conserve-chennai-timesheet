@@ -112,13 +112,13 @@
                                                     <b>Date of Birth (In certificate)</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->emp_id}}
+                                                    {{$view_employee_list->dob_certificate}}
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <b>Date of Birth (Original)</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->doj}}
+                                                    {{$view_employee_list->dob_original}}
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-bottom: 25px;">
@@ -126,13 +126,13 @@
                                                     <b>Marriage Status</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->division}}
+                                                    {{$view_employee_list->marital_status}}
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <b>Nationality</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->designation}}
+                                                    {{$view_employee_list->nationality}}
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-bottom: 25px;">
@@ -140,13 +140,13 @@
                                                     <b>Father’s / Spouse Name</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->employment_type}}
+                                                    {{$view_employee_list->father_name}}
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <b>Blood Group</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->employment_status}}
+                                                    {{$view_employee_list->blood_group}}
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-bottom: 25px;">
@@ -154,13 +154,13 @@
                                                     <b>Residential Address</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->reporting_to}}
+                                                    {{$view_employee_list->residential_address}}
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <b>Permanent Address</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->last_name}}
+                                                    {{$view_employee_list->permanent_address}}
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-bottom: 25px;">
@@ -168,13 +168,13 @@
                                                     <b>Official Mail ID</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->employment_type}}
+                                                    {{$view_employee_list->offical_mail}}
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <b>Personal Mail ID</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->employment_status}}
+                                                    {{$view_employee_list->personal_mail}}
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-bottom: 25px;">
@@ -182,7 +182,7 @@
                                                     <b>Alternate Contact No</b>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {{$view_employee_list->reporting_to}}
+                                                    {{$view_employee_list->alter_phone_no}}
                                                 </div>
                                                 <div class="col-sm-3">
 
@@ -199,13 +199,13 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->emp_id}}
+                                                {{$view_education_list->sslc_institution}}
                                             </div>
                                             <div class="col-sm-3">
-                                                <b>Percentage </b>
+                                                <b>Percentage</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->doj}}
+                                                {{$view_education_list->sslc_percentage}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -213,13 +213,13 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->division}}
+                                                {{$view_education_list->sslc_board}}
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->designation}}
+                                                {{$view_education_list->sslc_date}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -227,7 +227,7 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->employment_type}}
+                                                {{$view_education_list->employment_type}}
                                             </div>
                                             <div class="col-sm-6">
                                             </div>
@@ -238,13 +238,13 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->emp_id}}
+                                                {{$view_education_list->hsc_institution}}
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Percentage </b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->doj}}
+                                                {{$view_education_list->hsc_percentage}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -252,13 +252,13 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->division}}
+                                                {{$view_education_list->hsc_board}}
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->designation}}
+                                                {{$view_education_list->hsc_date}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -266,7 +266,7 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->employment_type}}
+                                                {{$view_education_list->hsc_file}}
                                             </div>
                                             <div class="col-sm-6">
                                             </div>
@@ -277,13 +277,13 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->emp_id}}
+                                                {{$view_education_list->diploma_percentage}}
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Percentage </b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->doj}}
+                                                {{$view_education_list->diploma_percentage}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -291,13 +291,13 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->division}}
+                                                {{$view_education_list->diploma_board}}
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->designation}}
+                                                {{$view_education_list->designation}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -305,7 +305,7 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->employment_type}}
+                                                {{$view_education_list->employment_type}}
                                             </div>
                                             <div class="col-sm-6">
                                             </div>
@@ -316,13 +316,13 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->emp_id}}
+                                                {{$view_education_list->emp_id}}
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Percentage </b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->doj}}
+                                                {{$view_education_list->doj}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -330,13 +330,13 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->division}}
+                                                {{$view_education_list->division}}
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->designation}}
+                                                {{$view_education_list->designation}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -344,7 +344,7 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->employment_type}}
+                                                {{$view_education_list->employment_type}}
                                             </div>
                                             <div class="col-sm-6">
                                             </div>
@@ -355,13 +355,13 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->emp_id}}
+                                                {{$view_education_list->emp_id}}
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Percentage </b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->doj}}
+                                                {{$view_education_list->doj}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -369,13 +369,13 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->division}}
+                                                {{$view_education_list->division}}
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->designation}}
+                                                {{$view_education_list->designation}}
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -383,7 +383,7 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_employee_list->employment_type}}
+                                                {{$view_education_list->employment_type}}
                                             </div>
                                             <div class="col-sm-6">
                                             </div>

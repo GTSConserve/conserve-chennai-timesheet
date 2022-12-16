@@ -14,12 +14,13 @@ class AddTask extends Component
     public $edit_inputs = [];
     public $edit_i=0;
     public $edit_sub_account_name=[];
-    public $status,$sub_task;
+    public $status,$sub_task,$edit_sub_task;
     public $update_id;
     public $task_name,$sub_task_status;
     public $edit_task_name,$edit_sub_task_status;
     public function add(){
         $this->status = 1;
+        $this->sub_task = 0;
     }
     public function back(){
         $this->status = "";
@@ -29,6 +30,11 @@ class AddTask extends Component
     }public function sub_task_no(){
         $this->sub_task = "";
         $this->inputs = [];
+    }
+    public function edit_sub_task_yes(){
+        $this->edit_sub_task = 1;
+    }public function edit_sub_task_no(){
+        $this->edit_sub_task = "";
         $this->edit_inputs = [];
     }
     public function addDiv($increment)
@@ -47,6 +53,23 @@ class AddTask extends Component
         }
          unset($this->inputs[$decrement-1]);
          unset($this->sub_account_name[$decrement]);
+    }
+    public function edit_addDiv($increment)
+    {
+        $this->edit_i = $increment+1;
+        $this->edit_sub_account_name[$increment+1]='';
+        array_push($this->edit_inputs, $increment+1);
+    }
+    public function edit_removeDiv($decrement){
+        if($decrement!=1)
+        {
+         $this->edit_i=$decrement-1;
+        }
+        else{
+         $this->edit_i=$this->edit_i-$decrement;
+        }
+         unset($this->edit_inputs[$decrement-1]);
+         unset($this->edit_sub_account_name[$decrement]);
     }
     public function add_task(){
         $add_task = new Task;
@@ -71,22 +94,53 @@ class AddTask extends Component
         $this->edit_task_name = $edit_task->name;
         $this->edit_sub_task_status = $edit_task->status;
         if($this->edit_sub_task_status == 1){
-            $this->sub_task = 1;
+            $this->edit_sub_task = 1;
         }else{
-            $this->sub_task = 0;
+            $this->edit_sub_task = 0;
+            $this->edit_inputs = [];
+            $this->edit_sub_account_name = "";
         }
-        $edit_sub_task = SubTask::where('task_id',$this->update_id)->get();
-
-        if($edit_sub_task !=""){
+        $edit_sub_task_view = SubTask::where('task_id',$this->update_id)->get();
+        if($edit_sub_task_view !=""){
             $this->edit_i = 0;
             $this->edit_inputs = [];
             $this->edit_i++;
-            foreach($edit_sub_task as $key => $value)
+            foreach($edit_sub_task_view as $key => $value)
             {
                 $this->edit_sub_account_name[$key] = $value->name;
                 array_push($this->edit_inputs,$this->edit_i);
             }
         }
+    }
+    public function update(){
+        $update_task = Task::where('id',$this->update_id)->first();
+        $update_task->name = $this->edit_task_name;
+        $update_task->status = $this->edit_sub_task_status;
+        $update_task->save();
+        if($this->edit_sub_task_status == 1)
+        {
+            $update_sub = SubTask::where('task_id',$this->update_id)->first();
+            if($update_sub !=""){
+                SubTask::where('id',$this->update_id)->delete();
+            }
+            foreach($this->edit_sub_account_name as $key => $value)
+            {
+                $update_sub_task = new SubTask;
+                $update_sub_task->task_id = $update_task->id;
+                $update_sub_task->name = $this->edit_sub_account_name[$key];
+                $update_sub_task->save();
+            }
+        }
+        else{
+            $this->edit_sub_task = "";
+            $this->edit_inputs = [];
+            $update_sub = SubTask::where('task_id',$this->update_id)->first();
+                if($update_sub !=""){
+                    SubTask::where('task_id',$this->update_id)->delete();
+                }
+        }
+        $this->emit('UpdateEmployee');
+        $this->status = "";
     }
     public function render()
     {

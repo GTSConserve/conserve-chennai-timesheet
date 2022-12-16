@@ -5,10 +5,11 @@ use App\Models\Employee;
 use App\Models\Education;
 use App\Models\Bank;
 use Livewire\Component;
-
+use Illuminate\Support\Facades\Auth;
 class AllEmployee extends Component
 {
-    public $employee_list,$status_group=1,$view_employee_list,$edit_employee_list,$update_employee_id;
+
+    public $employee_list,$status_group=1,$view_employee_list,$view_education_list,$edit_employee_list,$update_employee_id;
     // ============================EDIT UPDATE================================
     public $status=1;
     public $basic_active ="active",$education_active,$identification_active,$offical_active;
@@ -32,6 +33,7 @@ class AllEmployee extends Component
     public function view_employee($employee_id){
         $this->status_group=2;
         $this->view_employee_list = Employee::where('id',$employee_id)->first();
+        $this->view_education_list = Education::where('id',$employee_id)->first();
     }
     public function edit_employee($employee_id){
         $this->status_group=3;

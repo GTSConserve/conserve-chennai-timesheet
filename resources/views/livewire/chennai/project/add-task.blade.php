@@ -9,7 +9,7 @@
                     <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
                 </div>
             </div>
-            <form id="msform">
+            <div id="msform">
                 <fieldset class="mt-3">
                     <div class="">
                         <div class="row">
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </fieldset>
-            </form>
+            </div>
         </div>
     @elseif($status == 2)
     <div>
@@ -79,7 +79,7 @@
                 <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
             </div>
         </div>
-        <form id="msform">
+        <div id="msform">
             <fieldset class="mt-3">
                 <div class="">
                     <div class="row">
@@ -92,14 +92,14 @@
                                 <label id="lable">Sub Task</label>
                            </div>
                             <div class="">
-                                <input type="radio" wire:model="edit_sub_task_status" wire:click="sub_task_yes()" id="yes" name="sub_task_status" value="1" >&nbsp<span for="yes">Yes</span>&nbsp&nbsp&nbsp
-                                <input type="radio" wire:model="edit_sub_task_status" wire:click="sub_task_no()" name="sub_task_status" id="no" value="0">&nbsp<span for="no">No</span>
+                                <input type="radio" wire:model="edit_sub_task_status" wire:click="edit_sub_task_yes()" id="yes" name="sub_task_status" value="1" >&nbsp<span for="yes">Yes</span>&nbsp&nbsp&nbsp
+                                <input type="radio" wire:model="edit_sub_task_status" wire:click="edit_sub_task_no()" name="sub_task_status" id="no" value="0">&nbsp<span for="no">No</span>
                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6"></div>
-                            @if ($sub_task == 1)
+                            @if ($edit_sub_task == 1)
                                 <div class="col-sm-5">
                                     <label id="lable">Sub Task Name</label>
                                     <input type="text" class="form_input" wire:model="edit_sub_account_name.0" placeholder="Task Name">
@@ -133,11 +133,11 @@
                 <div class="row">
                     <div class="col-sm-10"></div>
                     <div class="col-sm-2">
-                        <input type="button" name="next" class="next action-button" wire:click="add_task()" value="Save" >
+                        <input type="button" name="next" class="next action-button" wire:click="update()" value="Save" >
                     </div>
                 </div>
             </fieldset>
-        </form>
+        </div>
     </div>
     @else
     <div>
