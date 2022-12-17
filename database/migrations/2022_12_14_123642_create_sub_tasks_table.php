@@ -14,10 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sub_tasks', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name');
-            $table->unsignedBigInteger('task_id');
+
+            $table->integer('task_id')->unsigned()->index();
             $table->foreign('task_id')->references('id')->on('tasks');
+
+            // $table->unsignedBigInteger('task_id');
+            // $table->foreign('task_id')->references('id')->on('tasks');
             $table->enum('status',['0','1']);
             $table->timestamps();
             $table->softDeletes();

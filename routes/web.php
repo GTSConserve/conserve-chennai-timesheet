@@ -106,7 +106,7 @@ Route::group(['prefix' => 'employee', 'middleware' => [
     Route::get('/all-employee',[EmployeeController::class,'all_employee'])->name('all-employee');
 });
 
-Route::get('/activity',[ProjectController::class,'add_activity'])->name('activity');
-Route::get('/task',[ProjectController::class,'add_task'])->name('task');
-Route::get('/project',[ProjectController::class,'add_project'])->name('project');
+// Route::get('/activity',[ProjectController::class,'add_activity'])->name('activity');
+// Route::get('/task',[ProjectController::class,'add_task'])->name('task');
+// Route::get('/project',[ProjectController::class,'add_project'])->name('project');
 

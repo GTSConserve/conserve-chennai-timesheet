@@ -13,19 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('activity_links', function (Blueprint $table) {
+        Schema::create('project_manager_heads', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id')->unsigned()->index();
             $table->foreign('project_id')->references('id')->on('projects');
-
-            $table->integer('activity_id')->unsigned()->index();
-            $table->foreign('activity_id')->references('id')->on('activities');
-
-            // $table->unsignedBigInteger('project_id');
-            // $table->foreign('project_id')->references('id')->on('projects');
-            // $table->unsignedBigInteger('activity_id');
-            // $table->foreign('activity_id')->references('id')->on('activities');
-            $table->enum('status',['0','1']);
+            $table->integer('user_group_id')->unsigned()->index();
+            $table->foreign('user_group_id')->references('id')->on('usergroups');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -38,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activity_links');
+        Schema::dropIfExists('project_manager_heads');
     }
 };
