@@ -19,4 +19,10 @@ class ProjectController extends Controller
     public function project_assign(){
         return view('chennai.project.project-assign');
     }
+    public function timesheetadd(){
+        return view('chennai.project.timesheet-add');
+    }
+    public function timesheetview(){
+        return view('chennai.project.timesheet-view');
+    }
 }

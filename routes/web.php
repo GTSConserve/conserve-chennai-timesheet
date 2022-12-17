@@ -34,6 +34,9 @@ Route::group(['prefix' => 'super-admin', 'middleware' => [
     Route::get('/task',[ProjectController::class,'add_task'])->name('task');
     Route::get('/project',[ProjectController::class,'add_project'])->name('project');
     Route::get('/project-assign',[ProjectController::class,'project_assign'])->name('project-assign');
+    Route::get('/project-timesheet-add',[ProjectController::class,'timesheetadd'])->name('project-timesheet-add');
+    Route::get('/project-timesheet-view',[ProjectController::class,'timesheetview'])->name('project-timesheet-view');
+
 });
 
 // =======================================<--Location-Head-->=========================================================
