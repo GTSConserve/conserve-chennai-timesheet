@@ -19,12 +19,12 @@ class ProjectManagerHead
       //dd(Auth::user());
        if(Auth::user()->user_group_id==5)
         {
-        
+            dd("mhp");
           return $next($request);
         }
-      
-       
-       
+
+
+
        abort(404);
     }
 }

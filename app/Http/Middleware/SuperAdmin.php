@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class SuperAdmin 
+class SuperAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,17 +17,20 @@ class SuperAdmin
     public function handle($request, Closure $next)
     {
       //dd(Auth::user());
-       if(Auth::user()->user_group_id==1)
+       if(Auth::user()->user_group_id ==1)
         {
-        
+
           return $next($request);
         }
-        if(Auth::user()->user_group=='hospitaladmin')
+        if(Auth::user()->user_group_id ==5)
         {
-          return  redirect()->route('hospital-admin-dashboard');
+
+          return redirect()->route('dashboard');
         }
-       
-       
+
+
+
+
        abort(404);
     }
 }

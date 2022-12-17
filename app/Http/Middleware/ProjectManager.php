@@ -19,11 +19,11 @@ class ProjectManager
 
         if(Auth::user()->user_group_id==6)
         {
-        
+
           return $next($request);
         }
-      
-       
+
+
        abort(404);
     }
 }

@@ -46,7 +46,7 @@
                     <li>
                         <a href="{{route('all-employee')}}"><b>All Emoloyee</b></a>
                     </li>
-                   
+
                 </ul>
             </li>
 
@@ -80,7 +80,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="components" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('activity')}}"><b>Activity</b></a>
+                        <a href="{{route('project-assign')}}"><b>Project Assign</b></a>
                     </li>
                     <li>
                         <a href="{{route('project')}}"><b>Project</b></a>
