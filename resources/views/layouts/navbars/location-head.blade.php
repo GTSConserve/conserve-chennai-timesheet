@@ -21,14 +21,7 @@
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </a>
-                <ul class="collapse submenu list-unstyled" id="dashboard" data-parent="#topAccordion">
-                    <li class="active">
-                        <a href="index.html"> Analytics </a>
-                    </li>
-                    <li>
-                        <a href="index2.html"> Sales </a>
-                    </li>
-                </ul>
+
             </li>
 
             <li class="menu single-menu">
@@ -41,12 +34,12 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('add-employee')}}"><b>Add Emoloyee</b></a>
+                        <a href="{{route('location-head-add-employee')}}"><b>Add Emoloyee</b></a>
                     </li>
                     <li>
-                        <a href="{{route('all-employee')}}"><b>All Emoloyee</b></a>
+                        <a href="{{route('location-head-all-employee')}}"><b>All Emoloyee</b></a>
                     </li>
-                   
+
                 </ul>
             </li>
 
@@ -60,13 +53,13 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="components" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('activity')}}"><b>Activity</b></a>
+                        <a href="{{route('location-head-activity')}}"><b>Activity</b></a>
                     </li>
                     <li>
-                        <a href="{{route('project')}}"><b>Project</b></a>
+                        <a href="{{route('location-head-project')}}"><b>Project</b></a>
                     </li>
                     <li>
-                        <a href="{{route('task')}}"><b>Task</b></a>
+                        <a href="{{route('location-head-task')}}"><b>Task</b></a>
                     </li>
                 </ul>
             </li>
@@ -80,17 +73,56 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="components" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('activity')}}"><b>Activity</b></a>
+                        <a href="{{route('location-head-project-assign')}}"><b>Project Assign</b></a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{route('project')}}"><b>Project</b></a>
                     </li>
                     <li>
                         <a href="{{route('task')}}"><b>Task</b></a>
+                    </li> --}}
+                </ul>
+            </li>
+            <li class="menu single-menu">
+                <a href="#app" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                        <span><b>Time Sheet</b></span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
+                    <li>
+                        <a href="{{route('location-head-add-timesheet')}}"><b>Add</b></a>
+                    </li>
+                    <li>
+                        <a href="{{route('location-head-aproved-timesheet')}}"><b>Approved</b></a>
+                    </li>
+                    <li>
+                        <a href="{{route('location-head-pending-timesheet')}}"><b>Pending</b></a>
+                    </li>
+                    <li>
+                        <a href="{{route('location-head-approval-timesheet')}}"><b>Approval</b></a>
                     </li>
                 </ul>
             </li>
-
+            {{--  --}}
+            <li class="menu single-menu">
+                <a href="#uiKit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        <span><b>Attendance</b></span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="uiKit" data-parent="#topAccordion">
+                    <li>
+                        <a href="{{}}">Attendance</a>
+                        {{-- <a href="{{route('super-admin-attendance')}}">Attendance</a> --}}
+                    </li>
+                </ul>
+            </li>
+            {{--  --}}
         </ul>
     </nav>
 </div>

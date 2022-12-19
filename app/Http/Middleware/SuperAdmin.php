@@ -19,18 +19,16 @@ class SuperAdmin
       //dd(Auth::user());
        if(Auth::user()->user_group_id ==1)
         {
-
           return $next($request);
+        }
+        if(Auth::user()->user_group_id ==2)
+        {
+          return redirect()->route('location-head-dashboard');
         }
         if(Auth::user()->user_group_id ==5)
         {
-
-          return redirect()->route('dashboard');
+          return redirect()->route('project-manager-headdashboard');
         }
-
-
-
-
        abort(404);
     }
 }

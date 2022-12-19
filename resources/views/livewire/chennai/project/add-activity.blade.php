@@ -98,7 +98,7 @@
                                 @else
                                 <td>{{"Non Billable"}}</td>
                                 @endif
-                                <td><button wire:click="edit({{$activity->id}})">Edit</button><button wire:click="delete({{$activity->id}})">Delete</button></td>
+                                <td><button class = "btn btn-primary" wire:click="edit({{$activity->id}})">Edit</button><button class = "btn btn-warning" wire:click="delete({{$activity->id}})">Delete</button></td>
                             </tr>
                         @endforeach
                     </tbody>

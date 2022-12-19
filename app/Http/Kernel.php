@@ -64,7 +64,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'superAdmin' => \App\Http\Middleware\SuperAdmin::class,
-        'loationHead' => \App\Http\Middleware\LocationHead::class,
+        'locationHead' => \App\Http\Middleware\LocationHead::class,
         'HrHead' => \App\Http\Middleware\HrHead::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'projectManagerHead' => \App\Http\Middleware\ProjectManagerHead::class,

@@ -96,7 +96,7 @@
                                 <input type="text" class="form_input" wire:model="blood_group" placeholder="Blood Group">
                             </div>
                             <div class="col-sm-6">
-                                <label id="lable">Residential Address</label>
+                                <label id="lable">Residential Address <input type="checkbox"></label>
                                 {{-- <input type="Email" placeholder="Residential Address"> --}}
                                 <textarea name="" class="form_input" wire:model="residential_address" id="" cols="30" rows="2"></textarea>
                             </div>
