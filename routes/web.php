@@ -36,7 +36,6 @@ Route::group(['prefix' => 'super-admin', 'middleware' => [
     Route::get('/project-assign',[ProjectController::class,'project_assign'])->name('project-assign');
     Route::get('/project-timesheet-add',[ProjectController::class,'timesheetadd'])->name('project-timesheet-add');
     Route::get('/project-timesheet-view',[ProjectController::class,'timesheetview'])->name('project-timesheet-view');
-
 });
 
 // =======================================<--Location-Head-->=========================================================
@@ -109,7 +108,5 @@ Route::group(['prefix' => 'employee', 'middleware' => [
     Route::get('/all-employee',[EmployeeController::class,'all_employee'])->name('all-employee');
 });
 
-// Route::get('/activity',[ProjectController::class,'add_activity'])->name('activity');
-// Route::get('/task',[ProjectController::class,'add_task'])->name('task');
-// Route::get('/project',[ProjectController::class,'add_project'])->name('project');
+
 

@@ -82,12 +82,12 @@
                     <li>
                         <a href="{{route('project-assign')}}"><b>Project Assign</b></a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{route('project')}}"><b>Project</b></a>
                     </li>
                     <li>
                         <a href="{{route('task')}}"><b>Task</b></a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
             <li class="menu single-menu">
@@ -102,8 +102,6 @@
                     <li>
                         <a href="{{route('project-timesheet-add')}}"><b>View Timesheet</b></a>
                     </li>
-                  
-
                 </ul>
             </li>
         </ul>

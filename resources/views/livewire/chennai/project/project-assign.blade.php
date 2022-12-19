@@ -79,5 +79,4 @@
             </fieldset>
         @endif
     </div>
-
 </div>

@@ -24,7 +24,6 @@ class ProjectAssign extends Component
                     $pm_head->project_id = $this->project_name;
                     $pm_head->user_group_id = $this->project_manager_head[$key];
                     $pm_head->save();
-
                 }
             }
             if($this->project_manager !="")
@@ -44,6 +43,8 @@ class ProjectAssign extends Component
 
             }
         }
+        $this->reset();
+        $this->emit('UpdateEmployee');
     }
     public function render()
     {
