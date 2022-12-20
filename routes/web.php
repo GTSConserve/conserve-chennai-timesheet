@@ -15,7 +15,7 @@ use App\Http\Controllers\Chennai\DashboardController;
 |
 */
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('auth.login');
 });
 
@@ -37,7 +37,6 @@ Route::group(['prefix' => 'super-admin', 'middleware' => [
     Route::get('/project-timesheet-view', [ProjectController::class, 'timesheetview'])->name('super-admin-project-timesheet-view');
 });
 // =======================================<--Location Head-->=========================================================
-<<<<<<< HEAD
 Route::group(['prefix' => 'location-head', 'middleware' => [
     'auth:sanctum', config('jetstream.auth_session'), 'verified',
     'locationHead'
@@ -51,7 +50,7 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
     Route::get('/project-assign', [ProjectController::class, 'project_assign'])->name('location-head-project-assign');
     Route::get('/project-timesheet-add', [ProjectController::class, 'timesheetadd'])->name('location-head-project-timesheet-add');
     Route::get('/project-timesheet-view', [ProjectController::class, 'timesheetview'])->name('location-head-project-timesheet-view');
-=======
+
 // Route::group(['prefix' => 'location-head', 'middleware' => [
 //     'auth:sanctum', config('jetstream.auth_session'), 'verified',
 //     'locationHead'
@@ -68,7 +67,6 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
 //     Route::get('/pending-timesheet', [TimeSheetController::class, 'pending_timesheet'])->name('location-head-pending-timesheet');
 //     Route::get('/approval-timesheet', [TimeSheetController::class, 'approval_timesheet'])->name('location-head-approval-timesheet');
 //     // Route::get('/project-timesheet-view', [ProjectController::class, 'timesheetview'])->name('location-head-project-timesheet-view');
->>>>>>> fbc9b3675d1f58a8afcb5206b3211343f36ea793
 
 // });
 // //
@@ -140,4 +138,4 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
 //     'auth:sanctum', config('jetstream.auth_session'), 'verified',
 //     'admin'
 // ], 'namespace' => 'Chennai'], function () {
-// });
+});
