@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Chennai\EmployeeController;
 use App\Http\Controllers\Chennai\ProjectController;
 use App\Http\Controllers\Chennai\DashboardController;
-use App\Http\Controllers\Chennai\TimeSheetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,11 +48,8 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
     Route::get('/task', [ProjectController::class, 'add_task'])->name('location-head-task');
     Route::get('/project', [ProjectController::class, 'add_project'])->name('location-head-project');
     Route::get('/project-assign', [ProjectController::class, 'project_assign'])->name('location-head-project-assign');
-    Route::get('/add-timesheet', [TimeSheetController::class, 'add_timesheet'])->name('location-head-add-timesheet');
-    Route::get('/aproved-timesheet', [TimeSheetController::class, 'aproved_timesheet'])->name('location-head-aproved-timesheet');
-    Route::get('/pending-timesheet', [TimeSheetController::class, 'pending_timesheet'])->name('location-head-pending-timesheet');
-    Route::get('/approval-timesheet', [TimeSheetController::class, 'approval_timesheet'])->name('location-head-approval-timesheet');
-    // Route::get('/project-timesheet-view', [ProjectController::class, 'timesheetview'])->name('location-head-project-timesheet-view');
+    Route::get('/project-timesheet-add', [ProjectController::class, 'timesheetadd'])->name('location-head-project-timesheet-add');
+    Route::get('/project-timesheet-view', [ProjectController::class, 'timesheetview'])->name('location-head-project-timesheet-view');
 
 });
 //

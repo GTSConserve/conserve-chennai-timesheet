@@ -139,7 +139,6 @@ class AddTask extends Component
                     SubTask::where('task_id',$this->update_id)->delete();
                 }
         }
-        $this->reset();
         $this->emit('UpdateEmployee');
         $this->status = "";
     }

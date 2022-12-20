@@ -93,16 +93,16 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('location-head-add-timesheet')}}"><b>Add</b></a>
+                        <a href="{{route('location-head-project-timesheet-add')}}"><b>Add Timesheet</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-aproved-timesheet')}}"><b>Approved</b></a>
+                        <a href="{{route('location-head-project-timesheet-add')}}"><b>Approved Timesheet</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-pending-timesheet')}}"><b>Pending</b></a>
+                        <a href="{{route('location-head-project-timesheet-add')}}"><b>Pending Timesheet</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-approval-timesheet')}}"><b>Approval</b></a>
+                        <a href="{{route('location-head-project-timesheet-add')}}"><b>Timesheet Approval</b></a>
                     </li>
                 </ul>
             </li>

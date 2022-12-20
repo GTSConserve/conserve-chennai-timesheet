@@ -15,23 +15,18 @@ return new class extends Migration
     {
         Schema::create('time_sheets', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('user_group_id')->unsigned()->index();
-            $table->foreign('user_group_id')->references('id')->on('usergroups');
-            $table->integer('project_id')->unsigned()->index();
+          
+            $table->unsignedBigInteger('project_id');
             $table->foreign('project_id')->references('id')->on('projects');
-            $table->integer('activity_id')->unsigned()->index();
+            $table->unsignedBigInteger('activity_id');
             $table->foreign('activity_id')->references('id')->on('activities');
-            $table->integer('task_id')->unsigned()->index();
+            $table->unsignedBigInteger('task_id');
             $table->foreign('task_id')->references('id')->on('tasks');
-            $table->integer('sub_task1_id')->unsigned()->index();
-            $table->foreign('sub_task1_id')->references('id')->on('sub_tasks');
-            $table->integer('sub_task2_id')->unsigned()->index();
-            $table->foreign('sub_task2_id')->references('id')->on('sub_tasks2s');
+            $table->unsignedBigInteger('sub_task_id');
+            $table->foreign('sub_task_id')->references('id')->on('sub_tasks')->nullable();
             $table->string('description')->nullable();
-            $table->string('work_hours')->nullable();
-            table->enum('timesheet_status',['0','1']);
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
             $table->enum('status',['0','1']);
             $table->timestamps();
             $table->softDeletes();
