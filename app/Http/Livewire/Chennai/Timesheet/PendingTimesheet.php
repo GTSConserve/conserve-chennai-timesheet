@@ -23,13 +23,18 @@ class PendingTimesheet extends Component
     }
     public function edit($id){
         $this->status = 2;
+
     }
     public function render()
     {
-
-
         $user_id = Auth::user()->id;
         $timesheet = Timesheet::with('project','activity','employee','user_group')->where([['timesheet_status',0],['user_id',$user_id]])->get();
-        return view('livewire.chennai.timesheet.pending-timesheet',['timesheets' => $timesheet,'views' => $this->view_approval]);
+        $projects=Project::all();
+        $activities=Activity::all();
+        $tasks=Task::all();
+        $subtasks=SubTask::all();
+        $subtasks2=SubTasks2::all();
+        $timesheets=Timesheet::all();
+        return view('livewire.chennai.timesheet.pending-timesheet',['timesheets' => $timesheet,'views' => $this->view_approval ,'projects'=> $projects,'activities' =>$activities , 'tasks' => $tasks , 'subtasks' => $subtasks , ]);
     }
 }

@@ -8,7 +8,7 @@
         </div>
     </div>
     <div id="msform">
-        @if ($user_group_id == 1)
+        @if ($user_group_id == 2)
             <fieldset class="mt-3">
                 <div class="row">
                     <div class="col-sm-6">
