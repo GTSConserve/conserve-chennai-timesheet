@@ -1,4 +1,5 @@
 <div>
+
     <div class="page-header row">
         <div class="col-11">
             <h3><b>Project Assign</b></h3>
@@ -10,7 +11,8 @@
     <div id="msform">
         @if ($user_group_id == 2)
             <fieldset class="mt-3">
-                <div class="row">
+               
+                    </select>
                     <div class="col-sm-6">
                         <label id="lable">Project Name</label>
                         <select name="" class="form_input" id="" wire:model="project_name">
@@ -22,7 +24,7 @@
                     </div>
                     <div class="col-sm-6" style="text-align:justify;">
                         <label id="lable">Project Manager Head</label>
-                        <select name="" class="form_input" id="" wire:model="project_manager_head" multiple>
+                        <select name="" class="form-control form-small tagging" multiple="multiple" id="" wire:model="project_manager_head" >
                             <option>--Select Project Manager Head--</option>
                             @foreach ($pm_heads as $pm_head)
                                 <option value ="{{$pm_head->designation}}">{{$pm_head->first_name}}</option>
@@ -33,7 +35,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <label id="lable">Project Manager</label>
-                        <select name="" class="form_input" wire:model="project_manager" id="" multiple>
+                        <select name="" class="form-control form-small tagging" multiple="multiple"  wire:model="project_manager" id="" >
                             <option>--Select Project Manager--</option>
                             @foreach ($pm_heads as $pm_head)
                                 <option>{{$pm_head->first_name}}</option>
@@ -42,7 +44,7 @@
                     </div>
                     <div class="col-sm-6" style="text-align:justify;">
                         <label id="lable">Project Lead</label>
-                        <select name="" class="form_input" id="" wire:model="project_lead" multiple>
+                        <select name="" class="form-control form-small tagging" multiple="multiple"  id="" wire:model="project_lead" >
                             <option>--Select Project Lead--</option>
                             @foreach ($pm_heads as $pm_head)
                                 <option>{{$pm_head->first_name}}</option>
@@ -53,7 +55,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <label id="lable">Team Lead</label>
-                        <select name="" class="form_input" id="" wire:model="team_lead" multiple>
+                        <select name="" class="form-control form-small tagging" multiple="multiple"  id="" wire:model="team_lead" >
                             <option>--Select Team Lead--</option>
                             @foreach ($pm_heads as $pm_head)
                                 <option>{{$pm_head->first_name}}</option>
@@ -62,7 +64,7 @@
                     </div>
                     <div class="col-sm-6" style="text-align:justify;">
                         <label id="lable">Employee</label>
-                        <select name="" class="form_input" id="" wire:model="employee" multiple>
+                        <select name="" class="form-control form-small tagging" multiple="multiple"  id="" wire:model="employee" >
                             <option>--Select Employee--</option>
                             @foreach ($pm_heads as $pm_head)
                                 <option>{{$pm_head->first_name}}</option>
