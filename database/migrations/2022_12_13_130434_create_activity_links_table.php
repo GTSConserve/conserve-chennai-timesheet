@@ -17,7 +17,6 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('project_id')->unsigned()->index();
             $table->foreign('project_id')->references('id')->on('projects');
-
             $table->integer('activity_id')->unsigned()->index();
             $table->foreign('activity_id')->references('id')->on('activities');
 

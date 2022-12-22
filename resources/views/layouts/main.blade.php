@@ -270,7 +270,7 @@
         window.onload = function() {
            Livewire.on('UpdateEmployee', () => {
                swal({
-               title: 'Good job!',
+               title: 'Saved!',
                text: "Details Store Successfully",
                type: 'success',
                showConfirmButton: false,
@@ -280,6 +280,7 @@
            });
        }
    </script>
+
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script>
                 //jQuery time

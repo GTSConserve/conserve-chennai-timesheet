@@ -3,7 +3,7 @@
         <div>
             <div class="page-header row">
                 <div class="col-11">
-                    <h3><b>New Task</b></h3>
+                    <h3><b>New Sub Task</b></h3>
                 </div>
                 <div class="col-1">
                     <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
@@ -14,8 +14,14 @@
                     <div class="">
                         <div class="row">
                             <div class="col-sm-6">
-                                <label id="lable">Task Name</label>
-                                <input type="text" class="form_input" wire:model="task_name" placeholder="Task Name">
+                                <label id="lable">Sub Task Name</label>
+                                {{-- <input type="text" class="form_input" wire:model="task_name" placeholder="Task Name"> --}}
+                                <select name="" class="form_input" wire:model="task_name" id="">
+                                    <option value="">--Select--</option>
+                                    @foreach ($subtasks_lists as $subtasks_list)
+                                        <option value="{{$subtasks_list->id}}">{{$subtasks_list->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-sm-6" style="text-align:justify;">
                                 <div class="trre" style="margin-top:21px;">
@@ -32,7 +38,7 @@
                                 @if ($sub_task == 1)
                                     <div class="col-sm-5">
                                         <label id="lable">Sub Task Name</label>
-                                        <input type="text" class="form_input" wire:model="sub_account_name.0" placeholder="Task Name">
+                                        <input type="text" class="form_input" wire:model="sub_account_name.0" placeholder="Sub Task Name">
                                     </div>
                                     <div class="col-sm-1">
                                         <label id="lable">&nbsp</label>
@@ -42,11 +48,11 @@
                                         <div class="col-sm-6"></div>
                                         <div class="col-sm-5">
                                             <label id="lable">Sub Task Name</label>
-                                            <input type="text" class="form_input" wire:model="sub_account_name.{{$key+1}}" placeholder="Task Name">
+                                            <input type="text" class="form_input" wire:model="sub_account_name.{{$key+1}}" placeholder="Sub Task Name">
                                         </div>
                                         <div class="col-sm-1">
                                             <label id="lable">&nbsp</label>
-                                            @if ($i!=0)
+                                            @if ($i>0)
                                             <input type="button" style="margin-top:34px;" wire:click="removeDiv({{$i}})" class="btn btn-danger" value="x">
                                             @endif
                                         </div>
@@ -73,7 +79,7 @@
     <div>
         <div class="page-header row">
             <div class="col-11">
-                <h3><b>Edit Task</b></h3>
+                <h3><b>Edit Sub Task</b></h3>
             </div>
             <div class="col-1">
                 <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
@@ -116,7 +122,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <label id="lable">&nbsp</label>
-                                        @if ($edit_i != 0)
+                                        @if ($edit_i>0)
                                         <input type="button" style="margin-top:34px;" wire:click="edit_removeDiv({{$edit_i}})" class="btn btn-danger" value="x">
                                         @endif
                                     </div>
@@ -143,7 +149,7 @@
     <div>
         <div class="page-header row">
             <div class="col-11">
-                <h3><b>All Task</b></h3>
+                <h3><b>All Sub Task</b></h3>
             </div>
             <div class="col-1">
                 <input type="button" name="next" class="btn btn-warning" wire:click="add()" value="Add" >
@@ -156,17 +162,19 @@
                         <tr class="text-center">
                             <th class="table-secondary">S.No</th>
                             <th class="table-secondary">Task</th>
-                            <th class="table-secondary">Sub Task Count</th>
+                            <th class="table-secondary">Sub Task</th>
                             <th class="table-secondary">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($task_views as $task_view)
+                        @foreach ($subtask2_views as $task_view)
                             <tr class="text-center">
                                 <td>{{$loop->index+1}}</td>
                                 <td>{{$task_view->name}}</td>
-                                @if ($task_view->sub_task_count->count() != "")
-                                <td>{{$task_view->sub_task_count->count()}}</td>
+                                @if ($task_view->status == 1)
+                                <td>{{"Yes"}}</td>
+                                @else
+                                <td>{{"No"}}</td>
                                 @endif
                                 <td style="width:100px;"><button class="btn btn-primary" wire:click="edit({{$task_view->id}})">Edit</button><button class="btn btn-warning" wire:click="delete({{$task_view->id}})">Delete</button></td>
                             </tr>

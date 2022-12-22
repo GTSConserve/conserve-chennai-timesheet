@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('man_hour');
+            $table->string('billable_man_hour');
+            $table->string('non_billable_man_hour');
             $table->enum('status',['0','1']);
             $table->timestamps();
             $table->softDeletes();

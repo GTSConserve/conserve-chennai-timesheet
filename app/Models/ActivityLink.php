@@ -9,4 +9,7 @@ class ActivityLink extends Model
 {
     use HasFactory;
     public $table="activity_links";
+    public function activity(){
+        return $this->belongsTo(Activity::class,'activity_id','id');
+    }
 }

@@ -11,5 +11,8 @@ class Task extends Model
     public function subtask(){
         return $this->belongsTo(SubTask::class,'task_id','id');
     }
-
+    public function sub_task_count(){
+        return $this->hasMany(SubTask::class,'task_id','id');
+    }
+    
 }

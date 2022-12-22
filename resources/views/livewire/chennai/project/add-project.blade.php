@@ -17,8 +17,21 @@
                         <input type="text" class="form_input" wire:model="name" placeholder="Project Name">
                     </div>
                     <div class="col-sm-6">
-                        <label id="lable">Man Hours</label>
-                        <input type="text" class="form_input" wire:model="man_hours" placeholder="Man Hours">
+                        <center><label id="lable">Man Hours</label></center>
+                        <div class="row">
+                            <div class="col-3">
+                                <label id="lable" style="padding-top: 7px;">Billable</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" class="form_input text-left" wire:model="billable_man_hours" placeholder="Billable">
+                            </div>
+                            <div class="col-3">
+                                <label id="lable" style="padding-top: 7px;">Non&nbspBillable</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" class="form_input" wire:model="non_billable_man_hours" placeholder="Non Billable">
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Activity Mapping</label>
@@ -30,6 +43,13 @@
                         </select>
                     </div>
                     <div class="col-sm-6">
+                        <label id="lable">Task Mapping</label>
+                        <select name="" class="form_input" id="" multiple wire:model="task_mapping">
+                            <option value="">-Select--</option>
+                            @foreach ($tasks as $task)
+                            <option value="{{$task->id}}">{{$task->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -40,7 +60,6 @@
                 </div>
             </fieldset>
         </div>
-
     @elseif  ($status == 2)
         <div class="page-header row">
             <div class="col-11">
@@ -54,12 +73,25 @@
             <fieldset class="mt-3">
                 <div class="row">
                     <div class="col-sm-6">
-                        <label id="lable">Project Name</label>
+                        <label id="" >Project Name</label>
                         <input type="text" class="form_input" wire:model="update_name" placeholder="Project Name">
                     </div>
                     <div class="col-sm-6">
-                        <label id="lable">Man Hours</label>
-                        <input type="text" class="form_input" wire:model="update_man_hours" placeholder="Man Hours">
+                        <center><label id="lable">Man Hours</label></center>
+                        <div class="row">
+                            <div class="col-3">
+                                <label id="lable" style="padding-top: 7px;">Billable</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" class="form_input text-left" wire:model="update_billable_man_hours" placeholder="Billable">
+                            </div>
+                            <div class="col-3">
+                                <label id="lable" style="padding-top: 7px;">Non&nbspBillable</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" class="form_input" wire:model="update_non_billable_man_hours" placeholder="Non Billable">
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Activity Mapping</label>
@@ -71,6 +103,13 @@
                         </select>
                     </div>
                     <div class="col-sm-6">
+                        <label id="lable">Task Mapping</label>
+                        <select name="" class="form_input" id="" multiple wire:model="update_task_mapping">
+                            <option value="">-Select--</option>
+                            @foreach ($tasks as $task)
+                            <option value="{{$task->id}}">{{$task->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -93,13 +132,43 @@
         </div>
         <div id="msform">
             <fieldset class="mt-3">
-                <table id="zero-config" class="table" style="width:100%;">
+                <table id="zero-config" class="table table-striped" style="width:100%;">
                     <thead>
                         <tr class="text-center">
-                            <th class="table-secondary">S.No</th>
-                            <th class="table-secondary">Project Name</th>
+                            <th rowspan="2" class="table-secondary">S.No</th>
+                            <th rowspan="2" class="table-secondary">Project Name</th>
                             <th class="table-secondary">Man Hours</th>
-                            <th class="table-secondary">Action</th>
+                            <th rowspan="2" class="table-secondary">Activity Count</th>
+                            <th rowspan="2" class="table-secondary">Task Count</th>
+                            <th rowspan="2" class="table-secondary">Action</th>
+                        </tr>
+                        <tr>
+                            {{-- <th>Billable</th>
+                            <th>Non Billable</th> --}}
+                            <th>
+                                <center>
+                                    <table class="table-bordered" style="border:none">
+                                        <center>
+                                            <tr>
+                                                <th  class="table">Billable</th>
+                                                <th  class="table">Non Billable</th>
+                                            </tr>
+                                        </center>
+                                    </table>
+                                </center>
+                            </th>
+                            {{-- <th>
+
+                                    <table>
+
+                                            <tr>
+                                                <center><th style="border:none" class="table">Billable</th></center>
+                                                <center><th style="border:none" class="table">Non Billable</th></center>
+                                            </tr>
+
+                                    </table>
+
+                            </th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -107,8 +176,45 @@
                             <tr class="text-center">
                                 <td>{{$loop->index+1}}</td>
                                 <td>{{$view_project->name}}</td>
-                                <td>{{$view_project->man_hour}}</td>
-                                <td><button wire:click="edit_project({{$view_project->id}})">Edit</button><button wire:click="delete_project">Delete</button></td>
+                                <td>
+                                    <center>
+                                        <table>
+                                            <center>
+                                                <tr style="border:none;">
+                                                    <center><td style="border:none;" class="table">
+                                                        @if ($view_project->billable_man_hour != "")
+                                                            {{$view_project->billable_man_hour}}
+                                                        @else
+                                                        0
+                                                        @endif
+                                                    </td></center>
+                                                    <center><td style="border:none;" class="table">
+                                                        @if ($view_project->non_billable_man_hour != "")
+                                                        {{$view_project->non_billable_man_hour}}
+                                                    @else
+                                                    0
+                                                    @endif
+                                                    </td></center>
+                                                </tr>
+                                            </center>
+                                        </table>
+                                    </center>
+                                </td>
+                                <td>{{$view_project->mapping_view->count()}}</td>
+                                {{-- <td>
+                                    <center>
+                                        <table>
+                                            <center>
+                                                <tr style="border:none;">
+                                                    <center><td style="border:none;" class="table">{{$view_project->billable_man_hour}}</td></center>
+                                                    <center><td style="border:none;" class="table">{{$view_project->non_billable_man_hour}}</td></center>
+                                                </tr>
+                                            </center>
+                                        </table>
+                                    </center>
+                                </td> --}}
+                                <td>{{$view_project->task_mapping->count()}}</td>
+                                <td><button wire:click="edit_project({{$view_project->id}})" class="btn btn-primary">Edit</button><button wire:click="delete_project" class="btn btn-warning">Delete</button></td>
                             </tr>
                         @endforeach
                     </tbody>

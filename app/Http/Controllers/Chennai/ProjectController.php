@@ -16,6 +16,9 @@ class ProjectController extends Controller
     public function add_task(){
         return view('chennai.project.add-task');
     }
+    public function add_sub_task(){
+        return view('chennai.project.add-sub-task');
+    }
     public function project_assign(){
         return view('chennai.project.project-assign');
     }

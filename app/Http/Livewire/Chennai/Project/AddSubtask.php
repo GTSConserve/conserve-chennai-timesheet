@@ -3,10 +3,10 @@
 namespace App\Http\Livewire\Chennai\Project;
 use App\Models\Task;
 use App\Models\SubTask;
-
+use App\Models\SubTasks2;
 use Livewire\Component;
 
-class AddTask extends Component
+class AddSubtask extends Component
 {
     public $inputs = [];
     public $i=0;
@@ -72,14 +72,13 @@ class AddTask extends Component
          unset($this->edit_sub_account_name[$decrement]);
     }
     public function add_task(){
-        $add_task = new Task;
-        $add_task->name = $this->task_name;
+        $add_task = SubTask::where('id',$this->task_name)->first();
         $add_task->status = $this->sub_task_status;
         $add_task->save();
         if($this->sub_account_name !=""){
             foreach($this->sub_account_name as $key => $value){
-                $add_sub_task = new SubTask;
-                $add_sub_task->task_id = $add_task->id;
+                $add_sub_task = new SubTasks2;
+                $add_sub_task->sub_task_id  = $this->task_name;
                 $add_sub_task->name = $this->sub_account_name[$key];
                 $add_sub_task->save();
             }
@@ -101,14 +100,13 @@ class AddTask extends Component
             $this->edit_sub_account_name = "";
         }
         $edit_sub_task_view = SubTask::where('task_id',$this->update_id)->get();
-        // dd($edit_sub_task_view);
         if($edit_sub_task_view !=""){
             $this->edit_i = 0;
             $this->edit_inputs = [];
+            $this->edit_i++;
             foreach($edit_sub_task_view as $key => $value)
             {
-                $this->edit_i++;
-                $this->edit_sub_account_name[$key]  =  $value->name;
+                $this->edit_sub_account_name[$key] = $value->name;
                 array_push($this->edit_inputs,$this->edit_i);
             }
         }
@@ -122,13 +120,13 @@ class AddTask extends Component
         {
             $update_sub = SubTask::where('task_id',$this->update_id)->first();
             if($update_sub !=""){
-                SubTask::where('task_id',$this->update_id)->delete();
+                SubTask::where('id',$this->update_id)->delete();
             }
             foreach($this->edit_sub_account_name as $key => $value)
             {
-                $update_sub_task =new SubTask;
+                $update_sub_task = new SubTask;
                 $update_sub_task->task_id = $update_task->id;
-                $update_sub_task->name = $value;
+                $update_sub_task->name = $this->edit_sub_account_name[$key];
                 $update_sub_task->save();
             }
         }
@@ -146,7 +144,8 @@ class AddTask extends Component
     }
     public function render()
     {
-        $task_view = Task::with('sub_task_count')->get();
-        return view('livewire.chennai.project.add-task',['task_views' => $task_view]);
+        $subtask2_view = SubTask::all();
+        $subtasks_list = SubTask::all();
+        return view('livewire.chennai.project.add-subtask',['subtask2_views' => $subtask2_view ,'subtasks_lists'=> $subtasks_list]);
     }
 }

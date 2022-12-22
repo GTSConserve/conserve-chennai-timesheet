@@ -13,14 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('activities', function (Blueprint $table) {
+        Schema::create('task_links', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('project_id')->unsigned()->index();
+            $table->foreign('project_id')->references('id')->on('projects');
+            $table->integer('task_id')->unsigned()->index();
+            $table->foreign('task_id')->references('id')->on('tasks');
             $table->enum('status',['0','1']);
             $table->timestamps();
             $table->softDeletes();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('task_links');
     }
 };

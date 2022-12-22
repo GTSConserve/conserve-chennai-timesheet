@@ -61,6 +61,9 @@
                     <li>
                         <a href="{{route('location-head-task')}}"><b>Task</b></a>
                     </li>
+                    <li>
+                        {{-- <a href="{{route('location-head-sub-task')}}"><b>Sub Task</b></a> --}}
+                    </li>
                 </ul>
             </li>
             <li class="menu single-menu">
@@ -93,16 +96,16 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('location-head-project-timesheet-add')}}"><b>Add Timesheet</b></a>
+                        <a href="{{route('location-head-add-timesheet')}}"><b>Add</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-project-timesheet-add')}}"><b>Approved Timesheet</b></a>
+                        <a href="{{route('location-head-aproved-timesheet')}}"><b>Approved</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-project-timesheet-add')}}"><b>Pending Timesheet</b></a>
+                        <a href="{{route('location-head-pending-timesheet')}}"><b>Pending</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-project-timesheet-add')}}"><b>Timesheet Approval</b></a>
+                        <a href="{{route('location-head-approval-timesheet')}}"><b>Approval</b></a>
                     </li>
                 </ul>
             </li>

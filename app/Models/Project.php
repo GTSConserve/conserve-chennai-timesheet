@@ -11,4 +11,11 @@ class Project extends Model
     public function mapping_view(){
         return $this->hasMany(ActivityLink::class,'project_id','id');
     }
+    public function task_mapping(){
+        return $this->hasMany(TaskLink::class,'project_id','id');
+    }
+    // public function task(){
+    //     return $this->belongsTo(Task::class,'project_id','id');
+
+    // }
 }
