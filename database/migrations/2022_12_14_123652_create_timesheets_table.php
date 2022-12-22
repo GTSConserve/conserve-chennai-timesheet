@@ -31,7 +31,7 @@ return new class extends Migration
             $table->foreign('sub_task2_id')->references('id')->on('sub_tasks2s');
             $table->string('description')->nullable();
             $table->string('work_hours')->nullable();
-            table->enum('timesheet_status',['0','1']);
+            $table->enum('timesheet_status',['0','1']);
             $table->enum('status',['0','1']);
             $table->timestamps();
             $table->softDeletes();

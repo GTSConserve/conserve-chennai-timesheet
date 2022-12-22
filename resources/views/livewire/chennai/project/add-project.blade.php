@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Activity Mapping</label>
-                        <select name="" class="form_input" id="" multiple wire:model="activity_mapping">
+                        <select  class="form-control tagging" multiple="multiple" >
                             <option value="">-Select--</option>
                             @foreach ($activities as $activity)
                             <option value="{{$activity->id}}">{{$activity->name}}</option>
@@ -218,6 +218,7 @@
                             </tr>
                         @endforeach
                     </tbody>
+                </table>
             </fieldset>
         </div>
     @endif
