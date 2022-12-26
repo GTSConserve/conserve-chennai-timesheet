@@ -218,6 +218,7 @@
                             </tr>
                         @endforeach
                     </tbody>
+                </table>
             </fieldset>
         </div>
     @endif
