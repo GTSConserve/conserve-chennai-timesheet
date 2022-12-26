@@ -13,6 +13,9 @@ class ProjectController extends Controller
     public function add_project(){
         return view('chennai.project.add-project');
     }
+    public function project_tree_structure(){
+        return view('chennai.project.project-tree-structure');
+    }
     public function add_task(){
         return view('chennai.project.add-task');
     }
@@ -28,4 +31,6 @@ class ProjectController extends Controller
     public function timesheetview(){
         return view('chennai.project.timesheet-view');
     }
+        
+
 }
