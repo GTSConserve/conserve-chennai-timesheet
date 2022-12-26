@@ -31,7 +31,7 @@ class ApprovalTimesheet extends Component
             //     $approve->approved_work_hours = $this->approved_work_hours[$key];
             //     dd($approve->approved_work_hours);
             // }
-            $approve->timesheet_status = 1;
+            $approve->timesheet_status = '1';
             $approve->approved_by = Auth::user()->id;
             $approve->approved_work_hours = $this->approved_work_hours[$key];
             $approve->approved_date = date('Y-m-d');
@@ -44,7 +44,7 @@ class ApprovalTimesheet extends Component
     }
     public function render()
     {
-        $timesheet = Timesheet::with('project','activity','employee','user_group')->where('timesheet_status',0)->get();
+        $timesheet = Timesheet::with('project','activity','employee','user_group')->where('timesheet_status','0')->get();
         // foreach ($timesheet as $key => $value){
         //     $this->approved_work_hours[$key] = $value->work_hours;
         // }

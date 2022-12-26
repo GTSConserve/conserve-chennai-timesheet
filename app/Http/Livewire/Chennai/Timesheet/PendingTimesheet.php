@@ -51,7 +51,8 @@ class PendingTimesheet extends Component
     public function render()
     {
         $user_id = Auth::user()->id;
-        $timesheet = Timesheet::with('project','activity','employee','user_group')->where([['timesheet_status',0],['user_id',$user_id]])->get();
+        $timesheet = Timesheet::with('project','activity','employee','user_group')->where([['timesheet_status','0'],['user_id',$user_id]])->get();
+        // dd($timesheet);
         $projects=Project::all();
         $activities=Activity::all();
         $tasks=Task::all();

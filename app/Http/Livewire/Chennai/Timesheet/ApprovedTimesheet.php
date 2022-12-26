@@ -21,7 +21,7 @@ class ApprovedTimesheet extends Component
     public function render()
     {
         $user_id = Auth::user()->id;
-        $timesheet = Timesheet::with('project','activity','employee','user_group','user')->where([['timesheet_status',1],['user_id',$user_id]])->get();
+        $timesheet = Timesheet::with('project','activity','employee','user_group','user')->where([['timesheet_status','1'],['user_id',$user_id]])->get();
         return view('livewire.chennai.timesheet.approved-timesheet',['timesheets' => $timesheet , 'views' => $this->view_approval]);
     }
 }

@@ -53,8 +53,8 @@
                         <div class="col-sm-6">
                             <label id="lable">Activity Status</label>
                             <div class="form_input">
-                                <input type="radio" wire:model="update_activity_status" id="billable" name="update_activity_status" value="0" placeholder="Man Hours">&nbsp<span for="billable">Billable</span>&nbsp&nbsp&nbsp
-                                <input type="radio" wire:model="update_activity_status" name="update_activity_status" id="non_billable" value="1" placeholder="Man Hours">&nbsp<span for="non_billable">Non Billable</span>
+                                <input type="radio" wire:model="update_activity_status" id="billable" name="update_activity_status" value="1" placeholder="Man Hours">&nbsp<span for="billable">Billable</span>&nbsp&nbsp&nbsp
+                                <input type="radio" wire:model="update_activity_status" name="update_activity_status" id="non_billable" value="0" placeholder="Man Hours">&nbsp<span for="non_billable">Non Billable</span>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                             <tr class="text-center">
                                 <td>{{$loop->index+1}}</td>
                                 <td>{{$activity->name}}</td>
-                                @if ($activity->status == 0)
+                                @if ($activity->status == 1)
                                 <td>{{"Billable"}}</td>
                                 @else
                                 <td>{{"Non Billable"}}</td>

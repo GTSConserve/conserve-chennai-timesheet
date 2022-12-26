@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->enum('gender',['Male','Female','Others'])->nullable();
@@ -49,7 +51,8 @@ return new class extends Migration
             $table->string('reporting_to')->nullable();
             $table->string('employment_type')->nullable();
             $table->string('employment_status')->nullable();
-            $table->string('employee_access')->nullable();
+            $table->integer('employee_access')->unsigned()->index();
+            $table->foreign('employee_access')->references('id')->on('usergroups');
             $table->string('skill1')->nullable();
             $table->string('skill2')->nullable();
             $table->string('skill3')->nullable();

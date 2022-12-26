@@ -161,6 +161,17 @@
         background: #27AE60;
         color: white;
         }
+        .green-button{
+            width: 150px;
+            background: #27AE60;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 1px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px;
+        }
     </style>
     <style>
        .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
@@ -408,51 +419,58 @@
                padding: '50px'
                });
            });
-           Livewire.on('piechart', () => {
+       }
+   </script>
+    <script>
+        window.addEventListener('billable', event => {
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
                 title: {
-                    text: "Desktop Search Engine Market Share - 2016"
+                    text: "Billable - "+event.detail.total+" Hours"
                 },
                 data: [{
                     type: "pie",
                     startAngle: 240,
-                    yValueFormatString: "##0.00\"%\"",
+                    // yValueFormatString: "##0.00\"%\"",  total
                     indexLabel: "{label} {y}",
                     dataPoints: [
-                        {y: 79.45, label: "Google"},
-                        {y: 7.31, label: "Bing"},
-                        {y: 7.06, label: "Baidu"},
-                        {y: 4.91, label: "Yahoo"},
-                        {y: 1.26, label: "Others"}
+                        {y: event.detail.consumed, label: "Balance Hours"},
+                        {y: event.detail.balance, label: "Consumed Hours"},
+                        // {y: 7.31, label: "Bing"},
+                        // {y: 7.06, label: "Baidu"},
+                        // {y: 4.91, label: "Yahoo"},
+
                     ]
                 }]
             });
             chart.render();
+        })
+    </script>
+    <script>
+        window.addEventListener('non-billable', event => {
             var chart2 = new CanvasJS.Chart("chartContainer2", {
                 animationEnabled: true,
                 title: {
-                    text: "Desktop Search Engine Market Share - 2016"
+                    text: "Non Billable - "+event.detail.total+"Hours"
                 },
                 data: [{
                     type: "pie",
                     startAngle: 240,
-                    yValueFormatString: "##0.00\"%\"",
+                    // yValueFormatString: "##0.00\"%\"",
                     indexLabel: "{label} {y}",
                     dataPoints: [
-                        {y: 79.45, label: "Google"},
-                        {y: 7.31, label: "Bing"},
-                        {y: 7.06, label: "Baidu"},
-                        {y: 4.91, label: "Yahoo"},
-                        {y: 1.26, label: "Others"}
+                        {y: event.detail.consumed, label: "Balance Hours"},
+                        {y: event.detail.balance, label: "Consumed Hours"},
+                        // {y: 7.31, label: "Bing"},
+
+                        // {y: 4.91, label: "Yahoo"},
+                        // {y: 1.26, label: "Others"}
                     ]
                 }]
             });
             chart2.render();
-           });
-       }
-   </script>
-
+        })
+    </script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script>
                 //jQuery time
