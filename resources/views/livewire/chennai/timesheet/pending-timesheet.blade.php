@@ -1,62 +1,84 @@
 <div>
     @if($status == 1)
-        <div class="page-header row">
-            <div class="col-11">
-                <h3><b>View Pending Timesheet</b></h3>
+        <div class="">
+            <div class="page-header row">
+                <div class="col-11">
+                    <h3><b>View Approved Timesheet</b></h3>
+                </div>
+                <div class="col-1">
+                    <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
+                </div>
             </div>
-            <div class="col-1">
-                <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
+            <div class="card component-card_1 p-4">
+                <div class="card-body">
+                   <div class="row">
+                        <div class="col-2">
+                            <lable><b>Date</b></lable>
+                        </div>
+                        <div class="col-4">
+                            @if ($view_approval->date)
+                                <input type="text" class="form_input" value="{{$view_approval->date}}" readonly>
+                            @endif
+                        </div>
+                        <div class="col-2">
+                            <lable><b>Project Name</b></lable>
+                        </div>
+                        <div class="col-4">
+                            @if ($view_approval->project)
+                                <input type="text" class="form_input" value="{{$view_approval->project->name}}" readonly>
+                            @endif
+                        </div>
+                   </div>
+                   <div class="row">
+                        <div class="col-2">
+                            <lable><b>Task</b></lable>
+                        </div>
+                        <div class="col-4">
+                            @if ($view_approval->task)
+                                <input type="text" class="form_input" value="{{$view_approval->task->name}}" readonly>
+                            @endif
+                        </div>
+                        <div class="col-2">
+                            <lable><b>Sub Task</b></lable>
+                        </div>
+                        <div class="col-4">
+                            @if ($view_approval->sub_task)
+                                <input type="text" class="form_input" value="{{$view_approval->sub_task->name}}" readonly>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <lable><b>Activity</b></lable>
+                        </div>
+                        <div class="col-4">
+                            @if ($view_approval->activity)
+                                <input type="text" class="form_input" value="{{$view_approval->activity->name}}" readonly>
+                            @endif
+                        </div>
+                        <div class="col-sm-2">
+                            <lable><b>Working Hours</b></lable>
+                        </div>
+                        <div class="col-sm-4">
+                            @if ($view_approval)
+                                <input type="text" class="form_input" value="{{$view_approval->work_hours}}" readonly>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <lable><b>Description</b></lable>
+                        </div>
+                        <div class="col-4">
+                            @if ($view_approval)
+                                {{-- <input type="text" class="form_input" value="{{$view_approval->description}}" readonly> --}}
+                                <textarea name="" class="form_input" id="" readonly>{{$view_approval->description}}</textarea>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div id="msform">
-            <fieldset class="mt-3">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <lable>Project</lable>
-                    </div>
-                    <div class="col-sm-3">
-                        @if ($views->project)
-                        <p>{{$views->project->name}}</p>
-                        @endif
-                    </div>
-                    <div class="col-sm-3">
-                        <lable>Employee Name</lable>
-                    </div>
-                    <div class="col-sm-3">
-                        @if ($views->employee)
-                        <p>{{$views->employee->first_name}}</p>
-                        @endif
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <lable>Role</lable>
-                    </div>
-                    <div class="col-sm-3">
-                        @if ($views->user_group)
-                        <p>{{$views->user_group->name}}</p>
-                        @endif
-                    </div>
-                    <div class="col-sm-3">
-                        <lable>Activity Type</lable>
-                    </div>
-                    <div class="col-sm-3">
-                        @if ($views->activity)
-                        <p>{{$views->activity->name}}</p>
-                        @endif
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <lable>Working Hours</lable>
-                    </div>
-                    <div class="col-sm-3">
-                        @if ($views->work_hours)
-                        <p>{{$views->work_hours}} Hrs</p>
-                        @endif
-                    </div>
-                </div>
-            </fieldset>
+            <div class="p-3"></div>
         </div>
     @elseif ($status == 2)
         <div class="page-header row">

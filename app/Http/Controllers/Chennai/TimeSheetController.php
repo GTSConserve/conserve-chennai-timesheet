@@ -19,4 +19,7 @@ class TimeSheetController extends Controller
     public function approval_timesheet(){
         return view('chennai.timesheet.approval-timesheet');
     }
+    public function project_wise_report(){
+        return view('chennai.timesheet.reports.project-wise');
+    }
 }

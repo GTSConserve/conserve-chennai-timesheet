@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('team_leads', function (Blueprint $table) {
+        Schema::create('employee_links', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id')->unsigned()->index();
             $table->foreign('project_id')->references('id')->on('projects');
-            $table->integer('user_group_id')->unsigned()->index();
-            $table->foreign('user_group_id')->references('id')->on('usergroups');
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('assign_by')->unsigned()->index();
+            $table->foreign('assign_by')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team_leads');
+        Schema::dropIfExists('employee_links');
     }
 };

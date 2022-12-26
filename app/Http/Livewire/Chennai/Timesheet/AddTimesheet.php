@@ -18,6 +18,9 @@ class AddTimesheet extends Component
     public $activity,$status,$view_projects;
     public $date,$project_id,$task_id,$sub_task1_id,$sub_task2_id,$activity_id,$description,$work_hours;
     public $tasks,$activities,$subtasks;
+    public function onload(){
+       $this->date = date('Y-m-d');
+    }
     public function project_change($id){
        $this->tasks=TaskLink::with('task_link')->where('project_id',$id)->get();
        $this->activities=ActivityLink::with('activity')->where('project_id',$id)->get();

@@ -20,7 +20,7 @@ class PendingTimesheet extends Component
     }
     public function view($id){
         $this->status = 1;
-        $this->view_approval =  Timesheet::with('project','activity','employee','user_group')->where('id',$id)->first();
+        $this->view_approval =  Timesheet::with('project','activity','employee','user_group','sub_task','user')->where('id',$id)->first();
     }
 
     public function edit($id){

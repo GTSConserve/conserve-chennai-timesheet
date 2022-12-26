@@ -78,12 +78,7 @@
                     <li>
                         <a href="{{route('location-head-project-assign')}}"><b>Project Assign</b></a>
                     </li>
-                    {{-- <li>
-                        <a href="{{route('project')}}"><b>Project</b></a>
-                    </li>
-                    <li>
-                        <a href="{{route('task')}}"><b>Task</b></a>
-                    </li> --}}
+
                 </ul>
             </li>
             <li class="menu single-menu">
@@ -107,6 +102,23 @@
                     <li>
                         <a href="{{route('location-head-approval-timesheet')}}"><b>Approval</b></a>
                     </li>
+                    <li class="sub-sub-submenu-list">
+                        <a href="#appInvoice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <b>Reports</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
+                        <ul class="collapse list-unstyled sub-submenu" id="appInvoice" data-parent="#app">
+                            <li>
+                                <a href="{{Route('location-head-project-wise-report')}}">Project Wise</a>
+                            </li>
+                            {{-- <li>
+                                <a href="apps_invoice-preview.html"> Preview </a>
+                            </li>
+                            <li>
+                                <a href="apps_invoice-add.html"> Add </a>
+                            </li>
+                            <li>
+                                <a href="apps_invoice-edit.html"> Edit </a>
+                            </li> --}}
+                        </ul>
+                    </li>
                 </ul>
             </li>
             {{--  --}}
@@ -120,7 +132,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="uiKit" data-parent="#topAccordion">
                     <li>
-                        <a href="{{}}">Attendance</a>
+                        <a href="">Attendance</a>
                         {{-- <a href="{{route('super-admin-attendance')}}">Attendance</a> --}}
                     </li>
                 </ul>

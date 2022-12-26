@@ -1,4 +1,4 @@
-<div>
+<div wire:init="onload()">
     <div class="page-header row">
         <div class="col-11">
             <h3 ><b>Add TimeSheet</b></h3>
@@ -66,13 +66,15 @@
                         @endif
                     </select>
                 </div>
+                <div class="col-sm-2">
+                    <label id="lable">Working Hours</label>
+                        <input class="form_input" type="text" wire:model="work_hours" style="width:125px;">
+                </div><div class="col-sm-4"></div>
                 <div class="col-sm-6">
                 <label id="lable">Description</label>
-                    <input type ="text" class="form_input" type="text" wire:model="description" >
-                </div>
-                <div class="col-sm-6">
-                <label id="lable">Working Hours</label>
-                    <input class="form_input" type="text" wire:model="work_hours">
+                    {{-- <input type ="text" class="form_input" type="text" wire:model="description" > --}}
+                    <textarea name="" class="form_input" wire:model="description" id=""></textarea>
+
                 </div>
             </div>
             <div class="row">

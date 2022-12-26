@@ -54,9 +54,9 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
     Route::get('/aproved-timesheet', [TimeSheetController::class, 'aproved_timesheet'])->name('location-head-aproved-timesheet');
     Route::get('/pending-timesheet', [TimeSheetController::class, 'pending_timesheet'])->name('location-head-pending-timesheet');
     Route::get('/approval-timesheet', [TimeSheetController::class, 'approval_timesheet'])->name('location-head-approval-timesheet');
-    // Route::get('/project-timesheet-view', [ProjectController::class, 'timesheetview'])->name('location-head-project-timesheet-view');
-
+    Route::get('/project-wise', [TimeSheetController::class, 'project_wise_report'])->name('location-head-project-wise-report');
 });
+
 // //
 // Route::group(['prefix' => 'project-manager-head', 'middleware' => [
 //     'auth:sanctum', config('jetstream.auth_session'), 'verified',
@@ -127,3 +127,4 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
 //     'admin'
 // ], 'namespace' => 'Chennai'], function () {
 // });
+Route::get('/add-project', [ProjectController::class, 'timesheetview'])->name('add-project');

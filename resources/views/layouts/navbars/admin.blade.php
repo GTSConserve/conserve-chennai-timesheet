@@ -46,7 +46,7 @@
                     <li>
                         <a href="{{route('all-employee')}}"><b>All Emoloyee</b></a>
                     </li>
-                   
+
                 </ul>
             </li>
 

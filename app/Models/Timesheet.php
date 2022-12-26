@@ -19,10 +19,16 @@ class Timesheet extends Model
     public function task(){
         return $this->belongsTo(Task::class,'task_id','id');
     }
+    public function sub_task(){
+        return $this->hasOne(SubTask::class,'id','sub_task1_id');
+    }
     public function employee(){
         return $this->hasOne(Employee::class,'user_id','user_id');
     }
     public function user_group(){
         return $this->hasOne(Usergroups::class,'id','user_id');
+    }
+    public function user(){
+        return $this->hasOne(User::class,'id','approved_by');
     }
 }
