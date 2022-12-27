@@ -471,6 +471,31 @@
             chart2.render();
         })
     </script>
+    <script>
+        window.addEventListener('my-reports', event => {
+            var chart3 = new CanvasJS.Chart("myreport_chart", {
+                animationEnabled: true,
+                title: {
+                    text: "Total Work Hours - "+event.detail.total+" hrs"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    // yValueFormatString: "##0.00\"%\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: [
+                        {y: event.detail.consumed, label: "Billable Hours"},
+                        {y: event.detail.balance, label: "Non-Billable Hours"},
+                        // {y: 7.31, label: "Bing"},
+
+                        // {y: 4.91, label: "Yahoo"},
+                        // {y: 1.26, label: "Others"}
+                    ]
+                }]
+            });
+            chart3.render();
+        })
+    </script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script>
                 //jQuery time

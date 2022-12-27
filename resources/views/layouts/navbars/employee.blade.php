@@ -39,6 +39,23 @@
                     <li>
                         <a href="{{route('employee-pending-timesheet')}}"><b>Pending</b></a>
                     </li>
+                    <li class="sub-sub-submenu-list">
+                        <a href="#MyReports" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <b>My Reports</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
+                        <ul class="collapse list-unstyled sub-submenu" id="MyReports" data-parent="#app">
+                            <li>
+                                <a href="{{Route('employee-project-wise-myreport')}}">Project Reports</a>
+                            </li>
+                            {{-- <li>
+                                <a href="apps_invoice-preview.html"> Preview </a>
+                            </li>
+                            <li>
+                                <a href="apps_invoice-add.html"> Add </a>
+                            </li>
+                            <li>
+                                <a href="apps_invoice-edit.html"> Edit </a>
+                            </li> --}}
+                        </ul>
+                    </li>
                 </ul>
             </li>
         </ul>

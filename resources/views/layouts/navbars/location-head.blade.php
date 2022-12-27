@@ -109,10 +109,27 @@
                         <a href="{{route('location-head-approval-timesheet')}}"><b>Approval</b></a>
                     </li>
                     <li class="sub-sub-submenu-list">
-                        <a href="#appInvoice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <b>Reports</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
+                        <a href="#appInvoice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <b>Team Reports</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
                         <ul class="collapse list-unstyled sub-submenu" id="appInvoice" data-parent="#app">
                             <li>
-                                <a href="{{Route('location-head-project-wise-report')}}">Project Wise</a>
+                                <a href="{{Route('location-head-project-wise-report')}}">Project reports</a>
+                            </li>
+                            {{-- <li>
+                                <a href="apps_invoice-preview.html"> Preview </a>
+                            </li>
+                            <li>
+                                <a href="apps_invoice-add.html"> Add </a>
+                            </li>
+                            <li>
+                                <a href="apps_invoice-edit.html"> Edit </a>
+                            </li> --}}
+                        </ul>
+                    </li>
+                    <li class="sub-sub-submenu-list">
+                        <a href="#MyReports" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <b>My Reports</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
+                        <ul class="collapse list-unstyled sub-submenu" id="MyReports" data-parent="#app">
+                            <li>
+                                <a href="{{Route('location-head-project-wise-myreport')}}">Project Reports</a>
                             </li>
                             {{-- <li>
                                 <a href="apps_invoice-preview.html"> Preview </a>
@@ -128,7 +145,7 @@
                 </ul>
             </li>
             {{--  --}}
-            <li class="menu single-menu">
+            {{-- <li class="menu single-menu">
                 <a href="#uiKit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
@@ -139,10 +156,10 @@
                 <ul class="collapse submenu list-unstyled" id="uiKit" data-parent="#topAccordion">
                     <li>
                         <a href="">Attendance</a>
-                        {{-- <a href="{{route('super-admin-attendance')}}">Attendance</a> --}}
+                        {{-- <a href="{{route('super-admin-attendance')}}">Attendance</a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
             {{--  --}}
         </ul>
     </nav>
