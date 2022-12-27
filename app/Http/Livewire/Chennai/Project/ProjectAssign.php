@@ -79,8 +79,16 @@ class ProjectAssign extends Component
                 }
             }
             
-            $this->reset();
+            $this->project_manager_head='';
+            $this->project_manager='';
+            $this->project_lead='';
+            $this->team_lead='';
+            $this->employee='';
             $this->emit('UpdateEmployee');
+           // $this->emit('reload1');
+         //  redirect('location-head/project-assign');
+           return redirect('location-head/project-assign');
+            
         }
     }
     public function render()

@@ -1,5 +1,5 @@
 <div>
-     @this
+  
     <div class="page-header row">
         <div class="col-11">
             <h3><b>Project Assign</b></h3>
@@ -93,7 +93,9 @@
         @endif
     </div>
 </div>
+
 @push('js')
+
 <script>
     $(function(){
       $('#select2_pmh').select2({
