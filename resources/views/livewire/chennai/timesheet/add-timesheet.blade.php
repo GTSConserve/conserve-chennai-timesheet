@@ -57,11 +57,13 @@
                 </div> --}}
                 <div class="col-sm-6">
                     <label id="lable">Activity</label>
+
                     <select name="" class="form_input" id=""  wire:model="activity_id">
                         <option value="">Select Activity</option>
+
                         @if ($activities)
                             @foreach($activities as $activity)
-                                <option value="{{$activity->id}}">{{$activity->activity->name}}</option>
+                                <option value="{{$activity->activity->id}}">{{$activity->activity->name}}</option>
                             @endforeach
                         @endif
                     </select>

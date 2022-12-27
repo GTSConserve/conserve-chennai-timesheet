@@ -38,8 +38,7 @@ class ApprovalTimesheet extends Component
             // dd($approve);
             $approve->save();
         }
-        // dd("end");
-
+        $this->reset();
 
     }
     public function render()

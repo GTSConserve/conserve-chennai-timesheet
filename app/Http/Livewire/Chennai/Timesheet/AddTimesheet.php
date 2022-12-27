@@ -51,7 +51,7 @@ class AddTimesheet extends Component
             $this->date = "";
             $this->wrong_date = 1;
         }
-
+        $this->date = date('Y-m-d');
     }
     public function render()
     {

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->foreign('activity_id')->references('id')->on('activities');
             $table->integer('task_id')->unsigned()->index();
             $table->foreign('task_id')->references('id')->on('tasks');
-            $table->integer('sub_task1_id')->unsigned()->index();
+            $table->integer('sub_task1_id')->unsigned()->index()->nullable();
             $table->foreign('sub_task1_id')->references('id')->on('sub_tasks');
             $table->integer('sub_task2_id')->unsigned()->index()->nullable();
             $table->foreign('sub_task2_id')->references('id')->on('sub_tasks2s');
