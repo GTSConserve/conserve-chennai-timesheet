@@ -132,7 +132,7 @@
         </div>
         <div id="msform">
             <fieldset class="mt-3">
-                <table id="zero-config" class="table table-striped" style="width:100%;">
+                <table id="zero-config1" class="table table-striped" style="width:100%;">
                     <thead>
                         <tr class="text-center">
                             <th rowspan="2" class="table-secondary">S.No</th>

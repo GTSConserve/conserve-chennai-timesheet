@@ -174,7 +174,7 @@
         </div>
         <div id="msform">
             <fieldset class="mt-3">
-                <table id="zero-config" class="table" style="width:100%;">
+                <table id="zero-config1" class="table" style="width:100%;">
                     <thead>
                         <tr class="text-center">
                             <th class="table-secondary">S.No</th>
@@ -203,7 +203,7 @@
 
                                 </td>
                                 <td>{{$timesheet->work_hours}}</td>
-                                <td><button class = "btn btn-primary" wire:click="view({{$timesheet->id}})">View</button><button class = "btn btn-warning" wire:click="edit({{$timesheet->id}})">Edit</button></td>
+                                <td><button class = "btn btn-primary" wire:click="view({{$timesheet->id}})">View</button><button class = "btn btn-warning" wire:click="edit({{$timesheet->id}})">Edit</button><button class = "btn btn-danger" wire:click="delete({{$timesheet->id}})">Delete</button></td>
                             </tr>
                             {{-- <tr class="text-center">
                             <td>{{$loop->index+1}}</td>

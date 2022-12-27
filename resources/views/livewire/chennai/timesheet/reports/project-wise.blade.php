@@ -174,7 +174,7 @@
                             <div class=""><p id="lable" class="text-right"><b>Employees : {{$emp_count}}</b></p></div>
                         </div>
                     </div>
-                    <table id="zero-config" class="table mt-2" style="width:100%;">
+                    <table id="zero-config1" class="table mt-2" style="width:100%;">
                         <thead>
                             <tr class="text-center">
                                 <th class="table-secondary">S.No</th>

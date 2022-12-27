@@ -35,6 +35,10 @@ class PendingTimesheet extends Component
         $this->edit_work_hours = $edit_pending->work_hours;
         $this->update_pending_id = $edit_pending->id;
     }
+    public function delete($id){
+        $delete_pending =  Timesheet::where('id',$id)->first();
+        $delete_pending->delete();
+    }
     public function update_pending(){
         $update_pending =  Timesheet::where('id',$this->update_pending_id)->first();
         // $update_pending->project_id    = $this->edit_project_id;

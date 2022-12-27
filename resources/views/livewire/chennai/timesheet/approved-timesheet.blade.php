@@ -125,7 +125,7 @@
         </div>
         <div class="card component-card_1">
             <div class="card-body">
-                <table id="zero-config" class="table" style="width:100%;">
+                <table id="zero-config1" class="table" style="width:100%;">
                     <thead>
                         <tr class="text-center">
                             <th class="table-secondary">S.No</th>
