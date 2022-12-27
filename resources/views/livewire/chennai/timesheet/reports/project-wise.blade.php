@@ -193,7 +193,7 @@
                                     <tr class="text-center">
                                         <td>{{$loop->index+1}}</td>
                                         <td>{{$timesheet->date}}</td>
-                                        <td>{{$timesheet->project->name}}</td>
+                                        <td>{{$timesheet->user->name}}</td>
                                         <td>
                                             @if ($timesheet->activity->status == 1)
                                                 {{"Billable"}}
@@ -223,7 +223,7 @@
                                         @foreach ($project_manager_heads as $pmd)
                                         <tr>
                                             <td>{{$loop->index+1}}</td>
-                                            {{-- <td>{{$pmd->user->first_name}}</td> --}}
+                                            <td>{{$pmd->user->first_name}}</td>
                                             <td><svg wire:click="pmh_remove({{$pmd->id}})" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></td>
                                         </tr>
                                         @endforeach

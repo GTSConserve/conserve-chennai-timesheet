@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('project_id')->references('id')->on('projects');
             $table->integer('task_id')->unsigned()->index();
             $table->foreign('task_id')->references('id')->on('tasks');
-            $table->enum('status',['0','1']);
+            $table->enum('status',['0','1'])->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

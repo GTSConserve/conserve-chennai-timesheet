@@ -19,12 +19,7 @@ return new class extends Migration
             $table->foreign('project_id')->references('id')->on('projects');
             $table->integer('activity_id')->unsigned()->index();
             $table->foreign('activity_id')->references('id')->on('activities');
-
-            // $table->unsignedBigInteger('project_id');
-            // $table->foreign('project_id')->references('id')->on('projects');
-            // $table->unsignedBigInteger('activity_id');
-            // $table->foreign('activity_id')->references('id')->on('activities');
-            $table->enum('status',['0','1']);
+            $table->enum('status',['0','1'])->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

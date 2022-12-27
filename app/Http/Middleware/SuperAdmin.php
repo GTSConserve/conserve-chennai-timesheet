@@ -29,6 +29,10 @@ class SuperAdmin
         {
           return redirect()->route('project-manager-headdashboard');
         }
+        if(Auth::user()->user_group_id == 9)
+        {
+          return redirect()->route('employee-dashboard');
+        }
        abort(404);
     }
 }

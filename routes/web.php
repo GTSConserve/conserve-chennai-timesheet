@@ -56,7 +56,7 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
     Route::get('/pending-timesheet', [TimeSheetController::class, 'pending_timesheet'])->name('location-head-pending-timesheet');
     Route::get('/approval-timesheet', [TimeSheetController::class, 'approval_timesheet'])->name('location-head-approval-timesheet');
     Route::get('/project-wise', [TimeSheetController::class, 'project_wise_report'])->name('location-head-project-wise-report');
- 
+
 });
 
 // //
@@ -102,16 +102,16 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
 //     Route::get('/project-timesheet-view', [ProjectController::class, 'timesheetview'])->name('project-timesheet-view');
 // });
 
-// Route::group(['prefix' => 'employee', 'middleware' => [
-//     'auth:sanctum', config('jetstream.auth_session'), 'verified',
-//     'employee'
-// ], 'namespace' => 'Chennai'], function () {
-//     Route::get('/dashboard', [EmployeeController::class, 'add_employee'])->name('employee-dashboard');
-//     Route::get('/project-assign', [ProjectController::class, 'project_assign'])->name('project-assign');
-//     Route::get('/project-timesheet-add', [ProjectController::class, 'timesheetadd'])->name('project-timesheet-add');
-//     Route::get('/project-timesheet-view', [ProjectController::class, 'timesheetview'])->name('project-timesheet-view');
-// });
+Route::group(['prefix' => 'employee', 'middleware' => [
+    'auth:sanctum', config('jetstream.auth_session'), 'verified',
+    'employee'
+], 'namespace' => 'Chennai'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('employee-dashboard');
+    Route::get('/add-timesheet', [TimeSheetController::class, 'add_timesheet'])->name('employee-add-timesheet');
+    Route::get('/aproved-timesheet', [TimeSheetController::class, 'aproved_timesheet'])->name('employee-aproved-timesheet');
+    Route::get('/pending-timesheet', [TimeSheetController::class, 'pending_timesheet'])->name('employee-pending-timesheet');
 
+});
 
 
 // Route::group(['prefix' => 'location-head', 'middleware' => [
@@ -129,4 +129,3 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
 //     'admin'
 // ], 'namespace' => 'Chennai'], function () {
 // });
-Route::get('/add-project', [ProjectController::class, 'timesheetview'])->name('add-project');

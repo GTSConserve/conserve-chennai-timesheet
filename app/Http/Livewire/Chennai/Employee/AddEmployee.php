@@ -109,6 +109,13 @@ class AddEmployee extends Component
     }
     // =========================================Add Employee===============================================
     public function add_employee(){
+        $user = new User;
+        $user->name = $this->first_name.$this->last_name;
+        $user->email = $this->offical_email;
+        $user->user_group_id = $this->employee_access;
+        $password = $this->emp_id.$this->emp_code;
+        $user->password = bycrypt($password);
+        $user->save();
         $employee = new Employee;
         // $this->validate([
         //     'transfer_letter' => 'required|file',
@@ -124,7 +131,8 @@ class AddEmployee extends Component
         //     $image=$this->image->storeAs('images'.'/banner',$addbanner->name.'_'.$addbanner->id.'.'.$extension,'public');
         //     $addimage->image=$image;
         //     $addimage->save();
-            // dd("end");
+            // dd("end"); =
+        $employee->user_id =  $user->id;
         $employee->first_name = $this->first_name;
         $employee->last_name = $this->last_name;
         $employee->gender = $this->gender;

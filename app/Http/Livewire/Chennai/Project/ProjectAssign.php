@@ -27,7 +27,7 @@ class ProjectAssign extends Component
                 {
                     $pm_head = new ProjectManagerHeadLink;
                     $pm_head->project_id = $this->project_name;
-                    $pm_head->user_id    = $this->project_manager_head[$key];
+                    $pm_head->hpm_id    = $this->project_manager_head[$key];
                     $pm_head->assign_by  = Auth::user()->id;
                     $pm_head->save();
                 }
@@ -38,7 +38,7 @@ class ProjectAssign extends Component
                 {
                     $pm = new ProjectManagerLink;
                     $pm->project_id = $this->project_name;
-                    $pm->user_id    = $this->project_manager[$key];
+                    $pm->pm_id    = $this->project_manager[$key];
                     $pm->assign_by  = Auth::user()->id;
                     $pm->save();
                 }
@@ -49,7 +49,7 @@ class ProjectAssign extends Component
                 {
                     $pl = new ProjectLeadLink;
                     $pl->project_id = $this->project_name;
-                    $pl->user_id    = $this->project_lead[$key];
+                    $pl->pl_id    = $this->project_lead[$key];
                     $pl->assign_by  = Auth::user()->id;
                     $pl->save();
                 }
@@ -60,7 +60,7 @@ class ProjectAssign extends Component
                 {
                     $tl = new TeamLeadLink;
                     $tl->project_id = $this->project_name;
-                    $tl->user_id    = $this->team_lead[$key];
+                    $tl->tl_id    = $this->team_lead[$key];
                     $tl->assign_by  = Auth::user()->id;
                     $tl->save();
                 }
@@ -71,7 +71,7 @@ class ProjectAssign extends Component
                 {
                     $emp = new EmployeeLink;
                     $emp->project_id = $this->project_name;
-                    $emp->user_id    = $this->employee[$key];
+                    $emp->emp_id    = $this->employee[$key];
                     $emp->assign_by  = Auth::user()->id;
                     $emp->save();
                 }

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('sub_tasks2s', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->integer('sub_task_id')->unsigned()->index();
             $table->foreign('sub_task_id')->references('id')->on('sub_tasks');
-            $table->enum('status',['0','1']);
+            $table->enum('status',['0','1'])->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

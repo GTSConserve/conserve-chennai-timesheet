@@ -10,6 +10,6 @@ class ProjectManagerHeadLink extends Model
     use HasFactory;
 
     public function user(){
-        return $this->hasOne(Employee::class,'user_id','user_id');
+        return $this->hasOne(Employee::class,'user_id','hpm_id');
     }
 }

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->enum('status',['0','1']);
+            $table->string('name')->nullable();
+            $table->enum('status',['0','1'])->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

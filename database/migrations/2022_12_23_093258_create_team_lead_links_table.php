@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('project_id')->unsigned()->index();
             $table->foreign('project_id')->references('id')->on('projects');
-            $table->integer('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('tl_id')->unsigned()->index();
+            $table->foreign('tl_id')->references('id')->on('users');
             $table->integer('assign_by')->unsigned()->index();
             $table->foreign('assign_by')->references('id')->on('users');
             $table->timestamps();
