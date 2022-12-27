@@ -14,10 +14,12 @@ use Auth;
 class ProjectAssign extends Component
 {
     public $user_group_id;
-    public $project_name,$project_manager_head= [],$project_manager= [],$project_lead= [],$team_lead= [],$employee= [];
+    public $project_name,$project_manager= [],$project_lead= [],$team_lead= [],$employee= [];
+    public $project_manager_head=[];
     public $status;
+
     public function add(){
-        // dd($this->employee);
+       // dd($this);
        if($this->project_name !="")
        {
             if($this->project_manager_head !="")
@@ -76,6 +78,7 @@ class ProjectAssign extends Component
                     $emp->save();
                 }
             }
+            
             $this->reset();
             $this->emit('UpdateEmployee');
         }
@@ -90,5 +93,6 @@ class ProjectAssign extends Component
         $employee = Employee::where('employee_access','9')->get();
         $project = Project::all();
         return view('livewire.chennai.project.project-assign',['pm_heads'=> $pm_head,'project_managers'=> $project_manager, 'project_leads'=> $project_lead, 'team_leads'=> $team_lead , 'employees'=> $employee , 'projects' => $project]);
+      //  return view('livewire.chennai.project.project-assign',['pm_heads'=> $pm_head,'projects' => $project]);
     }
 }
