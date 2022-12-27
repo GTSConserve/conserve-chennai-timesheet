@@ -51,6 +51,7 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
     Route::get('/project', [ProjectController::class, 'add_project'])->name('location-head-project');
     Route::get('/project-assign', [ProjectController::class, 'project_assign'])->name('location-head-project-assign');
     Route::get('/tree-structure', [ProjectController::class, 'project_tree_structure'])->name('location-head-tree-structure');
+    Route::get('/timesheet', [TimeSheetController::class, 'timesheet'])->name('location-head-timesheet');
     Route::get('/add-timesheet', [TimeSheetController::class, 'add_timesheet'])->name('location-head-add-timesheet');
     Route::get('/aproved-timesheet', [TimeSheetController::class, 'aproved_timesheet'])->name('location-head-aproved-timesheet');
     Route::get('/pending-timesheet', [TimeSheetController::class, 'pending_timesheet'])->name('location-head-pending-timesheet');

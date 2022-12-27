@@ -6,6 +6,7 @@ use App\Models\Education;
 use App\Models\Reference;
 use App\Models\Experience;
 use App\Models\Bank;
+use App\Models\Usergroups;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -254,6 +255,7 @@ class AddEmployee extends Component
     }
     public function render()
     {
-        return view('livewire.chennai.employee.add-employee');
+        $user_groups= Usergroups::all();
+        return view('livewire.chennai.employee.add-employee',['user_groups'=>$user_groups]);
     }
 }

@@ -34,10 +34,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('location-head-add-employee')}}"><b>Add Emoloyee</b></a>
+                        <a href="{{route('location-head-add-employee')}}"><b>Add Employee</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-all-employee')}}"><b>All Emoloyee</b></a>
+                        <a href="{{route('location-head-all-employee')}}"><b>All Employee</b></a>
                     </li>
 
                 </ul>
@@ -93,6 +93,9 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
+                    {{-- <li>
+                        <a href="{{route('location-head-timesheet')}}"><b>Over View</b></a>
+                    </li> --}}
                     <li>
                         <a href="{{route('location-head-add-timesheet')}}"><b>Add</b></a>
                     </li>

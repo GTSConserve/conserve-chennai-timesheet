@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class TimeSheetController extends Controller
 {
+    public function timesheet(){
+        return view('chennai.timesheet.timesheet');
+    }
     public function add_timesheet(){
         return view('chennai.timesheet.add-timesheet');
     }

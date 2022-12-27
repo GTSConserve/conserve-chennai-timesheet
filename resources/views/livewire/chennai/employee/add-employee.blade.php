@@ -481,10 +481,9 @@
                                 <label id="lable">Employee Access</label>
                                 <select name="" class="form_input" wire:model="employee_access" id="">
                                     <option value="0" selected value disabled>Select Control</option>
-                                    <option value="5">Admin</option>
-                                    <option value="3">Project Manager</option>
-                                    <option value="4">Human Resource</option>
-                                    <option value="1">General</option>
+                                    @foreach ($user_groups as $groups)
+                                        <option value="{{$groups->id}}" >{{$groups->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
