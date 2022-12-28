@@ -93,9 +93,9 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
-                    {{-- <li>
-                        <a href="{{route('location-head-timesheet')}}"><b>Over View</b></a>
-                    </li> --}}
+                    <li>
+                        <a href="{{route('location-head-over-view')}}"><b>Over View</b></a>
+                    </li>
                     <li>
                         <a href="{{route('location-head-add-timesheet')}}"><b>Add</b></a>
                     </li>
@@ -130,6 +130,9 @@
                         <ul class="collapse list-unstyled sub-submenu" id="MyReports" data-parent="#app">
                             <li>
                                 <a href="{{Route('location-head-project-wise-myreport')}}">Project Reports</a>
+                            </li>
+                            <li>
+                                <a href="{{Route('location-head-monthly-wise-my-project-report')}}">Monthly Reports</a>
                             </li>
                             {{-- <li>
                                 <a href="apps_invoice-preview.html"> Preview </a>

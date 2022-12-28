@@ -51,13 +51,15 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
     Route::get('/project', [ProjectController::class, 'add_project'])->name('location-head-project');
     Route::get('/project-assign', [ProjectController::class, 'project_assign'])->name('location-head-project-assign');
     Route::get('/tree-structure', [ProjectController::class, 'project_tree_structure'])->name('location-head-tree-structure');
-    Route::get('/timesheet', [TimeSheetController::class, 'timesheet'])->name('location-head-timesheet');
+    // Route::get('/timesheet', [TimeSheetController::class, 'timesheet'])->name('location-head-timesheet');
+    Route::get('/over-view', [TimeSheetController::class, 'over_view'])->name('location-head-over-view');
     Route::get('/add-timesheet', [TimeSheetController::class, 'add_timesheet'])->name('location-head-add-timesheet');
     Route::get('/aproved-timesheet', [TimeSheetController::class, 'aproved_timesheet'])->name('location-head-aproved-timesheet');
     Route::get('/pending-timesheet', [TimeSheetController::class, 'pending_timesheet'])->name('location-head-pending-timesheet');
     Route::get('/approval-timesheet', [TimeSheetController::class, 'approval_timesheet'])->name('location-head-approval-timesheet');
     Route::get('/project-wise', [TimeSheetController::class, 'project_wise_report'])->name('location-head-project-wise-report');
     Route::get('/my-project-reports', [TimeSheetController::class, 'project_wise_my_report'])->name('location-head-project-wise-myreport');
+    Route::get('/monthly-project-reports', [TimeSheetController::class, 'monthly_wise_project_reports'])->name('location-head-monthly-wise-my-project-report');
 });
 
 // //

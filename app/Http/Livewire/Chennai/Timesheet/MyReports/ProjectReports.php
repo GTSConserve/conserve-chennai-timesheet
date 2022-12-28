@@ -21,7 +21,6 @@ class ProjectReports extends Component
     public function search(){
         $this->status = 1;
         $auth = Auth::user()->id;
-        // dd($auth);
         $this->project_details = Project::where('id',$this->project_id)->first();
         $this->timesheets = Timesheet::with('project','activity','employee','user_group','user')->where([['timesheet_status','1'],['project_id',$this->project_id],['user_id',$auth]])->get();
 
@@ -44,23 +43,29 @@ class ProjectReports extends Component
     public function back(){
         $this->status = 1;
 
+        $auth = Auth::user()->id;
         $this->project_details = Project::where('id',$this->project_id)->first();
-        $this->timesheets = Timesheet::with('project','activity','employee','user_group','user')->where([['timesheet_status','1'],['project_id',$this->project_id]])->get();
+        $this->timesheets = Timesheet::with('project','activity','employee','user_group','user')->where([['timesheet_status','1'],['project_id',$this->project_id],['user_id',$auth]])->get();
 
         $billable_activity = Activity::where('status','1')->pluck('id');
-        $this->billable_works_total = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->whereIn('activity_id',$billable_activity)->get();
+        $this->billable_works_total = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id],['user_id',$auth]])->whereIn('activity_id',$billable_activity)->get();
         $billable_balance  = $this->billable_works_total->sum('approved_work_hours');
         // =====================================Non Billable=============================================
         $non_billable_activity = Activity::where('status','0')->pluck('id');
-        $this->non_billable_works_total = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->whereIn('activity_id',$non_billable_activity)->get();
+        $this->non_billable_works_total = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id],['user_id',$auth]])->whereIn('activity_id',$non_billable_activity)->get();
         $non_balance  = $this->non_billable_works_total->sum('approved_work_hours');
         $total_hours = $billable_balance + $non_balance;
+
+        $this->dispatchBrowserEvent('my-reports', ['consumed' => $billable_balance,'balance' => $non_balance,'total'=> $total_hours]);
     }
     public function render()
     {
         $user_id = Auth::user()->id;
         $projects = Timesheet::with('project')->where('user_id',$user_id)->get();
         // dd($projects);
+        // $projects = Timesheet::with('project')->where('user_id',$user_id)->pluck('project_id')->toArray();
+        // $r=array_unique($projects);
+        //  dd($r);
         return view('livewire.chennai.timesheet.my-reports.project-reports',['projects' => $projects]);
     }
 }

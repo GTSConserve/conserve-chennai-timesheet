@@ -1,4 +1,4 @@
-<div>
+<div >
     @if ($status == 1 || $status == 0)
         <div class="">
             <div class="page-header row">

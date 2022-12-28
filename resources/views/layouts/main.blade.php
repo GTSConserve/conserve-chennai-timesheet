@@ -172,7 +172,7 @@
             margin: 10px 5px;
         }
     </style>
-   
+
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
     @livewireStyles
@@ -291,7 +291,7 @@
                padding: '50px'
                });
            });
-       
+
        }
    </script>
     <script>
@@ -307,11 +307,17 @@
                     // yValueFormatString: "##0.00\"%\"",  total
                     indexLabel: "{label} {y}",
                     dataPoints: [
-                        {y: event.detail.consumed, label: "Balance Hours"},
-                        {y: event.detail.balance, label: "Consumed Hours"},
-                        // {y: 7.31, label: "Bing"},
-                        // {y: 7.06, label: "Baidu"},
-                        // {y: 4.91, label: "Yahoo"},
+                        // {y: event.detail.consumed, label: "Balance Hours"},
+                        // {y: event.detail.balance, label: "Consumed Hours"},
+                        {y: 7.31, label: "Bing"},
+                        {y: 7.06, label: "Baidu"},
+                        {y: 4.91, label: "Yahoo"},
+                        {y: 4.912, label: "Yahoofdd"},
+                        {y: 4.91, label: "RTGFYahoo1"},
+                        {y: 4.91, label: "RTGFYahoo2"},
+                        {y: 4.91, label: "RTGFYahoo3"},
+                        {y: 4.91, label: "RTGFYahoo4"},
+                        {y: 4.91, label: "RTGFYahoo5"},
 
                     ]
                 }]
@@ -367,6 +373,58 @@
                 }]
             });
             chart3.render();
+        })
+    </script>
+    <script>
+        window.addEventListener('my_month_reports_billable', event => {
+            let length = event.detail.consumed.length;
+            let hours = event.detail.consumed;
+            let name = event.detail.balance;
+            let cheek= [];
+            for(let i=0; i<length; i++){
+                cheek.push(
+                {y: event.detail.consumed[i], label: event.detail.balance[i]});
+            }
+            var chart = new CanvasJS.Chart("billable_dashboard_chart", {
+                animationEnabled: true,
+                title: {
+                    text: "Billable Hours-"+ event.detail.total+" hrs"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##\" hrs\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: cheek
+                }]
+            });
+            chart.render();
+        })
+    </script>
+    <script>
+        window.addEventListener('my_month_reports_non_billable', event => {
+            let length = event.detail.non_billable_consumed.length;
+            let hours = event.detail.non_billable_consumed;
+            let name = event.detail.non_billable_project;
+            let cheek= [];
+            for(let i=0; i<length; i++){
+                cheek.push(
+                {y: event.detail.non_billable_consumed[i], label: event.detail.non_billable_project[i]});
+            }
+            var chart = new CanvasJS.Chart("non_billable_dashboard_chart", {
+                animationEnabled: true,
+                title: {
+                    text: "Non Billable Hours-"+ event.detail.total_non_billable_hours+" hrs"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##\" hrs\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: cheek
+                }]
+            });
+            chart.render();
         })
     </script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
