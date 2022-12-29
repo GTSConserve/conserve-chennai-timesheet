@@ -9,7 +9,7 @@ use App\Models\ProjectLeadLink;
 use App\Models\TeamLeadLink;
 use App\Models\EmployeeLink;
 use Livewire\Component;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectAssign extends Component
 {
@@ -19,7 +19,7 @@ class ProjectAssign extends Component
     public $status;
 
     public function add(){
-       // dd($this);
+        dd("skdhfmb");
        if($this->project_name !="")
        {
             if($this->project_manager_head !="")
@@ -68,7 +68,7 @@ class ProjectAssign extends Component
                 }
             }
             if($this->employee !="")
-            {
+            {dd($this->employee);
                 foreach($this->employee as $key => $value)
                 {
                     $emp = new EmployeeLink;
