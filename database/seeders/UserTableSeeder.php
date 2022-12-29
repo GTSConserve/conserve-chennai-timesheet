@@ -105,6 +105,36 @@ class UserTableSeeder extends Seeder
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
+        DB::table("users")->insert([
+            'name'=>'projectleader',
+            'email'=>'pl1@erp.com',
+            'password'=>bcrypt('user'),
+            'current_Team_id'=> 0,
+            'status'=>'1',
+            'user_group_id'=>7,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+        DB::table("users")->insert([
+            'name'=>'teamleader',
+            'email'=>'tl1@erp.com',
+            'password'=>bcrypt('user'),
+            'current_Team_id'=> 0,
+            'status'=>'1',
+            'user_group_id'=>8,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+        DB::table("users")->insert([
+            'name'=>'employee',
+            'email'=>'employee1@erp.com',
+            'password'=>bcrypt('user'),
+            'current_Team_id'=> 0,
+            'status'=>'1',
+            'user_group_id'=>9,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
         //
         
 

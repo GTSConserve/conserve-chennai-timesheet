@@ -7,10 +7,10 @@ use App\Models\ProjectLeadLink;
 use App\Models\TeamLeadLink;
 use App\Models\EmployeeLink;
 use Livewire\Component;
-
+use App\Models\ProjectLeadTeamLead;
 class ProjectTreeStructure extends Component
 {
-
+public $team_lead;
   public $project_id=null;
   private $project_leads_dropdown=null;
   private $team_leads_dropdown=null;
@@ -20,6 +20,12 @@ class ProjectTreeStructure extends Component
   public $selected_team_lead=null;
 
 
+  public function submit()
+  {
+    dd($this->team_lead);
+    $add=new ProjectLeadTeamLead();
+
+  }
   public function render()
   {
     $project = Project::all();

@@ -37,25 +37,30 @@
                     <option value="{{$project_lead->user->id}}">{{$project_lead->user->first_name}}</option>
                     @endforeach
                 </select>
-            <table class="table">
-                <thead>
-                    <tr class="text-center">
-                        <th class="table-secondary">Team Lead List</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <table id="zero-config1" class="table" style="width:100%;">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="table-secondary">Team Lead List</th>
+                          
+                        </tr>
+                    </thead>
+                  
+                    <tbody>
                     @foreach ($team_lead_lists as $key=>$team_lead)
-                    <tr class="text-center">
-                        <td>  <div class="n-chk">
+                            <tr class="text-center">
+                                
+                                <td><div class="n-chk">
                             <label class="new-control new-checkbox new-checkbox-rounded checkbox-primary">
-                              <input type="checkbox" class="new-control-input">
+                              <input type="checkbox" class="new-control-input" wire:model="team_lead" >
                               <span class="new-control-indicator"></span>{{$team_lead->user->first_name}}
                             </label>
                         </div></td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                               
+                            </tr>
+                            @endforeach
+                    </tbody>
+                 
+                </table>
         </fieldset>
         <fieldset class="mt-3 col-6" >
                 <label i>Team Lead</label>
@@ -65,28 +70,35 @@
                     <option value="{{$team_lead->user->id}}">{{$team_lead->user->first_name}}</option>
                     @endforeach
                 </select>
-            <table class="table">
-                <thead>
-                    <tr class="text-center">
-                        <th class="table-secondary">Project Lead List</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($employee_lists as $key=>$employee)
-                    <tr class="text-center">
-                        <td>
-                            <div class="n-chk">
-                                <label class="new-control new-checkbox new-checkbox-rounded checkbox-primary">
-                                  <input type="checkbox" class="new-control-input">
-                                  <span class="new-control-indicator"></span>{{$employee->user->first_name}}
-                                </label>
-                            </div>
-                           
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                <table id="zero-config1" class="table" style="width:100%;">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="table-secondary">Project Lead List</th>
+                          
+                        </tr>
+                    </thead>
+                  
+                    <tbody>
+                   
+                            <tr class="text-center">
+                            @foreach ($employee_lists as $key=>$employee)
+                                <td><div class="n-chk">
+                            <label class="new-control new-checkbox new-checkbox-rounded checkbox-primary">
+                              <input type="checkbox" class="new-control-input"  >
+                              <span class="new-control-indicator"></span>{{$employee->user->first_name}}
+                            </label>
+                        </div></td>
+                        
+                        @endforeach
+               
+                            </tr>
+                 
+                     
+                    </tbody>
+                </table>
+                <div >
+                  <button class="form-control btn-outline-success col-sm-3" wire:click="submit">submit</button>
+                 </div>
         </fieldset>
     </div>
     @endif

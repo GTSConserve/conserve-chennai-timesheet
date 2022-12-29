@@ -77,5 +77,26 @@ class EmployeeTableSeeder extends Seeder
                 'employee_access' => '9',
             ],
         );
+        DB::table('employees')->insert(
+            [
+                'user_id' => "10",
+                'first_name' => 'pl1',
+                'employee_access' => '7',
+            ],
+        );
+        DB::table('employees')->insert(
+            [
+                'user_id' => "11",
+                'first_name' => 'tl1',
+                'employee_access' => '8',
+            ],
+        );
+        DB::table('employees')->insert(
+            [
+                'user_id' => "12",
+                'first_name' => 'Employee1',
+                'employee_access' => '9',
+            ],
+        );
     }
 }

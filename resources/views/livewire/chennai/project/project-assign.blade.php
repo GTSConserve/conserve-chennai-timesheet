@@ -40,10 +40,10 @@
                         <label id="lable">Project Manager</label>
                         <div class="form-group" wire:ignore>
                         <select name="" class="form_input" id="select2_pm" wire:model="project_manager"  multiple>
-<<<<<<< HEAD
+
                             {{-- <option>--Select Project Manager--</option> --}}
-=======
->>>>>>> b741aee (tree structure)
+
+
                             @foreach ($project_managers as $project_manager)
                                 <option value ="{{$project_manager->id}}">{{$project_manager->first_name}}</option>
                             @endforeach
@@ -54,10 +54,10 @@
                         <label id="lable">Project Lead</label>
                         <div class="form-group" wire:ignore>
                         <select name="" class="form_input" id="select2_pl" wire:model="project_lead" multiple>
-<<<<<<< HEAD
+
                             {{-- <option>--Select Project Lead--</option> --}}
-=======
->>>>>>> b741aee (tree structure)
+
+
                             @foreach ($project_leads as $project_lead)
                                 <option value ="{{$project_lead->id}}">{{$project_lead->first_name}}</option>
                             @endforeach
