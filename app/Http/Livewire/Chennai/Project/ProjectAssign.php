@@ -91,6 +91,10 @@ class ProjectAssign extends Component
             
         }
     }
+    public function edit()
+    {
+
+    }
     public function render()
     {
         $this->user_group_id = Auth::user()->user_group_id;

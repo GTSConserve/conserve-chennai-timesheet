@@ -78,9 +78,9 @@
                     <li>
                         <a href="{{route('location-head-project-assign')}}"><b>Project Assign</b></a>
                     </li>
-                    {{-- <li>
+                    <li>
                         <a href="{{route('location-head-tree-structure')}}"><b>Tree Structure</b></a>
-                    </li> --}}
+                    </li>
 
                 </ul>
             </li>

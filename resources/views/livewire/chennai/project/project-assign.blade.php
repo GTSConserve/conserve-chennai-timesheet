@@ -40,7 +40,10 @@
                         <label id="lable">Project Manager</label>
                         <div class="form-group" wire:ignore>
                         <select name="" class="form_input" id="select2_pm" wire:model="project_manager"  multiple>
+<<<<<<< HEAD
                             {{-- <option>--Select Project Manager--</option> --}}
+=======
+>>>>>>> b741aee (tree structure)
                             @foreach ($project_managers as $project_manager)
                                 <option value ="{{$project_manager->id}}">{{$project_manager->first_name}}</option>
                             @endforeach
@@ -51,7 +54,10 @@
                         <label id="lable">Project Lead</label>
                         <div class="form-group" wire:ignore>
                         <select name="" class="form_input" id="select2_pl" wire:model="project_lead" multiple>
+<<<<<<< HEAD
                             {{-- <option>--Select Project Lead--</option> --}}
+=======
+>>>>>>> b741aee (tree structure)
                             @foreach ($project_leads as $project_lead)
                                 <option value ="{{$project_lead->id}}">{{$project_lead->first_name}}</option>
                             @endforeach
@@ -64,7 +70,7 @@
                         <label id="lable">Team Lead</label>
                         <div class="form-group" wire:ignore>
                         <select name="" class="form_input" id="select2_tl" wire:model="team_lead" multiple>
-                            {{-- <option>--Select Team Lead--</option> --}}
+
                             @foreach ($team_leads as $team_lead)
                                 <option value ="{{$team_lead->id}}">{{$team_lead->first_name}}</option>
                             @endforeach
@@ -75,7 +81,7 @@
                         <label id="lable">Employee</label>
                         <div class="form-group" wire:ignore>
                         <select name="" class="form_input"id="select2_emp" wire:model="employee" multiple>
-                            {{-- <option>--Select Employee--</option> --}}
+
                             @foreach ($employees as $employee)
                                 <option value ="{{$employee->id}}">{{$employee->first_name}}</option>
                             @endforeach
@@ -99,7 +105,8 @@
 <script>
     $(function(){
       $('#select2_pmh').select2({
-        theme:'bootstrap4'
+        theme:'bootstrap4',
+        placeholder:'Select Pmh'
       }).on('change',function(){
         @this.set('project_manager_head',$(this).val())
       });
@@ -108,7 +115,8 @@
     <script>
         $(function(){
           $('#select2_pm').select2({
-            theme:'bootstrap4'
+            theme:'bootstrap4',
+            placeholder:'Select pm'
           }).on('change',function(){
             @this.set('project_manager',$(this).val())
           });
@@ -117,7 +125,8 @@
         <script>
             $(function(){
               $('#select2_pl').select2({
-                theme:'bootstrap4'
+                theme:'bootstrap4',
+                placeholder:'Select pl'
               }).on('change',function(){
                 @this.set('project_lead',$(this).val())
               });
@@ -126,7 +135,8 @@
             <script>
                 $(function(){
                   $('#select2_tl').select2({
-                    theme:'bootstrap4'
+                    theme:'bootstrap4',
+                    placeholder:'Select Tl'
                   }).on('change',function(){
                     @this.set('team_lead',$(this).val())
                   });
@@ -135,7 +145,8 @@
                 <script>
                     $(function(){
                       $('#select2_emp').select2({
-                        theme:'bootstrap4'
+                        theme:'bootstrap4',
+                        placeholder:'Select Emp'
                       }).on('change',function(){
                         @this.set('employee',$(this).val())
                       });
