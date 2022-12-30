@@ -1,5 +1,5 @@
 <div>
-    @if($status==0)
+    @if($status==0&&count($controls)>0)
     <div class="container-fluid" style="max-width: 1200px">
         <div class="row">
             <div class="col-sm-12"

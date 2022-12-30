@@ -50,7 +50,7 @@ class Dashboard extends Component
         $birthdays = Employee::with('user_group')->whereBetween('dob_original', [$todayDate, $newDate])->get();
 
         $new_joiners  = Employee::with('user_group')->whereMonth('doj',$current_mounth)->get();
-        $controls = DashboardControl::first();
+        $controls = DashboardControl::all();
         $skillings = DashboardSkilling::all();
         $latest_projects = DashboardLatestProject::all();
         $happenings = DashboardHappening::all();
