@@ -43,34 +43,13 @@
 
                             {{-- <option>--Select Project Manager--</option> --}}
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7c9a256a54aaed547b8f34af60f294f92a152d39
                             @foreach ($project_managers as $project_manager)
                                 <option value ="{{$project_manager->id}}">{{$project_manager->first_name}}</option>
                             @endforeach
                         </select>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div class="col-sm-6" style="text-align:justify;">
-                        <label id="lable">Project Lead</label>
-                        <div class="form-group" wire:ignore>
-                        <select name="" class="form_input" id="select2_pl" wire:model="project_lead" multiple>
-
-                            {{-- <option>--Select Project Lead--</option> --}}
-
-
-                            @foreach ($project_leads as $project_lead)
-                                <option value ="{{$project_lead->id}}">{{$project_lead->first_name}}</option>
-                            @endforeach
-                        </select>
-                        </div>
-                    </div>
-=======
                    
->>>>>>> 7c9a256a54aaed547b8f34af60f294f92a152d39
                 </div>
                
                 
