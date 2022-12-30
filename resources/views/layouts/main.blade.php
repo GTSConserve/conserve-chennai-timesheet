@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Chennai TimeSheet</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="asset('assets/img/favicon.ico')"/>
     <link href="assets/css/loader.css" rel="stylesheet" type="text/css" />
     <script src="assets/js/loader.js"></script>
 
@@ -307,17 +307,17 @@
                     // yValueFormatString: "##0.00\"%\"",  total
                     indexLabel: "{label} {y}",
                     dataPoints: [
-                        // {y: event.detail.consumed, label: "Balance Hours"},
-                        // {y: event.detail.balance, label: "Consumed Hours"},
-                        {y: 7.31, label: "Bing"},
-                        {y: 7.06, label: "Baidu"},
-                        {y: 4.91, label: "Yahoo"},
-                        {y: 4.912, label: "Yahoofdd"},
-                        {y: 4.91, label: "RTGFYahoo1"},
-                        {y: 4.91, label: "RTGFYahoo2"},
-                        {y: 4.91, label: "RTGFYahoo3"},
-                        {y: 4.91, label: "RTGFYahoo4"},
-                        {y: 4.91, label: "RTGFYahoo5"},
+                        {y: event.detail.consumed, label: "Balance Hours"},
+                        {y: event.detail.balance, label: "Consumed Hours"},
+                        // {y: 7.31, label: "Bing"},
+                        // {y: 7.06, label: "Baidu"},
+                        // {y: 4.91, label: "Yahoo"},
+                        // {y: 4.912, label: "Yahoofdd"},
+                        // {y: 4.91, label: "RTGFYahoo1"},
+                        // {y: 4.91, label: "RTGFYahoo2"},
+                        // {y: 4.91, label: "RTGFYahoo3"},
+                        // {y: 4.91, label: "RTGFYahoo4"},
+                        // {y: 4.91, label: "RTGFYahoo5"},
 
                     ]
                 }]

@@ -5,6 +5,7 @@ use App\Http\Controllers\Chennai\EmployeeController;
 use App\Http\Controllers\Chennai\ProjectController;
 use App\Http\Controllers\Chennai\DashboardController;
 use App\Http\Controllers\Chennai\TimeSheetController;
+use App\Http\Controllers\Chennai\DashboardControllsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,11 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
     'locationHead'
 ], 'namespace' => 'Chennai'], function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('location-head-dashboard');
+    Route::get('/dashboard-controls',[DashboardControllsController::class, 'controls'])->name('location-head-dashboard-controls');
+    Route::get('/dashboard-skillings',[DashboardControllsController::class, 'skillings'])->name('location-head-dashboard-skillings');
+    Route::get('/dashboard-latest-project',[DashboardControllsController::class, 'latest_project'])->name('location-head-dashboard-latest-project');
+    Route::get('/dashboard-happenings',[DashboardControllsController::class, 'happenings'])->name('location-head-dashboard-happenings');
+    Route::get('/dashboard-hirings',[DashboardControllsController::class, 'hirings'])->name('location-head-dashboard-hirings');
     Route::get('/add-employee', [EmployeeController::class, 'add_employee'])->name('location-head-add-employee');
     Route::get('/all-employee', [EmployeeController::class, 'all_employee'])->name('location-head-all-employee');
     Route::get('/activity', [ProjectController::class, 'add_activity'])->name('location-head-activity');
@@ -114,6 +120,7 @@ Route::group(['prefix' => 'employee', 'middleware' => [
     Route::get('/aproved-timesheet', [TimeSheetController::class, 'aproved_timesheet'])->name('employee-aproved-timesheet');
     Route::get('/pending-timesheet', [TimeSheetController::class, 'pending_timesheet'])->name('employee-pending-timesheet');
     Route::get('/my-project-reports', [TimeSheetController::class, 'project_wise_my_report'])->name('employee-project-wise-myreport');
+    Route::get('/monthly-project-reports', [TimeSheetController::class, 'monthly_wise_project_reports'])->name('employee-monthly-wise-my-project-report');
 
 });
 
@@ -133,3 +140,4 @@ Route::group(['prefix' => 'employee', 'middleware' => [
 //     'admin'
 // ], 'namespace' => 'Chennai'], function () {
 // });
+

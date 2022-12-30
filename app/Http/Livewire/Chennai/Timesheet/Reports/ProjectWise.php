@@ -9,16 +9,19 @@ use App\Models\ProjectManagerLink;
 use App\Models\ProjectLeadLink;
 use App\Models\TeamLeadLink;
 use App\Models\EmployeeLink;
+use Auth;
 use Livewire\Component;
 
 class ProjectWise extends Component
 {
     public $status=0;
+    public $auth_user_group;
     public $project_id,$project_details,$timesheet_details,$emp_count,$view_approval,$billable_works_total,$non_billable_works_total;
     public $project_manager_head,$project_manager;
     public function search(){
 
         $this->status = 1;
+        $this->auth_user_group = Auth::user()->user_group_id;
         $this->project_details = Project::where('id',$this->project_id)->first();
         $this->timesheets = Timesheet::with('project','activity','employee','user_group','user')->where([['timesheet_status','1'],['project_id',$this->project_id]])->get();
 

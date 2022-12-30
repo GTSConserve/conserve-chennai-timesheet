@@ -45,6 +45,9 @@
                             <li>
                                 <a href="{{Route('employee-project-wise-myreport')}}">Project Reports</a>
                             </li>
+                            <li>
+                                <a href="{{Route('employee-monthly-wise-my-project-report')}}">Monthly Reports</a>
+                            </li>
                             {{-- <li>
                                 <a href="apps_invoice-preview.html"> Preview </a>
                             </li>
