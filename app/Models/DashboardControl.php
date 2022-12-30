@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employee extends Model
+class DashboardControl extends Model
 {
     use HasFactory;
-
-    public function user_group(){
-        return $this->hasOne(Usergroups::class,'id','employee_access');
-    }
 }

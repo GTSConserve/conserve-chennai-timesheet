@@ -3,9 +3,9 @@
     <div class="container-fluid" style="max-width: 1200px">
         <div class="row">
             <div class="col-sm-12"
-                style="background: rgb(167, 229, 248);box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);border-radius: 18px;margin: 0px 0;padding: 14px;">
-                <img src="{{asset('assets/icon/mick.png')}}"
-                    style="background: linear-gradient(180deg, #2CEEFD 0%, #1AA6D5 100%);border-radius: 42px;padding: 10px;float: left;margin-top: 0px;margin-right: 15px;">
+                style="background: #DDF7FF;box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);border-radius: 18px;margin: 10px 0;padding: 14px;">
+                <img src="img/mick.png"
+                    style="background: linear-gradient(180deg, #2CEEFD 0%, #1AA6D5 100%);border-radius: 42px;padding: 10px;float: left;margin-top: 20px;margin-right: 15px;">
                 <p style="margin-bottom: 0;">
                 @if ($controls->announcement != "")
                     {{$controls->announcement}}
@@ -41,10 +41,10 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <div class="name-sec" style="background:linear-gradient(180deg, rgb(255, 214, 214) 0%, #fab4af 100%);box-shadow: 2px 8px 12px rgba(244, 67, 54, 0.3);border-radius: 18px;margin: 10px 0;height: 300px;padding: 14px;">
+                <div class="name-sec" style="background:linear-gradient(180deg, #FFFFFF 0%, #FFB3AD 100%);box-shadow: 2px 8px 12px rgba(244, 67, 54, 0.3);border-radius: 18px;margin: 10px 0;height: 300px;padding: 14px;">
                     <div class="p-2">
-                        <p style="background: #FFFFFF;border: 1px solid #f7675c;border-radius: 90px;padding:8px;">
-                            <img src="{{asset('assets/icon/skillings.png')}}" alt=""style="height:30px;">&nbsp<b>Skillings</b>
+                        <p style="background: #FFFFFF;border: 1px solid #F44336;border-radius: 90px;padding:8px;">
+                            <img src="img/skillings.png" alt=""style="height:30px;">&nbsp<b>Skillings</b>
                         </p>
                         @if ($skillings)
                             @foreach ($skillings as $skilling)
@@ -69,10 +69,10 @@
             </div>
             <div class="col-sm-4">
                 <div class="name-sec"
-                    style="background:linear-gradient(180deg, #fdeab0 100%, #ffe083 100%);box-shadow: 2px 8px 12px rgba(255, 191, 0, 0.3);border-radius: 18px;margin: 10px 0;height: 300px;padding: 14px;">
+                    style="background:linear-gradient(180deg, #FFFFFF 0%, #FFE187 100%);box-shadow: 2px 8px 12px rgba(255, 193, 7, 0.3);border-radius: 18px;margin: 10px 0;height: 300px;padding: 14px;">
                     <div class="p-2">
                         <p style="background: #FFFFFF;border: 1px solid #FFC107;border-radius: 90px;padding:8px;">
-                            <img src="{{asset('assets/icon/new_project.png')}}" alt=""style="height:30px;">&nbsp<b>Latest Projects</b></p>
+                            <img src="img/new_project.png" alt=""style="height:30px;">&nbsp<b>Latest Projects</b></p>
                         @if ($latest_projects)
                             @foreach ($latest_projects as $latest_project)
                                 <div class="mx-1" style="margin-top: -10px;">
@@ -96,10 +96,10 @@
             </div>
             <div class="col-sm-4">
                 <div class="name-sec"
-                    style="background:linear-gradient(180deg, #e5c8ff 100%, #E6CCFF 100%);box-shadow: 2px 8px 12px rgba(155, 81, 224, 0.3);border-radius: 18px;margin: 10px 0;height: 300px;padding: 14px;">
+                    style="background:linear-gradient(180deg, #FFFFFF 0%, #E6CCFF 100%);box-shadow: 2px 8px 12px rgba(155, 81, 224, 0.3);border-radius: 18px;margin: 10px 0;height: 300px;padding: 14px;">
                     <div class="p-2">
                         <p style="background: #FFFFFF;border: 1px solid #9B51E0;border-radius: 90px;padding:8px;">
-                            <img src="{{asset('assets/icon/hapaning.png')}}" alt=""style="height:30px;">&nbsp<b>Conserve
+                            <img src="img/hapaning.png" alt=""style="height:30px;">&nbsp<b>Conserve
                                 Happenings</b>
                         </p>
                         @if ($happenings)
@@ -172,14 +172,14 @@
             <div class="col-sm-8">
                 <!-- right -->
                 <div class="row">
-                    <img src="{{asset('assets/icon/conserve_map.gif')}}" alt="" style="height: 380px;width:98%;padding-left:15px;margin-top:7px;">
+                    <img src="img/conserve_map2.gif" alt="" style="height: 380px;">
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="name-sec"
-                            style="background:linear-gradient(180deg, #fdd4c2 100% 0%, #ff6523 100%);box-shadow: 2px 8px 12px rgba(181, 98, 63, 0.5);border-radius: 18px;margin: 10px 0;height: 200px;padding: 14px;">
+                            style="background:linear-gradient(180deg, #FFFFFF 0%, #FFD0BC 100%);box-shadow: 2px 8px 12px rgba(181, 98, 63, 0.5);border-radius: 18px;margin: 10px 0;height: 200px;padding: 14px;">
                             <div class="" style="padding:5px;">
-                                <P><img src="{{asset('assets/icon/hiring.png')}}"
+                                <P><img src="img/hiring.png"
                                         alt=""style="height:40px;">&nbsp<B>Hirings!!! </B></P>
                                 <div class="">
                                     @if ($hirings)
@@ -203,11 +203,11 @@
                     </div>
                     <div class="col-sm-6">
                         <div class=""
-                            style="background:linear-gradient(180deg, #bcebfd 100%, #87ddff 100%);box-shadow: 2px 8px 12px rgba(0, 170, 235, 0.3);border-radius: 18px;margin: 10px 0;height: 200px;padding: 14px;">
+                            style="background:linear-gradient(180deg, #FFFFFF 0%, #ACE8FF 100%);box-shadow: 2px 8px 12px rgba(0, 170, 235, 0.3);border-radius: 18px;margin: 10px 0;height: 200px;padding: 14px;">
                             <div class="" style="padding:10x;">
                                 <div class="row">
                                     <div class="col-sm-10">
-                                        <P style="margin-bottom: 10px;"><img src="{{asset('assets/icon/join.png')}}"
+                                        <P style="margin-bottom: 10px;"><img src="img/join.png"
                                                 alt=""style="height:40px;">&nbsp<B>New Joiners</B></P>
                                     </div>
                                     <div class="col-sm-2" >
@@ -238,9 +238,9 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="name-sec"
-                            style="background:linear-gradient(180deg, #b6c1ff 100% 0%, #b7c1fc 100%);box-shadow: 2px 8px 12px rgba(63, 81, 181, 0.3);border-radius: 18px;margin: 10px 0;height: 130px;padding: 14px;">
+                            style="background:linear-gradient(180deg, #FFFFFF 0%, #C7CFFF 100%);box-shadow: 2px 8px 12px rgba(63, 81, 181, 0.3);border-radius: 18px;margin: 10px 0;height: 130px;padding: 14px;">
                             <div class="" style="padding:5px;">
-                                <P><img src="{{asset('assets/icon/holy.png')}}"
+                                <P><img src="img/holy.png"
                                         alt=""style="height:40px;font-weight:600">&nbsp<B>Holidays</B></P>
                                 <label for="" style="color:#4F4F4F;font-size: 12px;">01 Jan<label
                                         for="" style="color:white;margin-left: 2px;"></label><br>
@@ -250,11 +250,11 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="name-sec"
-                            style="background:linear-gradient(180deg, #C0FFDB 100%, #C0FFDB 100%);box-shadow: 2px 8px 12px rgba(39, 174, 96, 0.3);border-radius: 18px;margin: 10px 0;height: 130px;padding: 14px;">
+                            style="background:linear-gradient(180deg, #FFFFFF 0%, #C0FFDB 100%);box-shadow: 2px 8px 12px rgba(39, 174, 96, 0.3);border-radius: 18px;margin: 10px 0;height: 130px;padding: 14px;">
                             <div class="" style="padding:1px;">
                                 <div class="row">
                                     <div class="col-sm-10">
-                                        <P><img src="{{asset('assets/icon/birthday.png')}}"
+                                        <P><img src="img/birthday.png"
                                                 alt=""style="height:40px;font-family:Segoe UI !important;font-style: normal !important;">&nbsp<B>Birthdays</B>
                                         </P>
                                     </div>
@@ -287,7 +287,7 @@
             <div class="row" style="margin-top: 30px;">
                 <div class="col-md-12" style="padding: 0px;">
                     <div class="card">
-                        <div class="card-header" style="padding-top:0px;padding-bottom:0px;background: #87ddff;">
+                        <div class="card-header" style="padding-top:0px;padding-bottom:0px;background: #32659D;">
                             <div class="row">
                                 <div class="col-sm-11">
                                     <label style="color: white;padding-left: 10px;margin-top:10px;font-size:20px;font-weight:500;">
@@ -295,7 +295,7 @@
                                     </label>
                                 </div>
                                 <div class="col-sm-1 mt-2" >
-                                    <button class="btn"  wire:click="back()">Back</button>
+                                    <button class="btn" wire:click="back()">Back</button>
                                 </div>
                             </div>
                         </div>
@@ -326,7 +326,7 @@
         <div class="row" style="margin-top: 30px;">
             <div class="col-md-12" style="padding: 0px;">
                 <div class="card">
-                    <div class="card-header" style="padding-top:0px;padding-bottom:0px;background: #27AE60;">
+                    <div class="card-header" style="padding-top:0px;padding-bottom:0px;background: #32659D;">
                         <div class="row">
                             <div class="col-sm-11">
                                 <label style="color: white;padding-left: 10px;margin-top:10px;font-size:20px;font-weight:500;">

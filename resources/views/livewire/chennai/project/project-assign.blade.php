@@ -49,17 +49,16 @@
                         </select>
                         </div>
                     </div>
-                   
                 </div>
-               
-                
+
+
             </fieldset>
         @endif
     </div>
-    
+
     <div class="row">
         <fieldset class="mt-3 col-4">
-               
+
             <table class="table">
                 <thead>
                     <tr class="text-center">
@@ -81,7 +80,7 @@
             </table>
         </fieldset>
         <fieldset class="mt-3 col-4" >
-               
+
             <table class="table">
                 <thead>
                     <tr class="text-center">
@@ -100,7 +99,7 @@
                                   <span class="new-control-indicator">{{$team_lead->first_name}}</span>
                                 </label>
                             </div>
-                           
+
                         </td>
                     </tr>
                     @endforeach
@@ -108,7 +107,7 @@
             </table>
         </fieldset>
         <fieldset class="mt-3 col-4" >
-              
+
             <table class="table">
                 <thead>
                     <tr class="text-center">
@@ -118,7 +117,7 @@
                 <tbody>
                 @foreach ($employees as $employee)
                     <tr class="text-center">
-                
+
                         <td>
                             <div class="n-chk">
                                 <label class="new-control new-checkbox new-checkbox-rounded checkbox-primary">
@@ -126,15 +125,15 @@
                                   <span class="new-control-indicator">{{$employee->first_name}}</span>
                                 </label>
                             </div>
-                           
+
                         </td>
-                        
+
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </fieldset>
-        
+
     </div>
     <div id="msform">
         <div class="row">
