@@ -105,7 +105,7 @@
             </thead>
             <tbody>
                 @foreach ($team_lead_lists as $team_lead)
-                @if(!collect($old_tl_ids)->contains($team_lead->user->id))
+                @if(!collect($old_tl_ids)->contains($team_lead->user->id)&&!collect($assigned_tl_ids)->contains($team_lead->user->id))
                 <tr class="text-center">
 
                     <td>
@@ -190,7 +190,7 @@
             </thead>
             <tbody>
                 @foreach ($employee_lists as $key=>$employee)
-                @if(!collect($old_emp_ids)->contains($employee->user->id))
+                @if(!collect($old_emp_ids)->contains($employee->user->id)&&!collect($assigned_emp_ids)->contains($employee->user->id))
 
                 <tr class="text-center">
 
