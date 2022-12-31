@@ -6,11 +6,15 @@
                 style="background: rgb(167, 229, 248);box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);border-radius: 18px;margin: 0px 0;padding: 14px;">
                 <img src="{{asset('assets/icon/mick.png')}}"
                     style="background: linear-gradient(180deg, #2CEEFD 0%, #1AA6D5 100%);border-radius: 42px;padding: 10px;float: left;margin-top: 0px;margin-right: 15px;">
+                    
+                    @foreach($controls as $control)
+
                 <p style="margin-bottom: 0;">
-                @if ($controls->announcement != "")
-                    {{$controls->announcement}}
-                @endif
+              
+                    {{$control->announcement}}
+                
                 </p>
+                @endforeach
             </div>
             {{-- <div class="col-sm-2">
                 <div class="row">
@@ -152,17 +156,18 @@
                                 <b>Thought of the day</b></p>
                             <div class="p-1" style="padding-left:10px;">
                                 <h3 style="font-size:14px;color:#2D9CDB"><b>Engineering</b></h3>
+                                @foreach($controls as $control)
                                 <p style="font-size:14px;">
-                                    @if ($controls->engineering_quote != "")
-                                        “{{$controls->engineering_quote}}"
-                                    @endif
+                                        “{{$controls[0]->engineering_quote}}"
+                                    
                                 </p>
+                                @endforeach
                                 <h3 style="font-size:14px;color:#2D9CDB"><b>Ethics</b></h3>
+                                @foreach($controls as $control)
                                 <p style="font-size:14px;">
-                                    @if ($controls->ethics_quote != "")
-                                        “{{$controls->ethics_quote}}"
-                                    @endif
+                                        “{{$control->ethics_quote}}"
                                 </p>
+                                @endforeach
                             </div>
                         </div>
                     </div>

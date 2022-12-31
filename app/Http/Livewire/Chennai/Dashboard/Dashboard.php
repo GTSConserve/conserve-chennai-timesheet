@@ -51,6 +51,7 @@ class Dashboard extends Component
 
         $new_joiners  = Employee::with('user_group')->whereMonth('doj',$current_mounth)->get();
         $controls = DashboardControl::all();
+        //dd($controls);
         $skillings = DashboardSkilling::all();
         $latest_projects = DashboardLatestProject::all();
         $happenings = DashboardHappening::all();
