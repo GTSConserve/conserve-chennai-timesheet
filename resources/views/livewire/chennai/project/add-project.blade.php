@@ -15,6 +15,7 @@
                     <div class="col-sm-6">
                         <label id="lable">Project Name</label>
                         <input type="text" class="form_input" wire:model="name" placeholder="Project Name">
+                        @error('name') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="col-sm-6">
                         <center><label id="lable">Man Hours</label></center>
@@ -35,21 +36,23 @@
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Activity Mapping</label>
-                        <select name="" class="form_input form-small tagging" id="" multiple wire:model="activity_mapping">
+                        <select class="form-control" id="activity" multiple wire:model="activity_mapping">
                             <option value="">-Select--</option>
                             @foreach ($activities as $activity)
                             <option value="{{$activity->id}}">{{$activity->name}}</option>
                             @endforeach
                         </select>
+                        @error('activity_mapping') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Task Mapping</label>
-                        <select name="" class="form_input form-small tagging" id="" multiple wire:model="task_mapping">
+                        <select  class="form-control" id="task" multiple="multiple" wire:model="task_mapping">
                             <option value="">-Select--</option>
                             @foreach ($tasks as $task)
                             <option value="{{$task->id}}">{{$task->name}}</option>
                             @endforeach
                         </select>
+                        @error('task_mapping') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="row">
@@ -95,7 +98,7 @@
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Activity Mapping</label>
-                        <select name="" class="form_input" id="" multiple wire:model="update_activity_mapping">
+                        <select name="" class="form_input" id="activity" multiple wire:model="update_activity_mapping">
                             <option value="">-Select--</option>
                             @foreach ($activities as $activity)
                             <option value="{{$activity->id}}">{{$activity->name}}</option>
@@ -223,3 +226,26 @@
         </div>
     @endif
 </div>
+@push('js')
+
+    <script>
+        $(function(){
+          $('#activity').select2({
+            theme:'bootstrap4',
+            placeholder:'Select Activity'
+          }).on('change',function(){
+            @this.set('activity_mapping',$(this).val())
+          });
+        })
+        </script>
+        <script>
+            $(function(){
+              $('#task').select2({
+                theme:'bootstrap4',
+                placeholder:'Select Task'
+              }).on('change',function(){
+                @this.set('task_mapping',$(this).val())
+              });
+            })
+            </script>
+            @endpush
