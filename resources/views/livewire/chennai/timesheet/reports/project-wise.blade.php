@@ -18,6 +18,9 @@
                                     <option value="{{$project->id}}">{{$project->name}}</option>
                                     @endforeach
                             </select>
+                            @error('project_id')
+                                <span class='error text-danger'>{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-sm-3">
                             <div class="mt-1">
@@ -162,6 +165,17 @@
                         </div>
                         <div class="col-sm-6">
                             <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="text-center"><b>Task</b></h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="billablechartContainer" style="height: 300px; width: 100%;"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="non-billablechartContainer" style="height: 300px; width: 100%;"></div>
                         </div>
                     </div>
                     <div class="row">

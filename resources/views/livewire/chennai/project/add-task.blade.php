@@ -16,6 +16,9 @@
                             <div class="col-sm-6">
                                 <label id="lable">Task Name</label>
                                 <input type="text" class="form_input" wire:model="task_name" placeholder="Task Name">
+                                @error('task_name')
+                                <span class='error text-danger'>{{ $message }}</span>
+                            @enderror
                             </div>
                             <div class="col-sm-6" style="text-align:justify;">
                                 <div class="trre" style="margin-top:21px;">
@@ -25,6 +28,9 @@
                                     <input type="radio" wire:model="sub_task_status" wire:click="sub_task_yes()" id="yes" name="sub_task_status" value="1" >&nbsp<span for="yes">Yes</span>&nbsp&nbsp&nbsp
                                     <input type="radio" wire:model="sub_task_status" wire:click="sub_task_no()" name="sub_task_status" id="no" value="0">&nbsp<span for="no">No</span>
                                </div>
+                                @error('sub_task_status')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row">

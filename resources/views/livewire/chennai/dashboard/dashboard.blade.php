@@ -1,20 +1,16 @@
 <div>
-    @if($status==0&&count($controls)>0)
+    @if($status==0)
     <div class="container-fluid" style="max-width: 1200px">
         <div class="row">
             <div class="col-sm-12"
                 style="background: rgb(167, 229, 248);box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);border-radius: 18px;margin: 0px 0;padding: 14px;">
-                <img src="{{asset('assets/icon/mick.png')}}"
-                    style="background: linear-gradient(180deg, #2CEEFD 0%, #1AA6D5 100%);border-radius: 42px;padding: 10px;float: left;margin-top: 0px;margin-right: 15px;">
-                    
-                    @foreach($controls as $control)
+                <img src="{{asset('assets/icon/mick.png')}}" style="background: linear-gradient(180deg, #2CEEFD 0%, #1AA6D5 100%);border-radius: 42px;padding: 10px;float: left;margin-top: 0px;margin-right: 15px;">
 
-                <p style="margin-bottom: 0;">
-              
-                    {{$control->announcement}}
-                
-                </p>
-                @endforeach
+                    @if ($controls)
+                        @foreach($controls as $control)
+                            <p style="margin-bottom: 0;">{{$control->announcement}}</p>
+                        @endforeach
+                    @endif
             </div>
             {{-- <div class="col-sm-2">
                 <div class="row">
@@ -159,7 +155,7 @@
                                 @foreach($controls as $control)
                                 <p style="font-size:14px;">
                                         “{{$controls[0]->engineering_quote}}"
-                                    
+
                                 </p>
                                 @endforeach
                                 <h3 style="font-size:14px;color:#2D9CDB"><b>Ethics</b></h3>

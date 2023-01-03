@@ -22,11 +22,10 @@ class AddProject extends Component
         $this->status= "";
     }
     public function add_project(){
-
         $this->validate([ 'name'=>'required',
-        'activity_mapping'=>'required'
-,'task_mapping'=>'required'
-    ]);
+            'activity_mapping'=>'required'
+            ,'task_mapping'=>'required'
+            ]);
         $project = new Project;
         $project->name = $this->name;
         $project->billable_man_hour     = $this->billable_man_hours;

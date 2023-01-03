@@ -32,6 +32,13 @@ class AddTimesheet extends Component
     {
         if(($this->date) <= date('Y-m-d')){
             $this->wrong_date = 0;
+            $this->validate([
+                'date' => 'required',
+                'project_id' => 'required',
+                'task_id' => 'required',
+                'activity_id' => 'required',
+                'work_hours' => 'required',
+            ]);
             $addtimesheet=new Timesheet;
             $addtimesheet->user_group_id        = Auth::user()->user_group_id;
             $addtimesheet->user_id              = Auth::user()->id;
@@ -56,8 +63,6 @@ class AddTimesheet extends Component
     public function render()
     {
         $projects=Project::all();
-        // $activities=Activity::all();
-        // $tasks=Task::all();
         $subtasks=SubTask::all();
         $subtasks2=SubTasks2::all();
         $timesheets=Timesheet::all();

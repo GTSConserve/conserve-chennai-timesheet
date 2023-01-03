@@ -1,7 +1,7 @@
 <div>
     <div class="page-header">
         <div class="page-title">
-            <h3 >Add Employee</h3>
+            <h3 ><b>Add Employee</b></h3>
         </div>
     </div>
         <form id="msform">
@@ -20,6 +20,9 @@
                             <div class="col-sm-3">
                                 <label id="lable">First Name</label>
                                 <input type="text" class="form_input" wire:model="first_name" placeholder="First Name">
+                                @error('first_name')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label id="lable">Last Name</label>
@@ -33,16 +36,25 @@
                                     <option value="Female">Female</option>
                                     <option value="Others">Others</option>
                                 </select>
+                                @error('gender')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label>Date Of Birth (In certificate)</label>
                                 <input type="date" class="form_input" wire:model="certificate_dob" placeholder="Enter Name">
+                                @error('certificate_dob')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
                                 <label id="lable">Date Of Birth (Original)</label>
                                 <input type="date" class="form_input" wire:model="orginal_dob" placeholder="">
+                                @error('orginal_dob')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label id="lable">Marital Status</label>
@@ -54,78 +66,99 @@
                                     <option value="Separated">Separated</option>
                                     <option value="Divorced">Divorced</option>
                                 </select>
+                                @error('marital_status')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label id="lable">User Name</label>
                                 <input type="Email" class="form_input" wire:model="user_name" placeholder="Enter Email">
+                                @error('user_name')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label>Phone No</label>
                                 <input type="text" class="form_input" wire:model="phone_number" placeholder="Enter Phone">
+                                @error('phone_number')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <label id="lable">Official E-mail</label>
                                 <input type="email" class="form_input" wire:model="offical_email" placeholder="Official E-Mail">
+                                @error('offical_email')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-6">
                                 <label id="lable">Personal E-Mail</label>
                                 <input type="email" class="form_input" wire:model="personal_email" placeholder="Personal E-Mail">
+                                @error('personal_email')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <label id="lable">Nationality</label>
                                 <input type="Email" class="form_input" wire:model="nationality" placeholder="Nationality">
+                                @error('nationality')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-6">
                                 <label>Alternative Phone No</label>
                                 <input type="text"  class="form_input" wire:model="alter_phone_number" placeholder="Enter Phone">
+                                @error('alter_phone_number')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                             {{--================Personal Details=========================== --}}
                         <h5 class="text-left p-1"><b>Personal Details</b></h5>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <label id="lable">Father’s / Spouse Name</label>
-                                <input type="Email" class="form_input" wire:model="father_name" placeholder="Father’s / Spouse Name">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label id="lable">Father’s / Spouse Name</label>
+                                    <input type="Email" class="form_input" wire:model="father_name" placeholder="Father’s / Spouse Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Blood Group</label>
+                                    <input type="text" class="form_input" wire:model="blood_group" placeholder="Blood Group">
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <label>Blood Group</label>
-                                <input type="text" class="form_input" wire:model="blood_group" placeholder="Blood Group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label id="lable">Residential Address <input type="checkbox"></label>
+                                    <textarea name="" class="form_input" wire:model="residential_address" id="" cols="30" rows="2"></textarea>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Permanent Address</label>
+                                    <textarea name=""  class="form_input" wire:model="permenente_address" id="" cols="30" rows="2" ></textarea>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <label id="lable">Residential Address <input type="checkbox"></label>
-                                {{-- <input type="Email" placeholder="Residential Address"> --}}
-                                <textarea name="" class="form_input" wire:model="residential_address" id="" cols="30" rows="2"></textarea>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label id="lable">Emergency Contact</label>
+                                    <input type="Email" class="form_input" wire:model="emergency_contact_name" placeholder="Name">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Relation</label>
+                                    <input type="text" class="form_input" wire:model="emergency_contact_relation" placeholder="Relation">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Contact Number</label>
+                                    <input type="text" class="form_input" wire:model="emergency_contact_number" placeholder="Phone Number">
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <label>Permanent Address</label>
-                                <textarea name=""  class="form_input" wire:model="permenente_address" id="" cols="30" rows="2" ></textarea>
-                                {{-- <input type="text" placeholder="Permanent Address"> --}}
+                            <div class="row mt-3">
+                                <div class="col-sm-10"></div>
+                                <div class="col-sm-2">
+                                    <input type="button" class="next action-button" wire:click="basic_next()" value="Next" >
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <label id="lable">Emergency Contact</label>
-                                <input type="Email" class="form_input" wire:model="emergency_contact_name" placeholder="Name">
-                            </div>
-                            <div class="col-sm-4">
-                                <label>Relation</label>
-                                <input type="text" class="form_input" wire:model="emergency_contact_relation" placeholder="Relation">
-                            </div>
-                            <div class="col-sm-4">
-                                <label>Contact Number</label>
-                                <input type="text" class="form_input" wire:model="emergency_contact_number" placeholder="Phone Number">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-sm-10"></div>
-                            <div class="col-sm-2">
-                                <input type="button" name="next" class="next action-button" wire:click="basic_next()" value="Next" >
-                            </div>
-                        </div>
                     </fieldset>
                 @endif
             {{-- ==============Education============== --}}
@@ -352,6 +385,9 @@
                                 <div class="col-sm-3">
                                     <label id="lable">Aadhar Number</label>
                                     <input type="number" class="form_input" wire:model="aadhar_number" placeholder="Aadhar Number">
+                                    @error('aadhar_number')
+                                        <span class='error text-danger'>{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-sm-3">
                                     <label id="lable">Aadhar Copy</label>
@@ -360,6 +396,9 @@
                                 <div class="col-sm-3">
                                     <label>PAN Number</label>
                                     <input type="number" class="form_input" wire:model="pan_number" placeholder="PAN Number">
+                                    @error('pan_number')
+                                        <span class='error text-danger'>{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-sm-3">
                                     <label id="lable">PAN Copy</label>
@@ -423,16 +462,26 @@
                             <div class="col-sm-3">
                                 <label id="lable">Emp ID</label>
                                 <select name="" class="form_input" wire:model="emp_id" id="">
-                                    <option value="CONC">CONC</option>
+                                    <option>--Select--</option>
+                                    <option  value="CONC">CONC</option>
                                 </select>
+                                    @error('emp_id')
+                                            <span class='error text-danger'>{{ $message }}</span>
+                                    @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label id="lable">Emp Code</label>
                                 <input type="text" class="form_input" wire:model="emp_code" placeholder="Emp Code">
+                                @error('emp_code')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label>DOJ</label>
                                 <input type="date" class="form_input" wire:model="employee_doj" placeholder="">
+                                @error('employee_doj')
+                                        <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label id="lable">Division</label>
@@ -440,6 +489,9 @@
                                     <option value="">-- Select Division--</option>
                                     <option value="Division">Division</option>
                                 </select>
+                                @error('employee_division')
+                                        <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row">
@@ -449,6 +501,9 @@
                                     <option value="">-- Select Designation--</option>
                                     <option value="Designation">Designation</option>
                                 </select>
+                                @error('employee_designation')
+                                        <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label id="lable">Reporting To</label>
@@ -456,6 +511,9 @@
                                     <option value="">-- Select Report--</option>
                                     <option value="test">test</option>
                                 </select>
+                                @error('employee_report_to')
+                                        <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label id="lable">Employment Type</label>
@@ -466,6 +524,9 @@
                                     <option value="Contract">Contract Basis</option>
                                     <option value="Probation">Probation</option>
                                 </select>
+                                @error('employement_type')
+                                        <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label id="lable">Employment Status</label>
@@ -476,6 +537,9 @@
                                     <option value="Absconded">Absconded</option>
                                     <option value="Terminated">Terminated</option>
                                 </select>
+                                @error('employement_status')
+                                        <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-3">
                                 <label id="lable">Employee Access</label>
@@ -485,6 +549,9 @@
                                         <option value="{{$groups->id}}" >{{$groups->name}}</option>
                                     @endforeach
                                 </select>
+                                @error('employee_access')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <h5 class="text-left p-1"><b>Skils</b></h5>

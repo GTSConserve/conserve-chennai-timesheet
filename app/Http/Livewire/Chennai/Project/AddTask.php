@@ -72,6 +72,10 @@ class AddTask extends Component
          unset($this->edit_sub_account_name[$decrement]);
     }
     public function add_task(){
+        $this->validate([
+            'task_name' => 'required',
+            'sub_task_status' => 'required',
+        ]);
         $add_task = new Task;
         $add_task->name = $this->task_name;
         $add_task->status = $this->sub_task_status;

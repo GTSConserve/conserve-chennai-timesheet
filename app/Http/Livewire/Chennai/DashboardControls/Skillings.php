@@ -8,6 +8,10 @@ class Skillings extends Component
 {
     public $date, $title;
     public function save(){
+        $this->validate([
+            'title' => 'required',
+            'date' => 'required',
+        ]);
         $skillings = new DashboardSkilling;
         $skillings->title = $this->title;
         $skillings->date = $this->date;

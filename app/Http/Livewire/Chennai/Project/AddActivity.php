@@ -18,6 +18,10 @@ class AddActivity extends Component
         $this->status = "";
     }
     public function add_activity(){
+        $this->validate([
+            'activity_name' => 'required',
+            'activity_status' => 'required',
+        ]);
         $activity = new Activity;
         $activity->name   = $this->activity_name;
         $activity->status = $this->activity_status;
@@ -41,7 +45,6 @@ class AddActivity extends Component
         $this->status = "";
     }
     public function delete($id){
-        // dd("sfkgjhjkdskl");
         $this->emit('Delete');
     }
     public function render()

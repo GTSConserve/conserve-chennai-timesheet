@@ -8,6 +8,10 @@ class LatestProject extends Component
 {
     public $date, $title;
     public function save(){
+        $this->validate([
+            'title' => 'required',
+            'date' => 'required',
+        ]);
         $skillings = new DashboardLatestProject;
         $skillings->title = $this->title;
         $skillings->date = $this->date;

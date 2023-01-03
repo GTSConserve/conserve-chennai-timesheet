@@ -13,6 +13,10 @@
                     @if ($wrong_date == 1)
                         <span style="color:red">Select Only Current Date</span>
                     @endif
+                    @error('date')
+                        <span class='error text-danger'>{{ $message }}</span>
+                    @enderror
+
                 </div>
                 <div class="col-sm-6">
                     <label id="lable">Project</label>
@@ -22,6 +26,9 @@
                         <option value="{{$project->id}}">{{$project->name}}</option>
                         @endforeach
                     </select>
+                    @error('project_id')
+                        <span class='error text-danger'>{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="col-sm-6">
 
@@ -34,6 +41,9 @@
                             @endforeach
                         @endif
                     </select>
+                    @error('task_id')
+                        <span class='error text-danger'>{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="col-sm-6">
                     <label id="lable">Sub Task</label>
@@ -67,16 +77,21 @@
                             @endforeach
                         @endif
                     </select>
+                    @error('activity_id')
+                        <span class='error text-danger'>{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="col-sm-2">
                     <label id="lable">Working Hours</label>
-                        <input class="form_input" type="text" wire:model="work_hours" style="width:125px;">
-                </div><div class="col-sm-4"></div>
+                    <input class="form_input" type="text" wire:model="work_hours" style="width:125px;">
+                    @error('work_hours')
+                        <span class='error text-danger'>{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-sm-4"></div>
                 <div class="col-sm-6">
-                <label id="lable">Description</label>
-                    {{-- <input type ="text" class="form_input" type="text" wire:model="description" > --}}
+                    <label id="lable">Description</label>
                     <textarea name="" class="form_input" wire:model="description" id=""></textarea>
-
                 </div>
             </div>
             <div class="row">

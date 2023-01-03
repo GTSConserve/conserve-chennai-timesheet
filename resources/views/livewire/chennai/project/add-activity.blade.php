@@ -3,7 +3,7 @@
         <div>
             <div class="page-header row">
                 <div class="col-11">
-                    <h3>New Activity</h3>
+                    <h3><b>New Activity</b></h3>
                 </div>
                 <div class="col-1">
                     <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
@@ -15,6 +15,9 @@
                         <div class="col-sm-6">
                             <label id="lable">Activity Name</label>
                             <input type="text" class="form_input" wire:model="activity_name" placeholder="Task Name">
+                            @error('activity_name')
+                                <span class='error text-danger'>{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-sm-6">
                             <label id="lable">Activity Status</label>
@@ -22,6 +25,9 @@
                                 <input type="radio" wire:model="activity_status" id="billable" name="activity_status" value="1">&nbsp<span for="billable">Billable</span>&nbsp&nbsp&nbsp
                                 <input type="radio" wire:model="activity_status" name="activity_status" id="non_billable" value="0">&nbsp<span for="non_billable">Non Billable</span>
                             </div>
+                            @error('activity_status')
+                                <span class='error text-danger'>{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row">

@@ -11,10 +11,16 @@
                     <div class="col-sm-6">
                         <label id="lable">Date</label>
                         <input type="date" class="form_input" wire:model="date" placeholder="Date">
+                        @error('date')
+                            <span class='error text-danger'>{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Title</label>
                         <input type="text" class="form_input" wire:model="title" placeholder="Title">
+                        @error('title')
+                            <span class='error text-danger'>{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
                 <div class="row">

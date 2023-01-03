@@ -199,13 +199,17 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->sslc_institution}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->sslc_institution}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Percentage</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->sslc_percentage}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->sslc_percentage}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -213,13 +217,17 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->sslc_board}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->sslc_board}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->sslc_date}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->sslc_date}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -227,7 +235,9 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->employment_type}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->sslc_file}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-6">
                                             </div>
@@ -238,13 +248,17 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->hsc_institution}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->hsc_institution}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Percentage </b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->hsc_percentage}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->hsc_percentage}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -252,13 +266,17 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->hsc_board}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->hsc_board}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->hsc_date}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->hsc_date}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -266,7 +284,9 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->hsc_file}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->hsc_file}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-6">
                                             </div>
@@ -277,13 +297,17 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->diploma_percentage}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->diploma_percentage}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Percentage </b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->diploma_percentage}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->diploma_percentage}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -291,13 +315,17 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->diploma_board}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->diploma_board}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->designation}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->diploma_date}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -305,7 +333,9 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->employment_type}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->diploma_file}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-6">
                                             </div>
@@ -316,13 +346,17 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->emp_id}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->bachelor_institution}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Percentage </b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->doj}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->bachelor_percentage}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -330,13 +364,17 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->division}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->bachelor_board}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->designation}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->bachelor_date}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -344,7 +382,9 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->employment_type}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->bachelor_file}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-6">
                                             </div>
@@ -355,13 +395,17 @@
                                                 <b>Institution</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->emp_id}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->master_institution}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Percentage </b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->doj}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->master_percentage}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -369,13 +413,17 @@
                                                 <b>Board</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->division}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->master_board}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-3">
                                                 <b>Year of Passed Out</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->designation}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->master_date}}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 25px;">
@@ -383,7 +431,9 @@
                                                 <b>File</b>
                                             </div>
                                             <div class="col-sm-3">
-                                                {{$view_education_list->employment_type}}
+                                                @if ($view_education_list)
+                                                    {{$view_education_list->master_file}}
+                                                @endif
                                             </div>
                                             <div class="col-sm-6">
                                             </div>

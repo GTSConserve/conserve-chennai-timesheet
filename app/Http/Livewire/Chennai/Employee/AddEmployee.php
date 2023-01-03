@@ -44,6 +44,19 @@ class AddEmployee extends Component
         $this->offical_active = "";
     }
     public function basic_next(){
+        $this->validate([
+            'first_name' => 'required',
+            'gender' => 'required',
+            'certificate_dob' => 'required',
+            'orginal_dob' => 'required',
+            'marital_status' => 'required',
+            'user_name' => 'required',
+            'phone_number' => 'required',
+            'offical_email' => 'required',
+            'personal_email' => 'required',
+            'nationality' => 'required',
+            'alter_phone_number' => 'required',
+        ]);
        $this->education_active = "active";
        $this->status = 2;
     }
@@ -53,6 +66,10 @@ class AddEmployee extends Component
         $this->status = 3;
     }
     public function identification_next(){
+        $this->validate([
+                'aadhar_number' => 'required',
+                'pan_number' => 'required',
+            ]);
         $this->education_active = "active";
         $this->identification_active = "active";
         $this->offical_active = "active";
@@ -110,8 +127,19 @@ class AddEmployee extends Component
     }
     // =========================================Add Employee===============================================
     public function add_employee(){
+        $this->validate([
+            'emp_id' => 'required',
+            'emp_code' => 'required',
+            'employee_doj' => 'required',
+            'employee_division' => 'required',
+            'employee_designation' => 'required',
+            'employee_report_to' => 'required',
+            'employement_type' => 'required',
+            'employement_status' => 'required',
+            'employee_access' => 'required',
+        ]);
         $user = new User;
-        $user->name = $this->first_name.$this->last_name;
+        $user->name = $this->first_name;
         $user->email = $this->offical_email;
         $user->user_group_id = $this->employee_access;
         $password = $this->emp_id.$this->emp_code;
@@ -133,6 +161,8 @@ class AddEmployee extends Component
         //     $addimage->image=$image;
         //     $addimage->save();
             // dd("end"); =
+
+
         $employee->user_id =  $user->id;
         $employee->first_name = $this->first_name;
         $employee->last_name = $this->last_name;
