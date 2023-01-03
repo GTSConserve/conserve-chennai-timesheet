@@ -6,12 +6,30 @@
     </div>
         <form id="msform">
             <!-- progressbar -->
+            
             <ul id="progressbar">
+                <li class="{{$role}}">Role and  Desigination</li>
                 <li class="{{$basic_active}}">Basic Details</li>
                 <li class="{{$education_active}}">Education</li>
                 <li class="{{$identification_active}}">Identification </li>
                 <li class="{{$offical_active}}">Offical</li>
             </ul>
+            @if ($status == 0)
+            <fieldset>
+                <h5 class="text-left p-1"><b>Basic Details</b></h5>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label id="lable">Gender</label>
+                        <select name="" id="" class="form_input" wire:model="gender">
+                            <option value=""> Select Gender </option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            @endif
                 {{--================BAsic Details=========================== --}}
                 @if ($status == 1)
                     <fieldset>

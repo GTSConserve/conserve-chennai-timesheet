@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usergroups', function (Blueprint $table) {
+        Schema::create('usergroup_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('year_of_experience');
             $table->enum('status',['0','1'])->default('1');
             $table->timestamps();
             $table->softDeletes();
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usergroups');
+        Schema::dropIfExists('usergroup_categories');
     }
 };

@@ -15,13 +15,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserGroupSeeder::class);
+        $this->call(UserGroupCategorySeeder::class);
+        $this->call(UserGroupManagementSeeder::class);
+        $this->call(UserGroupGradeSeeder::class);
+        $this->call(UserGroupTypeSeeder::class);
+        $this->call(UserGroupDesiginationSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(EmployeeTableSeeder::class);
-
-        // \App\Models\User::factory(10)->create();
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

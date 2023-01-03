@@ -6,15 +6,21 @@ use App\Models\Education;
 use App\Models\Reference;
 use App\Models\Experience;
 use App\Models\Bank;
-use App\Models\Usergroups;
+use App\Models\Usergroup;
+use App\Models\UsergroupCategories;
+use App\Models\UsergroupDesigination;
+use App\Models\UsergroupGrade;
+use App\Models\UsergroupManagement;
+use App\Models\UsergroupType;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class AddEmployee extends Component
 {
     use WithFileUploads;
-    public $status=1;
-    public $basic_active ="active",$education_active,$identification_active,$offical_active;
+    public $status=0;
+    public $role="active";
+    public $basic_active,$education_active,$identification_active,$offical_active;
     public $inputs = [];
     public $i=0;
     public $inputs2 = [];
@@ -285,7 +291,13 @@ class AddEmployee extends Component
     }
     public function render()
     {
-        $user_groups= Usergroups::all();
-        return view('livewire.chennai.employee.add-employee',['user_groups'=>$user_groups]);
+        $user_groups= Usergroup::all();
+        $user_group_types=UsergroupType::all();
+        $user_group_grade=UsergroupGrade::all();
+        $user_group_mgmt=UsergroupManagement::all();
+        $user_group_category=UsergroupCategories::all();
+        $user_group_desigination=UsergroupDesigination::all();
+       
+        return view('livewire.chennai.employee.add-employee',['user_groups'=>$user_groups,'user_group_types'=>$user_group_types,'user_group_grade'=>$user_group_grade,'user_group_mgmt'=>$user_group_mgmt,'user_group_category'=>$user_group_category,'user_group_desigination'=>$user_group_desigination]);
     }
 }
