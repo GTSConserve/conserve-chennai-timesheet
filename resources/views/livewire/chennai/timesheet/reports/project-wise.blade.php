@@ -169,13 +169,24 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <h3 class="text-center"><b>Task</b></h3>
+                            <h3 class="text-center"><b>Activity</b></h3>
                         </div>
                         <div class="col-sm-6">
                             <div id="billablechartContainer" style="height: 300px; width: 100%;"></div>
                         </div>
                         <div class="col-sm-6">
-                            <div id="non-billablechartContainer" style="height: 300px; width: 100%;"></div>
+                            <div id="non_billablechartContainer" style="height: 300px; width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="text-center"><b>Task</b></h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="billable_taskchartContainer" style="height: 300px; width: 100%;"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="non_billable_taskchartContainer" style="height: 300px; width: 100%;"></div>
                         </div>
                     </div>
                     <div class="row">

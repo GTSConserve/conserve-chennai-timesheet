@@ -427,6 +427,112 @@
             chart.render();
         })
     </script>
+    <script>
+        window.addEventListener('activity_reports_billable', event => {
+            // alert("fdskjh");
+            let length = event.detail.consumed.length;
+            let hours = event.detail.consumed;
+            let name = event.detail.balance;
+            let cheek= [];
+            for(let i=0; i<length; i++){
+                cheek.push(
+                {y: event.detail.consumed[i], label: event.detail.balance[i]});
+            }
+            var chart = new CanvasJS.Chart("billablechartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Billable Hours-"+ event.detail.total+" hrs"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##\" hrs\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: cheek
+                }]
+            });
+            chart.render();
+        })
+    </script>
+    <script>
+        window.addEventListener('activity_reports_non_billable', event => {
+            // alert("fdskjh");
+            let length = event.detail.consumed.length;
+            let hours = event.detail.consumed;
+            let name = event.detail.balance;
+            let cheek= [];
+            for(let i=0; i<length; i++){
+                cheek.push(
+                {y: event.detail.consumed[i], label: event.detail.balance[i]});
+            }
+            var chart = new CanvasJS.Chart("non_billablechartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Billable Hours-"+ event.detail.total+" hrs"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##\" hrs\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: cheek
+                }]
+            });
+            chart.render();
+        })
+    </script>
+    <script>
+        window.addEventListener('billable_taskchartContainer', event => {
+            let length = event.detail.consumed.length;
+            let hours = event.detail.consumed;
+            let name = event.detail.balance;
+            let cheek= [];
+            for(let i=0; i<length; i++){
+                cheek.push(
+                {y: event.detail.consumed[i], label: event.detail.balance[i]});
+            }
+            var chart = new CanvasJS.Chart("billable_taskchartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Billable Hours-"+ event.detail.total+" hrs"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##\" hrs\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: cheek
+                }]
+            });
+            chart.render();
+        })
+    </script>
+    <script>
+        window.addEventListener('non_billable_taskchartContainer', event => {
+            let length = event.detail.consumed.length;
+            let hours = event.detail.consumed;
+            let name = event.detail.balance;
+            let cheek= [];
+            for(let i=0; i<length; i++){
+                cheek.push(
+                {y: event.detail.consumed[i], label: event.detail.balance[i]});
+            }
+            var chart = new CanvasJS.Chart("non_billable_taskchartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Non Billable Hours-"+ event.detail.total+" hrs"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##\" hrs\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: cheek
+                }]
+            });
+            chart.render();
+        })
+    </script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script>
                 //jQuery time
