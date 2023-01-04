@@ -429,7 +429,6 @@
     </script>
     <script>
         window.addEventListener('activity_reports_billable', event => {
-            // alert("fdskjh");
             let length = event.detail.consumed.length;
             let hours = event.detail.consumed;
             let name = event.detail.balance;
@@ -468,7 +467,7 @@
             var chart = new CanvasJS.Chart("non_billablechartContainer", {
                 animationEnabled: true,
                 title: {
-                    text: "Billable Hours-"+ event.detail.total+" hrs"
+                    text: "Non Billable Hours-"+ event.detail.total+" hrs"
                 },
                 data: [{
                     type: "pie",

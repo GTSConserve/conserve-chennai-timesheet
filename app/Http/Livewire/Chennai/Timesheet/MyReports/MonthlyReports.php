@@ -47,7 +47,6 @@ class MonthlyReports extends Component
 
         //table
         $this->timesheet_details = Timesheet::with('project','activity','employee','user_group','user')->where([['timesheet_status','1'],['user_id',$auth_user]])->whereMonth('date', $current_mounth)->get();
-
     }
 
     public function search(){

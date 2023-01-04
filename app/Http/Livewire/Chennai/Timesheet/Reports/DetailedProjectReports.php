@@ -1,8 +1,8 @@
 <?php
-
 namespace App\Http\Livewire\Chennai\Timesheet\Reports;
 use App\Models\Project;
 use App\Models\Timesheet;
+use App\Models\Task;
 use App\Models\ProjectManagerHeadLink;
 use App\Models\Activity;
 use App\Models\ProjectManagerLink;
@@ -12,7 +12,7 @@ use App\Models\EmployeeLink;
 use Auth;
 use Livewire\Component;
 
-class ProjectWise extends Component
+class DetailedProjectReports extends Component
 {
     public $status=0;
     public $auth_user_group;
@@ -26,6 +26,13 @@ class ProjectWise extends Component
     public $non_project_name = [];
     public $non_total_billable_hours;
 
+    public $billable_task_hours = [];
+    public $billable_task_name = [];
+    public $total_billable_task_hours;
+
+    public $non_billable_task_hours = [];
+    public $non_billable_task_name = [];
+    public $non_total_billable_task_hours;
     public function search(){
 
         if($this->project_id !="")
@@ -56,9 +63,9 @@ class ProjectWise extends Component
             $non_total    = $this->project_details->non_billable_man_hour;
             $this->dispatchBrowserEvent('non-billable', ['consumed' => $non_consumed,'balance' => $non_balance,'total'=> $non_total]);
             // ================================================Activity====================================================//
-            $pluck_pid = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->groupBy('activity_id')->pluck('activity_id');
-            $pro = Activity::whereIn('id',$pluck_pid)->where('status','1')->get();
-            $pro1 = Activity::whereIn('id',$pluck_pid)->where('status','0')->get();
+            $pluck_activity_id = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->groupBy('activity_id')->pluck('activity_id');
+            $pro = Activity::whereIn('id',$pluck_activity_id)->where('status','1')->get();
+            $pro1 = Activity::whereIn('id',$pluck_activity_id)->where('status','0')->get();
 
             foreach($pro as $key=> $p)
             {
@@ -75,8 +82,26 @@ class ProjectWise extends Component
             }
             $this->non_total_billable_hours = array_sum($this->non_billable_hours);
             $this->dispatchBrowserEvent('activity_reports_non_billable', ['consumed' => $this->non_billable_hours,'balance' => $this->non_project_name,'total'=> $this->non_total_billable_hours]);
-            $this->dispatchBrowserEvent('billable_taskchartContainer', ['consumed' => $this->non_billable_hours,'balance' => $this->non_project_name,'total'=> $this->non_total_billable_hours]);
-            $this->dispatchBrowserEvent('non_billable_taskchartContainer', ['consumed' => $this->non_billable_hours,'balance' => $this->non_project_name,'total'=> $this->non_total_billable_hours]);
+
+
+
+            // ========================================================Task========================================================
+            $pluck_task_id = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->groupBy('task_id')->pluck('task_id');
+
+            $tasks_table =  Task::whereIn('id',$pluck_task_id)->get();
+
+            foreach($tasks_table as $key => $task){
+
+                $this->billable_task_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['task_id',$task->id],['activity_status','1' ]])->sum('approved_work_hours');
+                $this->non_billable_task_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['task_id',$task->id],['activity_status','0' ]])->sum('approved_work_hours');
+                $this->billable_task_name[$key] = $task->name;
+            }
+            $this->total_billable_task_hours = array_sum($this->billable_task_hours);
+            $this->non_total_billable_task_hours = array_sum($this->non_billable_task_hours);
+
+            $this->dispatchBrowserEvent('billable_taskchartContainer', ['consumed' => $this->billable_task_hours,'balance' => $this->billable_task_name,'total'=> $this->total_billable_task_hours]);
+
+            $this->dispatchBrowserEvent('non_billable_taskchartContainer', ['consumed' => $this->non_billable_task_hours,'balance' => $this->billable_task_name,'total'=> $this->non_total_billable_task_hours]);
         }
     }
     public function view($id){
@@ -164,6 +189,6 @@ class ProjectWise extends Component
     public function render()
     {
         $projects=Project::all();
-        return view('livewire.chennai.timesheet.reports.project-wise',['projects' => $projects]);
+        return view('livewire.chennai.timesheet.reports.detailed-project-reports',['projects' => $projects]);
     }
 }

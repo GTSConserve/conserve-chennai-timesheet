@@ -111,6 +111,9 @@
                             <li>
                                 <a href="{{Route('location-head-project-wise-report')}}">Project reports</a>
                             </li>
+                            <li>
+                                <a href="{{Route('location-head-detailed-project-report')}}">Detailed Project reports</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="sub-sub-submenu-list">

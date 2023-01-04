@@ -64,6 +64,7 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
     Route::get('/pending-timesheet', [TimeSheetController::class, 'pending_timesheet'])->name('location-head-pending-timesheet');
     Route::get('/approval-timesheet', [TimeSheetController::class, 'approval_timesheet'])->name('location-head-approval-timesheet');
     Route::get('/project-wise', [TimeSheetController::class, 'project_wise_report'])->name('location-head-project-wise-report');
+    Route::get('/detailed-project-reports', [TimeSheetController::class, 'detailed_project__report'])->name('location-head-detailed-project-report');
     Route::get('/my-project-reports', [TimeSheetController::class, 'project_wise_my_report'])->name('location-head-project-wise-myreport');
     Route::get('/monthly-project-reports', [TimeSheetController::class, 'monthly_wise_project_reports'])->name('location-head-monthly-wise-my-project-report');
 });

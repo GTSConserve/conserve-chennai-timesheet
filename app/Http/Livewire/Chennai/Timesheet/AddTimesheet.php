@@ -48,6 +48,8 @@ class AddTimesheet extends Component
             $addtimesheet->sub_task1_id         = $this->sub_task1_id;
             // $addtimesheet->sub_task2_id         = $this->sub_task2_id;
             $addtimesheet->activity_id          = $this->activity_id;
+            $activity_status                    =  Activity::where('id',$this->activity_id)->first();
+            $addtimesheet->activity_status      = $activity_status->status;
             $addtimesheet->description          = $this->description;
             $addtimesheet->work_hours           = $this->work_hours;
             $addtimesheet->timesheet_status     = "0";

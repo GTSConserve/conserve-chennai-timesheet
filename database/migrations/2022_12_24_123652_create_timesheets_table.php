@@ -37,12 +37,12 @@ return new class extends Migration
             $table->foreign('approved_by')->references('id')->on('users');
             $table->date('approved_date')->nullable();
             $table->enum('timesheet_status',['0','1']);
+            $table->enum('activity_status',['0','1']);
             $table->enum('status',['0','1']);
             $table->timestamps();
             $table->softDeletes();
         });
     }
-
     /**
      * Reverse the migrations.
      *
