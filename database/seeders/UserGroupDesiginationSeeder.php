@@ -19,6 +19,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Intern",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>1,
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -28,6 +30,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Engineering Trainee",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -36,7 +39,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Junior Drafter",
+                'usergroup_experience_id'=>2,
                 'usergroup_department_id'=>"1",
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -45,7 +50,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Junior Modeler",
+                'usergroup_experience_id'=>2,
                 'usergroup_department_id'=>"1",
+                'usergroup_grade_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -55,6 +62,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Junior Engineer",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>2,
+                'usergroup_grade_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -64,6 +73,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Domain Drafter",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>3,
+                'usergroup_grade_id'=>4,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -73,6 +84,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Domain Modeler",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>3,
+                'usergroup_grade_id'=>5,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -82,6 +95,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Domain Engineer",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>3,
+                'usergroup_grade_id'=>6,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -91,6 +106,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Senior Drafter",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>4,
+                'usergroup_grade_id'=>7,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -100,6 +117,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Senior Modeler",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>4,
+                'usergroup_grade_id'=>8,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -109,6 +128,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Senior Engineer",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>4,
+                'usergroup_grade_id'=>9,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -118,6 +139,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Assistant Manager",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>5,
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -127,6 +150,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Project Manager",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>6,
+                'usergroup_grade_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -136,6 +161,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Senior Project Manager",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>7,
+                'usergroup_grade_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -145,6 +172,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Head Of Department",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>8,
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -153,7 +182,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Operation Manager",
+                'usergroup_experience_id'=>9,
                 'usergroup_department_id'=>"1",
+                'usergroup_grade_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -163,6 +194,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Assistant General Manager",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>10,
+                'usergroup_grade_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -172,6 +205,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "General Manager",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>10,
+                'usergroup_grade_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -181,6 +216,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Country Manager",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>11,
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -190,6 +227,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Regional Manager",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>11,
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -199,6 +238,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Vice President",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>11,
+                'usergroup_grade_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -208,6 +249,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Senior Vice President",
                 'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>11,
+                'usergroup_grade_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -226,6 +269,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Intern",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>1,
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -235,6 +280,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Management Trainee",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -244,6 +290,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Junior Executive HR",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -253,6 +300,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Junior Executive Admin",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -261,6 +309,7 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Junior Executive Finance",
+                'usergroup_experience_id'=>2,
                 'usergroup_department_id'=>"2",
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
@@ -271,6 +320,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Executive HR",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -280,6 +330,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Executive Admin",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -289,6 +340,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Executive Finance",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -297,6 +349,7 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Senior Executive HR",
+                'usergroup_experience_id'=>4,
                 'usergroup_department_id'=>"2",
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
@@ -307,6 +360,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Senior Executive Admin",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>4,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -316,6 +370,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Senior Executive Finance",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>4,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -325,6 +380,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Lead HR",
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -334,6 +390,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Lead Admin",
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -343,6 +400,7 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Lead Finance",
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -352,6 +410,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Assistant Manager",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>7,
+                'usergroup_grade_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -361,6 +421,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Manager HR",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>8,
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -369,7 +431,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Manager Admin",
+                'usergroup_experience_id'=>8,
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -379,6 +443,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Manager Finance",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>8,
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -387,7 +453,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Senior Manager HR",
+                'usergroup_experience_id'=>9,
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -396,7 +464,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Senior Manager Admin",
+                'usergroup_experience_id'=>9,
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -405,7 +475,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Senior Manager Finance",
+                'usergroup_experience_id'=>9,
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -415,6 +487,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "Assistant General Manager",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>10,
+                'usergroup_grade_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -424,6 +498,8 @@ class UserGroupDesiginationSeeder extends Seeder
             [
                 'name' => "General Manager",
                 'usergroup_department_id'=>"2",
+                'usergroup_experience_id'=>10,
+                'usergroup_grade_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -432,7 +508,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Assistant Vice President",
+                'usergroup_experience_id'=>11,
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>1,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -441,7 +519,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Vice President",
+                'usergroup_experience_id'=>11,
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>2,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -450,7 +530,9 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Senior Vice President",
+                'usergroup_experience_id'=>11,
                 'usergroup_department_id'=>"2",
+                'usergroup_grade_id'=>3,
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),

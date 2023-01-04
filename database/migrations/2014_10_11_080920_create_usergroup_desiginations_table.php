@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->integer('usergroup_department_id')->unsigned()->index()->nullable();
             $table->foreign('usergroup_department_id')->references('id')->on('usergroup_departments');
+            $table->integer('usergroup_experience_id')->unsigned()->index()->nullable();
+            $table->foreign('usergroup_experience_id')->references('id')->on('usergroup_experiences');
+            $table->integer('usergroup_grade_id')->unsigned()->index()->nullable();
+            $table->foreign('usergroup_grade_id')->references('id')->on('usergroup_grades');
             $table->enum('status',['0','1'])->default('1');
             $table->timestamps();
             $table->softDeletes();

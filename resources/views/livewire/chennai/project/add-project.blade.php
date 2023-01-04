@@ -34,9 +34,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" wire:ignore>
                         <label id="lable">Activity Mapping</label>
-                        <select class="form-control" id="activity" multiple wire:model="activity_mapping">
+                        <select class="form-control" id="activity" multiple="multiple" wire:model="activity_mapping">
                             <option value="">-Select--</option>
                             @foreach ($activities as $activity)
                             <option value="{{$activity->id}}">{{$activity->name}}</option>

@@ -19,7 +19,7 @@
                 <h5 class="text-left p-1"><b>Role and Designation</b></h5>
                 <div class="row">
                     <div class="col-sm-3">
-                        <label id="lable">Employee Department</label>
+                        <label id="Department">Employee Department</label>
                         <select name="" id="" class="form_input" wire:model="department">
                             <option value=""> Select Employee Department </option>
                             @foreach ($user_group_departments as $user_group_department )
@@ -30,8 +30,9 @@
                         <span class='error text-danger'>{{ $message }}</span>
                     @enderror
                     </div>
+                    @if($department&&$department!=5)
                     <div class="col-sm-3">
-                        <label id="lable">Employee Experience</label>
+                        <label id="experience">Employee Experience</label>
                         <select name="" id="" class="form_input" wire:model="experience">
                             <option value=""> Select Employee Experience </option>
                             @foreach ($user_group_experiences as $user_group_experience )
@@ -42,23 +43,43 @@
                         <span class='error text-danger'>{{ $message }}</span>
                     @enderror
                     </div>
+                    @endif
+                    @if($department!=5&&$user_group_desiginations)
                     <div class="col-sm-3">
-                        <label id="lable">Employee Category</label>
-                        <select name="" id="" class="form_input" wire:model="category">
+                        <label id="designation">Employee Designation</label>
+                        <select name="" id="" class="form_input" wire:model="designation">
+                            <option value=""> Select Employee Designation </option>
+                            @foreach ($user_group_desiginations as $user_group_desigination )
+                            @if($user_group_desigination->name!='Director')
+                            <option value="{{$user_group_desigination->id}}">{{$user_group_desigination->name}}  </option>
+                            @endif
+                            @endforeach
+                        </select>
+                        @error('designation')
+                        <span class='error text-danger'>{{ $message }}</span>
+                    @enderror
+                    </div>
+                    @endif
+                    @if($experience||$department==5)
+                    <div class="col-sm-3">
+                        <label id="category">Employee Category</label>
+                        {{-- <select name="" id="" class="form_input" wire:model="category" >
                             <option value=""> Select Employee Category </option>
                             @foreach ($user_group_categories as $user_group_category )
                             <option value="{{$user_group_category->id}}">{{$user_group_category->type}} - {{$user_group_category->name}} </option>
                             @endforeach
                           
-                        </select>
+                        </select> --}}
+                        <p class="form_input text-success" >{{$category_name}} </p>
                         @error('category')
                                     <span class='error text-danger'>{{ $message }}</span>
                                 @enderror
                     </div>
                   
-                
+                  
+                    @if($department!=5)
                     <div class="col-sm-3">
-                        <label id="lable">Employee Grade</label>
+                        <label id="grade">Employee Grade</label>
                         <select name="" id="" class="form_input" wire:model="grade">
                             <option value=""> Select Employee Grade </option>
                             @foreach ($user_group_grades as $user_group_grade )
@@ -69,19 +90,8 @@
                         <span class='error text-danger'>{{ $message }}</span>
                     @enderror
                     </div>
-                    <div class="col-sm-3">
-                        <label id="lable">Employee Designation</label>
-                        <select name="" id="" class="form_input" wire:model="designation">
-                            <option value=""> Select Employee Designation </option>
-                            @foreach ($user_group_desiginations as $user_group_desigination )
-                            <option value="{{$user_group_desigination->id}}">{{$user_group_desigination->name}}  </option>
-                            @endforeach
-                        </select>
-                        @error('designation')
-                        <span class='error text-danger'>{{ $message }}</span>
-                    @enderror
-                    </div>
-                    
+                    @endif
+                    @endif
                 
                   
                 </div>

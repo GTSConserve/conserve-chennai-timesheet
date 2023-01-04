@@ -34,7 +34,7 @@ class AddEmployee extends Component
     // Bank Table
     public $bank_name,$branch_name,$account_number,$ifsc_code,$passbook_file;
 
-    public $department,$category,$experience,$grade,$designation;
+    public $department,$category,$experience,$grade,$designation,$category_name;
 
     public function basic(){
         $this->education_active = "";
@@ -314,8 +314,32 @@ class AddEmployee extends Component
         $user_group_grades=UsergroupGrade::all();
         $user_group_categories=UsergroupCategories::all();
         $user_group_experiences=UsergroupExperience::all();
-        $user_group_desiginations=UsergroupDesigination::all();
-       
-        return view('livewire.chennai.employee.add-employee',['user_groups'=>$user_groups,'user_group_departments'=>$user_group_departments,'user_group_grades'=>$user_group_grades,'user_group_categories'=>$user_group_categories,'user_group_experiences'=>$user_group_experiences,'user_group_desiginations'=>$user_group_desiginations]);
+        $user_group_desiginations='';
+       if($this->experience){
+        $experience=UsergroupExperience::where('id',$this->experience)->first();
+        $this->category=$experience->usergroup_category_id;
+        $user_group_cat_name=UsergroupCategories::where('id',$this->category)->first();
+        $this->category_name=$user_group_cat_name->name.'-'.$user_group_cat_name->type;
+        $user_group_desiginations=UsergroupDesigination::where([['usergroup_department_id',$this->department],['usergroup_experience_id',$this->experience]])->get();
+       // dd(count($user_group_desiginations));
+        if(count($user_group_desiginations)==0){
+            $user_group_desiginations=UsergroupDesigination::where([['usergroup_department_id',$this->department],['usergroup_experience_id',NUll]])->get();
+            //dd($user_group_desiginations);
+        }
+        // if($this->designation){
+        //     $user_group_grd=UsergroupDesigination::where('id',$this->designation)->first();
+        //     $user_group_grades=UsergroupGrade::where('id',$this->designation);
+
+        //    }
+       }
+   
+       if($this->department==5){
+       $this->category=6;
+      $user_group_cat_name=UsergroupCategories::where('id',$this->category)->first();
+
+        $this->category_name=$user_group_cat_name->name.'-'.$user_group_cat_name->type;
+
+       }
+        return view('livewire.chennai.employee.add-employee',['user_groups'=>$user_groups,'user_group_departments'=>$user_group_departments,'user_group_grades'=>$user_group_grades,'user_group_categories'=>$user_group_categories,'user_group_experiences'=>$user_group_experiences,'user_group_desiginations'=>$user_group_desiginations,'category_name'=>$this->category_name]);
     }
 }
