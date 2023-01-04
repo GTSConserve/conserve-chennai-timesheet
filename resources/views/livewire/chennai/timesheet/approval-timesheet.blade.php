@@ -82,15 +82,31 @@
     </div>
       @else
         <div class="page-header row">
-            <div class="col-11">
+            <div class="col-10">
                 <h3><b>Timesheet Approval</b></h3>
             </div>
-            <div class="col-1">
-                {{-- <input type="button" name="next" class="btn btn-warning" wire:click="add()" value="Add" > --}}
+            <div class="col-2">
+                <select name="" class="form_input" wire:change="project_change()" wire:model="project_id">
+                    {{-- id="" wire:change="project_change($event.target.value)" --}}
+                    <option value="">All</option>
+                    @foreach($project_names as $project)
+                    <option value="{{$project->id}}">{{$project->name}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div id="msform">
             <fieldset class="mt-3">
+                @if ($piechart_status == 1)
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+                        </div>
+                    </div>
+                @endif
                 <table id="zero-config1" class="table" style="width:100%;">
                     <thead>
                         <tr class="text-center">

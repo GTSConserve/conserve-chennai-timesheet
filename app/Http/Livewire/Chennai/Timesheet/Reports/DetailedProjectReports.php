@@ -86,22 +86,32 @@ class DetailedProjectReports extends Component
 
 
             // ========================================================Task========================================================
-            $pluck_task_id = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->groupBy('task_id')->pluck('task_id');
+            $pluck_task_id = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id],['activity_status','1' ]])->groupBy('task_id')->pluck('task_id');
 
             $tasks_table =  Task::whereIn('id',$pluck_task_id)->get();
-
+            // dd($tasks_table);
             foreach($tasks_table as $key => $task){
 
                 $this->billable_task_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['task_id',$task->id],['activity_status','1' ]])->sum('approved_work_hours');
-                $this->non_billable_task_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['task_id',$task->id],['activity_status','0' ]])->sum('approved_work_hours');
+                // $this->non_billable_task_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['task_id',$task->id],['activity_status','0' ]])->sum('approved_work_hours');
                 $this->billable_task_name[$key] = $task->name;
             }
             $this->total_billable_task_hours = array_sum($this->billable_task_hours);
-            $this->non_total_billable_task_hours = array_sum($this->non_billable_task_hours);
+            //
 
             $this->dispatchBrowserEvent('billable_taskchartContainer', ['consumed' => $this->billable_task_hours,'balance' => $this->billable_task_name,'total'=> $this->total_billable_task_hours]);
 
-            $this->dispatchBrowserEvent('non_billable_taskchartContainer', ['consumed' => $this->non_billable_task_hours,'balance' => $this->billable_task_name,'total'=> $this->non_total_billable_task_hours]);
+            // non-billable
+            $non_pluck_task_id = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id],['activity_status','0' ]])->groupBy('task_id')->pluck('task_id');
+            $non_tasks_table =  Task::whereIn('id',$non_pluck_task_id)->get();
+            foreach($non_tasks_table as $key => $non_task){
+
+                $this->non_billable_task_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['task_id',$non_task->id],['activity_status','0' ]])->sum('approved_work_hours');
+                $this->non_billable_task_name[$key] = $non_task->name;
+            }
+            $this->non_total_billable_task_hours = array_sum($this->non_billable_task_hours);
+            $this->dispatchBrowserEvent('non_billable_taskchartContainer', ['consumed' => $this->non_billable_task_hours,'balance' => $this->non_billable_task_name,'total'=> $this->non_total_billable_task_hours]);
+
         }
     }
     public function view($id){

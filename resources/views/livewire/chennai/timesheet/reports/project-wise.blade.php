@@ -167,7 +167,7 @@
                             <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
                         </div>
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-sm-12">
                             <h3 class="text-center"><b>Activity</b></h3>
                         </div>
@@ -188,7 +188,7 @@
                         <div class="col-sm-6">
                             <div id="non_billable_taskchartContainer" style="height: 300px; width: 100%;"></div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                         <div class="col-sm-6">
                             @if ($project_details->name !="")
@@ -235,7 +235,7 @@
                             @endif
                         </tbody>
                     </table>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-sm-6">
                             <div class="p-5">
                                 <table  class="table table-striped" style="width:100%;">
@@ -351,7 +351,7 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
        </div>

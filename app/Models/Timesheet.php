@@ -30,7 +30,7 @@ class Timesheet extends Model
         return $this->hasOne(Employee::class,'user_id','user_id');
     }
     public function user_group(){
-        return $this->hasOne(Usergroups::class,'id','user_id');
+        return $this->hasOne(Usergroup::class,'id','user_id');
     }
     public function user(){
         return $this->hasOne(User::class,'id','approved_by');
