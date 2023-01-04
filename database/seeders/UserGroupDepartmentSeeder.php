@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UserGroupTypeSeeder extends Seeder
+class UserGroupDepartmentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,18 +15,30 @@ class UserGroupTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("usergroup_types")->insert([
+        DB::table("usergroup_departments")->insert([
             'name'=>'Engineering',
             'status'=>'1',
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
      ]);
-     DB::table("usergroup_types")->insert([
-        'name'=>'Hr/Admin/Finance',
+     DB::table("usergroup_departments")->insert([
+        'name'=>'Hr',
         'status'=>'1',
         'created_at' => date("Y-m-d H:i:s"),
         'updated_at' => date("Y-m-d H:i:s"),
  ]);
+ DB::table("usergroup_departments")->insert([
+    'name'=>'Admin',
+    'status'=>'1',
+    'created_at' => date("Y-m-d H:i:s"),
+    'updated_at' => date("Y-m-d H:i:s"),
+]);
+DB::table("usergroup_departments")->insert([
+    'name'=>'Finance',
+    'status'=>'1',
+    'created_at' => date("Y-m-d H:i:s"),
+    'updated_at' => date("Y-m-d H:i:s"),
+]);
 
     }
 }

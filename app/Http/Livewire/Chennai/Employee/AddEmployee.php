@@ -10,8 +10,8 @@ use App\Models\Usergroup;
 use App\Models\UsergroupCategories;
 use App\Models\UsergroupDesigination;
 use App\Models\UsergroupGrade;
-use App\Models\UsergroupManagement;
-use App\Models\UsergroupType;
+use App\Models\UsergroupDepartment;
+use App\Models\UsergroupExperience;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -33,6 +33,8 @@ class AddEmployee extends Component
     public $sslc_institution,$sslc_board,$sslc_date,$sslc_percentage,$sslc_file,$hsc_institution,$hsc_board,$hsc_date,$hsc_percentage,$hsc_file,$diploma_institution,$diploma_board,$diploma_date,$diploma_percentage,$diploma_file,$bachelor_intitution,$bachelor_board,$bachelor_date,$bachelor_percentage,$bachelor_file,$master_institution,$master_board,$master_date,$master_percentage,$master_file;
     // Bank Table
     public $bank_name,$branch_name,$account_number,$ifsc_code,$passbook_file;
+
+    public $department,$category,$experience,$grade,$designation;
 
     public function basic(){
         $this->education_active = "";
@@ -65,6 +67,17 @@ class AddEmployee extends Component
         ]);
        $this->education_active = "active";
        $this->status = 2;
+    }
+    public function role_next(){
+        $this->validate([
+            'experience' => 'required',
+            'category' => 'required',
+            'department' => 'required',
+            'grade' => 'required',
+            'designation' => 'required',
+        ]);
+       $this->basic_active = "active";
+       $this->status = 1;
     }
     public function education_next(){
         $this->education_active = "active";
@@ -148,6 +161,11 @@ class AddEmployee extends Component
         $user->name = $this->first_name;
         $user->email = $this->offical_email;
         $user->user_group_id = $this->employee_access;
+        $user->usergroup_department_id = $this->department;
+        $user->usergroup_experience_id = $this->experience;
+        $user->usergroup_category_id = $this->category;
+        $user->usergroup_grade_id = $this->grade;
+        $user->usergroup_desigination_id = $this->designation;
         $password = $this->emp_id.$this->emp_code;
         $user->password = bycrypt($password);
         $user->save();
@@ -292,12 +310,12 @@ class AddEmployee extends Component
     public function render()
     {
         $user_groups= Usergroup::all();
-        $user_group_types=UsergroupType::all();
-        $user_group_grade=UsergroupGrade::all();
-        $user_group_mgmt=UsergroupManagement::all();
-        $user_group_category=UsergroupCategories::all();
-        $user_group_desigination=UsergroupDesigination::all();
+        $user_group_departments=UsergroupDepartment::all();
+        $user_group_grades=UsergroupGrade::all();
+        $user_group_categories=UsergroupCategories::all();
+        $user_group_experiences=UsergroupExperience::all();
+        $user_group_desiginations=UsergroupDesigination::all();
        
-        return view('livewire.chennai.employee.add-employee',['user_groups'=>$user_groups,'user_group_types'=>$user_group_types,'user_group_grade'=>$user_group_grade,'user_group_mgmt'=>$user_group_mgmt,'user_group_category'=>$user_group_category,'user_group_desigination'=>$user_group_desigination]);
+        return view('livewire.chennai.employee.add-employee',['user_groups'=>$user_groups,'user_group_departments'=>$user_group_departments,'user_group_grades'=>$user_group_grades,'user_group_categories'=>$user_group_categories,'user_group_experiences'=>$user_group_experiences,'user_group_desiginations'=>$user_group_desiginations]);
     }
 }

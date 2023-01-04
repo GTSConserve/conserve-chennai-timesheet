@@ -122,7 +122,7 @@
         color: #000000;
         text-transform: uppercase;
         font-size: 16px;
-        width: 25%;
+        width: 20%;
         font-weight: 700;
         float: left;
         position: relative;

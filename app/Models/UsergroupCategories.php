@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class UsergroupCategories extends Model
 {
     use HasFactory;
+    public $table ="usergroup_categories";
+
 }

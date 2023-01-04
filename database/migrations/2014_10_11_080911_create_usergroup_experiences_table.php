@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usergroup_managements', function (Blueprint $table) {
+        Schema::create('usergroup_experiences', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->enum('status',['0','1'])->default('1');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usergroup_managements');
+        Schema::dropIfExists('usergroup_experiences');
     }
 };

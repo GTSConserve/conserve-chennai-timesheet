@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('usergroup_desiginations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('usergroup_type_id')->unsigned()->index()->nullable();
-            $table->foreign('usergroup_type_id')->references('id')->on('usergroup_types');
+            $table->integer('usergroup_department_id')->unsigned()->index()->nullable();
+            $table->foreign('usergroup_department_id')->references('id')->on('usergroup_departments');
             $table->enum('status',['0','1'])->default('1');
             $table->timestamps();
             $table->softDeletes();

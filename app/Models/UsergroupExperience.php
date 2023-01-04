@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UsergroupManagement extends Model
+class UsergroupExperience extends Model
 {
     use HasFactory;
 }
