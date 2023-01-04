@@ -3,7 +3,7 @@
         <div class="">
             <div class="page-header row">
                 <div class="col-11">
-                    <h3><b>Project Wise Reports</b></h3>
+                    <h3><b>Detailed Project Reports</b></h3>
                 </div>
             </div>
             <div class="card component-card_1">

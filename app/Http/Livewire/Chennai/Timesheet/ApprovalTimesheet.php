@@ -16,6 +16,22 @@ class ApprovalTimesheet extends Component
 
     public function back(){
         $this->status = 0;
+        if($this->project_id !=""){
+            $this->piechart_status = '1';
+            $this->timesheet = "";
+            $this->timesheet = Timesheet::with('project','activity','employee','user_group')->where([['timesheet_status','0'],['project_id',$this->project_id]])->get();
+
+            $total_hours =  Project::where('id',$this->project_id)->first();
+            $consumed_billable_hours = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id],['activity_status','1']])->sum('approved_work_hours');
+            $consumed_non_billable_hours = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id],['activity_status','0']])->sum('approved_work_hours');
+            $balance_billable_hours = $total_hours->billable_man_hour - $consumed_billable_hours;
+            $balance_non_billable_hours = $total_hours->non_billable_man_hour;
+
+            $this->dispatchBrowserEvent('billable', ['consumed' => $balance_billable_hours,'balance' => $consumed_billable_hours,'total'=> $total_hours->billable_man_hour]);
+            $this->dispatchBrowserEvent('non-billable', ['consumed' => $balance_non_billable_hours,'balance' => $consumed_non_billable_hours,'total'=> $total_hours->non_billable_man_hour]);
+        }else{
+            $this->piechart_status = '0';
+        }
     }
 
     public function view($id){

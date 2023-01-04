@@ -100,10 +100,10 @@
                 @if ($piechart_status == 1)
                     <div class="row">
                         <div class="col-sm-6">
-                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                            <div id="chartContainer" wire:ignore style="height: 300px; width: 100%;"></div>
                         </div>
                         <div class="col-sm-6">
-                            <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+                            <div id="chartContainer2" wire:ignore style="height: 300px; width: 100%;"></div>
                         </div>
                     </div>
                 @endif
