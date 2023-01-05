@@ -14,7 +14,7 @@ use Livewire\Component;
 class MonthlyReports extends Component
 {
     public $status=0,$piechart=1;
-    public $month_number;
+    public $month_number,$month_name;
     public $billable_hours=[];
     public $non_billable_hours=[];
     public $project_name=[];
@@ -25,6 +25,7 @@ class MonthlyReports extends Component
         $auth_user = Auth::user()->id;
         $current_mounth = now()->format('m');
         $this->month_number = $current_mounth;
+        $this->month_name = now()->format('F')."- Month Reports";
         $pluck_pid = Timesheet::where([['user_id',$auth_user],['timesheet_status','1']])->pluck('project_id');
 
         $projects = Timesheet::where([['user_id',$auth_user],['timesheet_status','1']])->whereMonth('date', $current_mounth)->groupBy('project_id')->pluck('project_id');
@@ -45,11 +46,15 @@ class MonthlyReports extends Component
         $this->dispatchBrowserEvent('my_month_reports_billable', ['consumed' => $this->billable_hours,'balance' => $this->project_name,'total'=> $this->total_billable_hours]);
         $this->dispatchBrowserEvent('my_month_reports_non_billable', ['non_billable_consumed' => $this->non_billable_hours,'non_billable_project' => $this->project_name,'total_non_billable_hours'=> $this->total_non_billable_hours]);
 
+        if($this->total_non_billable_hours == 0 && $this->total_billable_hours == 0){
+            $this->piechart = 0;
+        }
         //table
         $this->timesheet_details = Timesheet::with('project','activity','employee','user_group','user')->where([['timesheet_status','1'],['user_id',$auth_user]])->whereMonth('date', $current_mounth)->get();
     }
 
     public function search(){
+
         $this->status = 1;
         $this->total_billable_hours  = "";
         $this->total_non_billable_hours = "";
@@ -59,7 +64,10 @@ class MonthlyReports extends Component
         $this->piechart = 1;
         $auth_user = Auth::user()->id;
         $search_mounth = $this->month_number;
-
+        $monthName = date("F", mktime(0, 0, 0, $search_mounth, 10));
+        $this->month_name = $monthName."- Month Reports";
+        // dd($monthName);
+        // $this->month_name = date("F", strtotime($search_mounth));
         $pluck_pid = Timesheet::where([['user_id',$auth_user],['timesheet_status','1']])->pluck('project_id');
 
         $projects = Timesheet::where([['user_id',$auth_user],['timesheet_status','1']])->whereMonth('date', $search_mounth)->groupBy('project_id')->pluck('project_id');
@@ -79,7 +87,7 @@ class MonthlyReports extends Component
 
         $this->dispatchBrowserEvent('my_month_reports_billable', ['consumed' => $this->billable_hours,'balance' => $this->project_name,'total'=> $this->total_billable_hours]);
         $this->dispatchBrowserEvent('my_month_reports_non_billable', ['non_billable_consumed' => $this->non_billable_hours,'non_billable_project' => $this->project_name,'total_non_billable_hours'=> $this->total_non_billable_hours]);
-        if($this->total_non_billable_hours == 0){
+        if($this->total_non_billable_hours == 0 && $this->total_billable_hours == 0){
             $this->piechart = 0;
         }
         //table
@@ -114,12 +122,13 @@ class MonthlyReports extends Component
 
         $this->dispatchBrowserEvent('my_month_reports_billable', ['consumed' => $this->billable_hours,'balance' => $this->project_name,'total'=> $this->total_billable_hours]);
         $this->dispatchBrowserEvent('my_month_reports_non_billable', ['non_billable_consumed' => $this->non_billable_hours,'non_billable_project' => $this->project_name,'total_non_billable_hours'=> $this->total_non_billable_hours]);
-        if($this->total_non_billable_hours == 0){
+        if($this->total_non_billable_hours == 0 && $this->total_billable_hours == 0){
             $this->piechart = 0;
         }
     }
     public function render()
     {
+
         return view('livewire.chennai.timesheet.my-reports.monthly-reports');
     }
 }

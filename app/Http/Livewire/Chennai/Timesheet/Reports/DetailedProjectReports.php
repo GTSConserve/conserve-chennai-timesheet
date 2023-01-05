@@ -120,26 +120,80 @@ class DetailedProjectReports extends Component
     }
     public function back(){
         $this->status = 1;
-        $this->project_manager_heads = ProjectManagerHeadLink::with('user')->where('project_id',$this->project_id)->get();
-        $this->project_managers = ProjectManagerLink::with('user')->where('project_id',$this->project_id)->get();
-        $this->project_leads = ProjectLeadLink::with('user')->where('project_id',$this->project_id)->get();
-        $this->team_leads = TeamLeadLink::with('user')->where('project_id',$this->project_id)->get();
-        $this->employees = EmployeeLink::with('user')->where('project_id',$this->project_id)->get();
-        $this->emp_count = $this->employees->count() + $this->team_leads->count()  + $this->project_leads->count()  + $this->project_managers->count()  + $this->project_manager_heads->count();
+            $this->auth_user_group = Auth::user()->user_group_id;
+            $this->project_details = Project::where('id',$this->project_id)->first();
+            $this->timesheets = Timesheet::with('project','activity','employee','user_group','user')->where([['timesheet_status','1'],['project_id',$this->project_id]])->get();
 
-        $billable_activity = Activity::where('status','1')->pluck('id');
-        $this->billable_works_total = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->whereIn('activity_id',$billable_activity)->get();
-        $consumed = $this->project_details->billable_man_hour - $this->billable_works_total->sum('approved_work_hours');
-        $balance  = $this->billable_works_total->sum('approved_work_hours');
-        $total    = $this->project_details->billable_man_hour;
-        $this->dispatchBrowserEvent('billable', ['consumed' => $consumed,'balance' => $balance,'total'=> $total]);
+            $this->project_manager_heads = ProjectManagerHeadLink::with('user')->where('project_id',$this->project_id)->get();
+            $this->project_managers = ProjectManagerLink::with('user')->where('project_id',$this->project_id)->get();
+            $this->project_leads = ProjectLeadLink::with('user')->where('project_id',$this->project_id)->get();
+            $this->team_leads = TeamLeadLink::with('user')->where('project_id',$this->project_id)->get();
+            $this->employees = EmployeeLink::with('user')->where('project_id',$this->project_id)->get();
+            $this->emp_count = $this->employees->count() + $this->team_leads->count()  + $this->project_leads->count()  + $this->project_managers->count()  + $this->project_manager_heads->count();
 
-        $non_billable_activity = Activity::where('status','0')->pluck('id');
-        $this->non_billable_works_total = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->whereIn('activity_id',$non_billable_activity)->get();
-        $non_consumed = $this->project_details->non_billable_man_hour - $this->non_billable_works_total->sum('approved_work_hours');
-        $non_balance  = $this->non_billable_works_total->sum('approved_work_hours');
-        $non_total    = $this->project_details->non_billable_man_hour;
-        $this->dispatchBrowserEvent('non-billable', ['consumed' => $non_consumed,'balance' => $non_balance,'total'=> $non_total]);
+            $billable_activity = Activity::where('status','1')->pluck('id');
+            $this->billable_works_total = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->whereIn('activity_id',$billable_activity)->get();
+            $consumed = $this->project_details->billable_man_hour - $this->billable_works_total->sum('approved_work_hours');
+            $balance  = $this->billable_works_total->sum('approved_work_hours');
+            $total    = $this->project_details->billable_man_hour;
+            $this->dispatchBrowserEvent('billable', ['consumed' => $consumed,'balance' => $balance,'total'=> $total]);
+
+            $non_billable_activity = Activity::where('status','0')->pluck('id');
+            $this->non_billable_works_total = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->whereIn('activity_id',$non_billable_activity)->get();
+            $non_consumed = $this->project_details->non_billable_man_hour - $this->non_billable_works_total->sum('approved_work_hours');
+            $non_balance  = $this->non_billable_works_total->sum('approved_work_hours');
+            $non_total    = $this->project_details->non_billable_man_hour;
+            $this->dispatchBrowserEvent('non-billable', ['consumed' => $non_consumed,'balance' => $non_balance,'total'=> $non_total]);
+            // ================================================Activity====================================================//
+            $pluck_activity_id = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id]])->groupBy('activity_id')->pluck('activity_id');
+            $pro = Activity::whereIn('id',$pluck_activity_id)->where('status','1')->get();
+            $pro1 = Activity::whereIn('id',$pluck_activity_id)->where('status','0')->get();
+
+            foreach($pro as $key=> $p)
+            {
+                $this->billable_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['activity_id',$p->id]])->sum('approved_work_hours');
+                $this->project_name[$key] = $p->name;
+            }
+            $this->total_billable_hours = array_sum($this->billable_hours);
+            $this->dispatchBrowserEvent('activity_reports_billable', ['consumed' => $this->billable_hours,'balance' => $this->project_name,'total'=> $this->total_billable_hours]);
+
+            foreach($pro1 as $key=> $a)
+            {
+                $this->non_billable_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['activity_id',$a->id]])->sum('approved_work_hours');
+                $this->non_project_name[$key] = $a->name;
+            }
+            $this->non_total_billable_hours = array_sum($this->non_billable_hours);
+            $this->dispatchBrowserEvent('activity_reports_non_billable', ['consumed' => $this->non_billable_hours,'balance' => $this->non_project_name,'total'=> $this->non_total_billable_hours]);
+
+
+
+            // ========================================================Task========================================================
+            $pluck_task_id = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id],['activity_status','1' ]])->groupBy('task_id')->pluck('task_id');
+
+            $tasks_table =  Task::whereIn('id',$pluck_task_id)->get();
+            // dd($tasks_table);
+            foreach($tasks_table as $key => $task){
+
+                $this->billable_task_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['task_id',$task->id],['activity_status','1' ]])->sum('approved_work_hours');
+                // $this->non_billable_task_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['task_id',$task->id],['activity_status','0' ]])->sum('approved_work_hours');
+                $this->billable_task_name[$key] = $task->name;
+            }
+            $this->total_billable_task_hours = array_sum($this->billable_task_hours);
+            //
+
+            $this->dispatchBrowserEvent('billable_taskchartContainer', ['consumed' => $this->billable_task_hours,'balance' => $this->billable_task_name,'total'=> $this->total_billable_task_hours]);
+
+            // non-billable
+            $non_pluck_task_id = Timesheet::where([['timesheet_status','1'],['project_id',$this->project_id],['activity_status','0' ]])->groupBy('task_id')->pluck('task_id');
+            $non_tasks_table =  Task::whereIn('id',$non_pluck_task_id)->get();
+            foreach($non_tasks_table as $key => $non_task){
+
+                $this->non_billable_task_hours[$key] = Timesheet::where([['project_id',$this->project_id],['timesheet_status','1'],['task_id',$non_task->id],['activity_status','0' ]])->sum('approved_work_hours');
+                $this->non_billable_task_name[$key] = $non_task->name;
+            }
+            $this->non_total_billable_task_hours = array_sum($this->non_billable_task_hours);
+            $this->dispatchBrowserEvent('non_billable_taskchartContainer', ['consumed' => $this->non_billable_task_hours,'balance' => $this->non_billable_task_name,'total'=> $this->non_total_billable_task_hours]);
+
     }
     public function pmh_remove($id){
         ProjectManagerHeadLink::where('id',$id)->delete();

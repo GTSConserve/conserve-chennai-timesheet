@@ -61,7 +61,8 @@ class ProjectReports extends Component
     public function render()
     {
         $user_id = Auth::user()->id;
-        $projects = Timesheet::with('project')->where('user_id',$user_id)->get();
+        $project = Timesheet::with('project')->where('user_id',$user_id)->groupBy('project_id')->pluck('project_id');
+        $projects = Project::whereIn('id',$project)->get();
         // dd($projects);
         // $projects = Timesheet::with('project')->where('user_id',$user_id)->pluck('project_id')->toArray();
         // $r=array_unique($projects);

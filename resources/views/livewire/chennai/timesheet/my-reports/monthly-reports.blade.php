@@ -44,18 +44,27 @@
                 <div class="card-body">
                     @if ($piechart == 1)
                         <div class="row">
-                            <div class="col-sm-6">
-                                <div id="billable_dashboard_chart" style="height: 300px; width: 100%;"></div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div id="non_billable_dashboard_chart" style="height: 300px; width: 100%;"></div>
+                            <div class="col-sm-12" style="background:#78bb33;border:1px solid black;border-bottom:none;">
+                                <h3 class="text-center p-1" style="color:#fff;"><b>{{$month_name}}</b></h3>
                             </div>
                         </div>
-
+                        <div class="row" style="border:1px solid black;">
+                            <div class="col-sm-6 mt-3">
+                                <div id="billable_dashboard_chart" style="height: 300px; width: 100%;"></div>
+                            </div>
+                            <div class="col-sm-6 mt-3">
+                                <div id="non_billable_dashboard_chart" style="height: 300px; width: 100%;"></div>
+                            </div>
+                            <div class="col-sm-12" style="bagrount:white;margin-top:-10px;">
+                                {{-- test --}}
+                            </div>
+                        </div>
+                        <div class="p-2"></div>
                         <div class="row">
-                            <table id="zero-config1" class="table" style="width:100%;">
+                            <h5><b>Time Sheet Details</b></h5>
+                            <table class="table table-striped" >
                                 <thead>
-                                    <tr class="text-center">
+                                    <tr class="text-center p-3" >
                                         <th class="table-secondary">S.No</th>
                                         <th class="table-secondary">Date</th>
                                         <th class="table-secondary">Project</th>
@@ -71,7 +80,8 @@
                                         @foreach ($timesheet_details as $timesheet)
                                             <tr class="text-center">
                                                 <td>{{$loop->index+1}}</td>
-                                                <td>{{$timesheet->date}}</td>
+                                                {{-- <td>{{$timesheet->date}}</td> --}}
+                                                <td>{{date('d-m-Y',strtotime($timesheet->date))}}</td>
                                                 <td>{{$timesheet->project->name}}</td>
                                                 <td>
                                                     @if ($timesheet->activity->status == 1)
@@ -80,8 +90,8 @@
                                                         {{"Non Billable"}}
                                                     @endif
                                                 </td>
-                                                <td>{{$timesheet->work_hours}}</td>
-                                                <td>{{$timesheet->approved_work_hours}}</td>
+                                                <td>{{$timesheet->work_hours}} hrs</td>
+                                                <td>{{$timesheet->approved_work_hours}} hrs</td>
                                                 <td>{{$timesheet->user->name}}</td>
                                                 <td><button class = "btn btn-primary" wire:click="view({{$timesheet->id}})">View</button></td>
                                             </tr>
@@ -119,7 +129,7 @@
                     </div>
                     <div class="col-4">
                         @if ($view_approval->date)
-                            <input type="text" class="form_input" value="{{$view_approval->date}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{date('d-m-Y',strtotime($view_approval->date))}}" readonly>
                         @endif
                     </div>
                     <div class="col-2">
@@ -127,7 +137,7 @@
                     </div>
                     <div class="col-4">
                         @if ($view_approval->project)
-                            <input type="text" class="form_input" value="{{$view_approval->project->name}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->project->name}}" readonly>
                         @endif
                     </div>
                 </div>
@@ -137,17 +147,19 @@
                     </div>
                     <div class="col-4">
                         @if ($view_approval->task)
-                            <input type="text" class="form_input" value="{{$view_approval->task->name}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->task->name}}" readonly>
                         @endif
                     </div>
-                    <div class="col-2">
-                        <lable><b>Sub Task</b></lable>
-                    </div>
-                    <div class="col-4">
-                        @if ($view_approval->sub_task)
-                            <input type="text" class="form_input" value="{{$view_approval->sub_task->name}}" readonly>
-                        @endif
-                    </div>
+                    @if ($view_approval->sub_task)
+                        <div class="col-2">
+                            <lable><b>Sub Task</b></lable>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->sub_task->name}}" readonly>
+                        </div>
+                    @else
+                    <div class="col-6"></div>
+                    @endif
                 </div>
                 <div class="row">
                     <div class="col-2">
@@ -155,7 +167,7 @@
                     </div>
                     <div class="col-4">
                         @if ($view_approval->activity)
-                            <input type="text" class="form_input" value="{{$view_approval->activity->name}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->activity->name}}" readonly>
                         @endif
                     </div>
                     <div class="col-sm-2">
@@ -163,7 +175,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" class="form_input" value="{{$view_approval->work_hours}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}}" readonly>
                         @endif
                     </div>
                 </div>
@@ -174,7 +186,7 @@
                     <div class="col-4">
                         @if ($view_approval)
                             {{-- <input type="text" class="form_input" value="{{$view_approval->description}}" readonly> --}}
-                            <textarea name="" class="form_input" id="" readonly>{{$view_approval->description}}</textarea>
+                            <textarea name="" style="color:black;" class="form_input" id="" readonly>{{$view_approval->description}}</textarea>
                         @endif
                     </div>
                     <div class="col-sm-2">
@@ -182,7 +194,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" class="form_input" value="{{$view_approval->approved_work_hours}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->approved_work_hours}}" readonly>
                         @endif
                     </div>
                 </div>
@@ -197,7 +209,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" class="form_input" value="{{$view_approval->user->name}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->user->name}}" readonly>
                         @endif
                     </div>
                     <div class="col-sm-2">
@@ -205,7 +217,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" class="form_input" value="{{$view_approval->approved_date}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{date('d-m-Y',strtotime($view_approval->approved_date))}}" readonly>
                         @endif
                     </div>
                 </div>

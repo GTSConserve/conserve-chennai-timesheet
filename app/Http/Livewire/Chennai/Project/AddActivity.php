@@ -30,6 +30,7 @@ class AddActivity extends Component
         $this->emit('UpdateEmployee');
     }
     public function edit($id){
+
         $this->update_id = $id;
         $this->status = 2;
         $edit_activity = Activity::where('id',$this->update_id)->first();

@@ -43,7 +43,7 @@
         <div>
             <div class="page-header row">
                 <div class="col-11">
-                    <h3>Edit Activity</h3>
+                    <h3><b>Edit Activity</b></h3>
                 </div>
                 <div class="col-1">
                     <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
@@ -55,12 +55,18 @@
                         <div class="col-sm-6">
                             <label id="lable">Activity Name</label>
                             <input type="text" class="form_input" wire:model="update_activity_name" placeholder="Task Name">
+                            @error('update_activity_name')
+                                <span class='error text-danger'>{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-sm-6">
                             <label id="lable">Activity Status</label>
                             <div class="form_input">
                                 <input type="radio" wire:model="update_activity_status" id="billable" name="update_activity_status" value="1" placeholder="Man Hours">&nbsp<span for="billable">Billable</span>&nbsp&nbsp&nbsp
                                 <input type="radio" wire:model="update_activity_status" name="update_activity_status" id="non_billable" value="0" placeholder="Man Hours">&nbsp<span for="non_billable">Non Billable</span>
+                                @error('update_activity_status')
+                                    <span class='error text-danger'>{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>
