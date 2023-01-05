@@ -10,6 +10,6 @@ class Employee extends Model
     use HasFactory;
 
     public function user_group(){
-        return $this->hasOne(Usergroups::class,'id','employee_access');
+        return $this->hasOne(Usergroup::class,'id','employee_access');
     }
 }
