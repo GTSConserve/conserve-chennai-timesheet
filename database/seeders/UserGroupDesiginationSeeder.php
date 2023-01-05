@@ -203,6 +203,17 @@ class UserGroupDesiginationSeeder extends Seeder
         );
         DB::table('usergroup_desiginations')->insert(
             [
+                'name' => "Deputy General Manager",
+                'usergroup_department_id'=>"1",
+                'usergroup_experience_id'=>10,
+                'usergroup_grade_id'=>4,
+                'status'=>'1',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+        );
+        DB::table('usergroup_desiginations')->insert(
+            [
                 'name' => "General Manager",
                 'usergroup_department_id'=>"1",
                 'usergroup_experience_id'=>10,

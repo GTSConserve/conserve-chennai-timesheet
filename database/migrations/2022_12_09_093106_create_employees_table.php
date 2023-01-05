@@ -48,7 +48,8 @@ return new class extends Migration
             $table->string('doj')->nullable();
             $table->string('division')->nullable();
             $table->string('designation')->nullable();
-            $table->string('reporting_to')->nullable();
+            $table->integer('reporting_to')->unsigned()->index()->nullable();
+            $table->foreign('reporting_to')->references('id')->on('users');
             $table->string('employment_type')->nullable();
             $table->string('employment_status')->nullable();
             $table->integer('employee_access')->unsigned()->index();

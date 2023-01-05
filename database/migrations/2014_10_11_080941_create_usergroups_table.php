@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('usergroups', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('admin_name')->nullable();
+            $table->enum('is_admin',['0','1'])->nullable();
             $table->enum('status',['0','1'])->default('1');
             $table->timestamps();
             $table->softDeletes();

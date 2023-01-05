@@ -29,6 +29,18 @@ class SuperAdmin
         {
           return redirect()->route('project-manager-headdashboard');
         }
+        if(Auth::user()->user_group_id =6)
+        {
+          return redirect()->route('project-manager-dashboard');
+        }
+        if(Auth::user()->user_group_id =7)
+        {
+          return redirect()->route('project-lead-dashboard');
+        }
+        if(Auth::user()->user_group_id ==8)
+        {
+          return redirect()->route('team-lead-dashboard');
+        }
         if(Auth::user()->user_group_id == 9)
         {
           return redirect()->route('employee-dashboard');

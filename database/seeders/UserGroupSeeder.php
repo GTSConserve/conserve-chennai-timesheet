@@ -17,7 +17,7 @@ class UserGroupSeeder extends Seeder
     {
         DB::table('usergroups')->insert(
             [
-                'name' => "Super-Admin",
+                'name' => "Director",
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -25,6 +25,7 @@ class UserGroupSeeder extends Seeder
         DB::table('usergroups')->insert(
             [
                 'name' => "Location-Head",
+                "is_admin"=>"0",
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -32,6 +33,8 @@ class UserGroupSeeder extends Seeder
         DB::table('usergroups')->insert(
             [
                 'name' => "HR-Head",
+                "is_admin"=>"0",
+                'name' => "Super-Admin",
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -40,7 +43,7 @@ class UserGroupSeeder extends Seeder
         DB::table('usergroups')->insert(
             [
                 'name' => "Administration-Head",
-               
+                "is_admin"=>"0",
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -56,17 +59,16 @@ class UserGroupSeeder extends Seeder
         DB::table('usergroups')->insert(
             [
                 'name' => "Project-Manager",
-                
+                "is_admin"=>"0",
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
         );
 
-
         DB::table('usergroups')->insert(
             [
                 'name' => "Project-Lead",
-               
+                "is_admin"=>"0",
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -74,7 +76,7 @@ class UserGroupSeeder extends Seeder
         DB::table('usergroups')->insert(
             [
                 'name' => "Team-Lead",
-                
+                "is_admin"=>"0",
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -82,6 +84,7 @@ class UserGroupSeeder extends Seeder
         DB::table('usergroups')->insert(
             [
                 'name' => "Employee",
+                "is_admin"=>"0",
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],

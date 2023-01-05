@@ -22,10 +22,7 @@ class TeamLead
         
           return $next($request);
         }
-        if(Auth::user()->user_group=='hospitaladmin')
-        {
-          return  redirect()->route('hospital-admin-dashboard');
-        }
+    
        
        abort(404);
     }
