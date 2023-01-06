@@ -223,59 +223,41 @@ class UserGroupDesiginationSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
         );
-        DB::table('usergroup_desiginations')->insert(
-            [
-                'name' => "Country Manager",
-                'usergroup_department_id'=>"1",
-                'usergroup_experience_id'=>11,
-                'usergroup_grade_id'=>1,
-                'status'=>'1',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
-            ],
-        );
-        DB::table('usergroup_desiginations')->insert(
-            [
-                'name' => "Regional Manager",
-                'usergroup_department_id'=>"1",
-                'usergroup_experience_id'=>11,
-                'usergroup_grade_id'=>1,
-                'status'=>'1',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
-            ],
-        );
-        DB::table('usergroup_desiginations')->insert(
-            [
-                'name' => "Vice President",
-                'usergroup_department_id'=>"1",
-                'usergroup_experience_id'=>11,
-                'usergroup_grade_id'=>2,
-                'status'=>'1',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
-            ],
-        );
-        DB::table('usergroup_desiginations')->insert(
-            [
-                'name' => "Senior Vice President",
-                'usergroup_department_id'=>"1",
-                'usergroup_experience_id'=>11,
-                'usergroup_grade_id'=>3,
-                'status'=>'1',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
-            ],
-        );
-        DB::table('usergroup_desiginations')->insert(
-            [
-                'name' => "Director",
-                'usergroup_department_id'=>"1",
-                'status'=>'1',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
-            ],
-        );
+     
+        // DB::table('usergroup_desiginations')->insert(
+        //     [
+        //         'name' => "Regional Manager",
+        //         'usergroup_department_id'=>"1",
+        //         'usergroup_experience_id'=>11,
+        //         'usergroup_grade_id'=>1,
+        //         'status'=>'1',
+        //         'created_at' => date("Y-m-d H:i:s"),
+        //         'updated_at' => date("Y-m-d H:i:s"),
+        //     ],
+        // );
+        // DB::table('usergroup_desiginations')->insert(
+        //     [
+        //         'name' => "Vice President",
+        //         'usergroup_department_id'=>"1",
+        //         'usergroup_experience_id'=>11,
+        //         'usergroup_grade_id'=>2,
+        //         'status'=>'1',
+        //         'created_at' => date("Y-m-d H:i:s"),
+        //         'updated_at' => date("Y-m-d H:i:s"),
+        //     ],
+        // );
+        // DB::table('usergroup_desiginations')->insert(
+        //     [
+        //         'name' => "Senior Vice President",
+        //         'usergroup_department_id'=>"1",
+        //         'usergroup_experience_id'=>11,
+        //         'usergroup_grade_id'=>3,
+        //         'status'=>'1',
+        //         'created_at' => date("Y-m-d H:i:s"),
+        //         'updated_at' => date("Y-m-d H:i:s"),
+        //     ],
+        // );
+       
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Intern",
@@ -516,34 +498,32 @@ class UserGroupDesiginationSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
         );
+      
+        // DB::table('usergroup_desiginations')->insert(
+        //     [
+        //         'name' => "Vice President",
+        //         'usergroup_experience_id'=>11,
+        //         'usergroup_department_id'=>"2",
+        //         'usergroup_grade_id'=>2,
+        //         'status'=>'1',
+        //         'created_at' => date("Y-m-d H:i:s"),
+        //         'updated_at' => date("Y-m-d H:i:s"),
+        //     ],
+        // );
+        // DB::table('usergroup_desiginations')->insert(
+        //     [
+        //         'name' => "Senior Vice President",
+        //         'usergroup_experience_id'=>11,
+        //         'usergroup_department_id'=>"2",
+        //         'usergroup_grade_id'=>3,
+        //         'status'=>'1',
+        //         'created_at' => date("Y-m-d H:i:s"),
+        //         'updated_at' => date("Y-m-d H:i:s"),
+        //     ],
+        // );
         DB::table('usergroup_desiginations')->insert(
             [
-                'name' => "Assistant Vice President",
-                'usergroup_experience_id'=>11,
-                'usergroup_department_id'=>"2",
-                'usergroup_grade_id'=>1,
-                'status'=>'1',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
-            ],
-        );
-        DB::table('usergroup_desiginations')->insert(
-            [
-                'name' => "Vice President",
-                'usergroup_experience_id'=>11,
-                'usergroup_department_id'=>"2",
-                'usergroup_grade_id'=>2,
-                'status'=>'1',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
-            ],
-        );
-        DB::table('usergroup_desiginations')->insert(
-            [
-                'name' => "Senior Vice President",
-                'usergroup_experience_id'=>11,
-                'usergroup_department_id'=>"2",
-                'usergroup_grade_id'=>3,
+                'name' => "Location Head",
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -552,7 +532,6 @@ class UserGroupDesiginationSeeder extends Seeder
         DB::table('usergroup_desiginations')->insert(
             [
                 'name' => "Director",
-                'usergroup_department_id'=>"2",
                 'status'=>'1',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),

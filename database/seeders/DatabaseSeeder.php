@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserGroupDepartmentSeeder::class);
         $this->call(UserGroupGradeSeeder::class);
         $this->call(UserGroupDesiginationSeeder::class);
-        $this->call(UserTableSeeder::class);
-        $this->call(EmployeeTableSeeder::class);
+       $this->call(UserTableSeeder::class);
+       $this->call(EmployeeTableSeeder::class);
     }
 }

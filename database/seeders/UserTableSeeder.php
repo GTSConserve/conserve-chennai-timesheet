@@ -16,11 +16,10 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table("users")->insert([
-               'name'=>'Admin Director',
-               'email'=>'directoradmin@erp.com',
-               'usergroup_department_id'=>2,
+               'name'=>'Director',
+               'email'=>'director@erp.com',
                'usergroup_category_id'=>6,
-               'usergroup_desigination_id'=>51,
+               'usergroup_desigination_id'=>44,
                'password'=>bcrypt('user'),
                'current_Team_id'=> 0,
                'status'=>'1',
@@ -28,27 +27,12 @@ class UserTableSeeder extends Seeder
                'created_at' => date("Y-m-d H:i:s"),
                'updated_at' => date("Y-m-d H:i:s"),
         ]);
+       
         DB::table("users")->insert([
-            'name'=>'Eng Director',
-            'email'=>'directoreng@erp.com',
-            'usergroup_department_id'=>1,
-            'usergroup_category_id'=>6,
-            'usergroup_desigination_id'=>24,
-            'password'=>bcrypt('user'),
-            'current_Team_id'=> 0,
-            'status'=>'1',
-            'user_group_id'=>1,
-            'created_at' => date("Y-m-d H:i:s"),
-            'updated_at' => date("Y-m-d H:i:s"),
-     ]);
-        DB::table("users")->insert([
-            'name'=>'Admin Location',
-            'email'=>'locationadmin@erp.com',
-            'usergroup_department_id'=>2,
-            'usergroup_experience_id'=>11,
+            'name'=>'Location',
+            'email'=>'location@erp.com',
             'usergroup_category_id'=>5,
-            'usergroup_grade_id'=>1,
-            'usergroup_desigination_id'=>50,
+            'usergroup_desigination_id'=>43,
             'password'=>bcrypt('user'),
             'current_Team_id'=> 0,
             'status'=>'1',
