@@ -40,6 +40,12 @@ class AddEmployee extends Component
 
     private $reporting_heads = '';
 
+    public function role()
+    {
+        $this->basic_active = "";
+        $this->status = 0;
+    }
+
     public function basic()
     {
         $this->education_active = "";
@@ -78,13 +84,25 @@ class AddEmployee extends Component
     }
     public function role_next()
     {
-        // $this->validate([
-        //     'experience' => 'required',
-        //     'category' => 'required',
-        //     'department' => 'required',
-        //     'grade' => 'required',
-        //     'designation' => 'required',
-        // ]);
+        if($this->department!=5)
+        {
+        $this->validate([
+            'experience' => 'required',
+            'category' => 'required',
+            'department' => 'required',
+            'grade' => 'required',
+            'designation' => 'required',
+            'employee_access' => 'required',
+            'employee_report_to'=>'required'
+        ]);
+        }
+        if($this->department==5)
+        {
+              $this->validate([
+            'department' => 'required',
+             ]);
+        }
+      //  dd($this->employee_access);
         $this->basic_active = "active";
         $this->status = 1;
     }
@@ -161,12 +179,12 @@ class AddEmployee extends Component
             'emp_id' => 'required',
             'emp_code' => 'required',
             'employee_doj' => 'required',
-            'employee_division' => 'required',
+           // 'employee_division' => 'required',
             // 'employee_designation' => 'required',
             // 'employee_report_to' => 'required',
             'employement_type' => 'required',
             'employement_status' => 'required',
-            'employee_access' => 'required',
+          //  'employee_access' => 'required',
         ]);
         $user = new User;
         $user->name = $this->first_name;
@@ -180,6 +198,8 @@ class AddEmployee extends Component
         $password = $this->emp_id . $this->emp_code;
         $user->password = bcrypt($password);
         $user->save();
+             //   dd('l');
+
         $employee = new Employee;
         // $this->validate([
         //     'transfer_letter' => 'required|file',

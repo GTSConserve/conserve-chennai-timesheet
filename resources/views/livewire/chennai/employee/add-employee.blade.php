@@ -273,7 +273,10 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-10"></div>
+                <div class="col-sm-2">
+                    <input type="button" name="next" class="previous action-button" wire:click="role()"
+                        value="previous">
+                </div>
                 <div class="col-sm-2">
                     <input type="button" class="next action-button" wire:click="basic_next()" value="Next">
                 </div>
