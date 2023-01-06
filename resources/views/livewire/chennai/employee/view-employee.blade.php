@@ -6,7 +6,7 @@
                     <h3 >View Employee</h3>
                 </div>
             </div>
-            <button class="btn btn-warning" ><a href="{{Route('super-admin-all-employee')}}">Back</a></button>
+            <button class="btn btn-warning" ><a href="{{Route('location-head-all-employee')}}">Back</a></button>
         </div>
         {{-- <div class="layout-px-spacing"> --}}
             <div class="row layout-top-spacing" id="cancel-row">
