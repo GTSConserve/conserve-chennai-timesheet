@@ -131,17 +131,45 @@
                     <div class="col-12">
                         <div class="name-sec"
                             style="background: linear-gradient(180deg, #2DF1FF 0%, #19A1D2 100%);box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);border-radius: 18px;margin: 10px 0;height: 80px;padding: 14px;">
-                            <label for=""
-                                style="margin-bottom: 0;color:#fff;font-size: 14px;font-family: Segoe UI !important;">
+                                <div class="row">
+                                    <div class="col-8 p-1 px-5">
+                                        <div class="row">
+                                            <div class="">
+                                                <label for=""
+                                                    style="margin-bottom: 0;color:#fff;font-size: 14px;font-family: Segoe UI !important;">
 
-                                @if($time_status == 1)
-                                {{'Good Afternoon !'}}
-                                @else
-                                {{'Good Morning !'}}
-                                @endif</label>
-                            <p for=""
-                                style="color:white;font-size: 18px;font-weight: 600;font-family: Segoe UI !important;">
-                                {{Auth::user()->name}}</label></p>
+                                                    @if($time_status == 1)
+                                                    {{'Good Afternoon !'}}
+                                                    @else
+                                                    {{'Good Morning !'}}
+                                                    @endif</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <p for=""
+                                                style="color:white;font-size: 18px;font-weight: 600;font-family: Segoe UI !important;">
+                                                {{Auth::user()->name}}</label></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mt-2">
+                                            <div >
+                                            @if ($punch_status == 0)
+
+                                                    <button style="font-size:15px;padding-left:15px;padding-right:15px;padding-top:5px;padding-bottom:5px;display: inline-flex;cursor: pointer;box-sizing: border-box;border-radius: 100px;border: 0;align-items: center;box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);background-color: #ffffff ;color: #19A1D2;" wire:click="punch_in()"><b>Punch&nbspIn</b></button>
+                                                {{-- </div> --}}
+                                            @elseif ($punch_status == 1)
+                                                {{-- <div> --}}
+                                                    <button style="margin-left:-10px;font-size:15px;padding-left:15px;padding-right:15px;padding-top:5px;padding-bottom:5px;display: inline-flex;cursor: pointer;box-sizing: border-box;border-radius: 100px;border: 0;align-items: center;box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);background-color: #ffffff ;color: #19A1D2;" wire:click="punch_out()"><b>Punch&nbspOut</b></button>
+                                            @else
+
+                                            @endif
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- <div style="background: rgb(167, 229, 248);box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);border-radius: 18px;margin: 0px 0;padding:2px;"></div> --}}
+
                         </div>
                     </div>
                     <div class="col-12">
@@ -155,7 +183,6 @@
                                 @foreach($controls as $control)
                                 <p style="font-size:14px;">
                                         “{{$controls[0]->engineering_quote}}"
-
                                 </p>
                                 @endforeach
                                 <h3 style="font-size:14px;color:#2D9CDB"><b>Ethics</b></h3>

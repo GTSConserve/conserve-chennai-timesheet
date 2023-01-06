@@ -183,7 +183,9 @@ code {
 */
 .header-container {
   max-height: 64px;
-  background: #0d1a59;
+  background: linear-gradient(90deg, #FFFFFF 15.26%, #00AAEB 42.59%, #254C9E 78.42%);
+  /* background: linear-gradient(90deg, #254C9E 3.26%, #00AAEB 42.59%, #FFFFFF 78.42%); */
+
   position: fixed;
   top: 0;
   right: 0;
