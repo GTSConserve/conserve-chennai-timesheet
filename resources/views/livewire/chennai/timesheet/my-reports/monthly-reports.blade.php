@@ -43,12 +43,13 @@
             <div class="card component-card_1">
                 <div class="card-body">
                     @if ($piechart == 1)
+                    <div class="p-4">
                         <div class="row">
-                            <div class="col-sm-12" style="background:#78bb33;border:1px solid black;border-bottom:none;">
+                            <div class="col-sm-12" style="background:#9bbb58;border:1px solid #808080;border-bottom:none;">
                                 <h3 class="text-center p-1" style="color:#fff;"><b>{{$month_name}}</b></h3>
                             </div>
                         </div>
-                        <div class="row" style="border:1px solid black;">
+                        <div class="row" style="border:1px solid #808080;">
                             <div class="col-sm-6 mt-3">
                                 <div id="billable_dashboard_chart" style="height: 300px; width: 100%;"></div>
                             </div>
@@ -60,9 +61,9 @@
                             </div>
                         </div>
                         <div class="p-2"></div>
-                        <div class="row">
+                        <div class="row p-3">
                             <h5><b>Time Sheet Details</b></h5>
-                            <table class="table table-striped" >
+                            <table id="zero-config1" class="table mt-2" style="width:100%;">
                                 <thead>
                                     <tr class="text-center p-3" >
                                         <th class="table-secondary">S.No</th>
@@ -100,6 +101,7 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
                     @else
                     <div class="row">
                         <div class="col-sm-12">

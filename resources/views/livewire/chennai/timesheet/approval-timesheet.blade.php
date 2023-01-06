@@ -101,7 +101,7 @@
             <fieldset class="mt-3">
                 @if ($piechart_status == 1)
                 <div class="row p-3">
-                    <div class="col-sm-12" style="background:#78bb33;border:1px solid rgb(17, 16, 16);border-bottom:none;">
+                    <div class="col-sm-12" style="background:#9bbb58;border:1px solid #808080; border-bottom:none;">
                         <h3 class="text-center" style="color:#fff;">
                             <b>Over All
                                 {{-- @if ($project_details->name !="")
@@ -110,7 +110,7 @@
                             </b>
                         </h3>
                     </div>
-                    <div class="col-sm-12" style="border:1px solid black;">
+                    <div class="col-sm-12" style="border:1px solid #808080;">
                         <div class="row">
                             <div class="col-sm-6 mt-3" wire:ignore>
                                 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
@@ -130,6 +130,7 @@
                         </div>
                     </div> --}}
                 @endif
+                <div class="p-2"></div>
                 <table id="zero-config1" class="table" style="width:100%;">
                     <thead>
                         <tr class="text-center">

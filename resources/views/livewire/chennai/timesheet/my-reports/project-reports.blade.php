@@ -157,7 +157,7 @@
             <div class="card component-card_1 p-4">
                 <div class="card-body">
                     <div class="row p-3">
-                        <div class="col-sm-12" style="background:#78bb33;border:1px solid black;border-bottom:none;">
+                        <div class="col-sm-12" style="background:#9bbb58;border:1px solid #808080;border-bottom:none;">
                             <h3 class="text-center p-1" style="color:#fff;">
                                 <b>
                                     @if ($project_details->name !="")
@@ -166,7 +166,7 @@
                                 </b>
                             </h3>
                         </div>
-                        <div class="col-sm-12" style="border:1px solid black;">
+                        <div class="col-sm-12" style="border:1px solid #808080;">
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-6 mt-3">
@@ -175,7 +175,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row p-3">
                         <h5><b>Time Sheet Details</b></h5>
                         <table id="zero-config1" class="table mt-2" style="width:100%;">
                             <thead>
