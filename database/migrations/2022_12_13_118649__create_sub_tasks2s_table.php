@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sub_tasks2s', function (Blueprint $table) {
+        Schema::connection('mysql_migration')->create('sub_tasks2s', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
             $table->integer('sub_task_id')->unsigned()->index();

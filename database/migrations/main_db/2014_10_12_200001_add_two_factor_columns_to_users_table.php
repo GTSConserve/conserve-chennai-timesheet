@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql_migration')->table('users', function (Blueprint $table) {
+        Schema::connection('mysql_local')->table('users', function (Blueprint $table) {
             $table->text('two_factor_secret')
                     ->after('password')
                     ->nullable();

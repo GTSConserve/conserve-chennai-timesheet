@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dashboard_hirings', function (Blueprint $table) {
+        Schema::connection('mysql_migration')->create('dashboard_hirings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
             $table->date('date')->nullable();

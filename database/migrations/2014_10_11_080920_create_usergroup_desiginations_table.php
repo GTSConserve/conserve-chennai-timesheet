@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usergroup_desiginations', function (Blueprint $table) {
+        Schema::connection('mysql_migration')->create('usergroup_desiginations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('usergroup_department_id')->unsigned()->index()->nullable();

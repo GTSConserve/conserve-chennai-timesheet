@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::connection('mysql_migration')->create('tasks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
             $table->enum('status',['0','1'])->nullable();

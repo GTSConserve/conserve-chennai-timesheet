@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql_migration')->create('usergroup_grades', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->enum('status',['0','1'])->default('1');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::connection('mysql_local')->create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usergroup_grades');
+        Schema::dropIfExists('password_resets');
     }
 };

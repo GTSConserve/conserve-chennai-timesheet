@@ -13,14 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql_migration')->create('usergroup_grades', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::connection('mysql_migration')->create('personal_access_tokens', function (Blueprint $table) {
+            $table->id();
+            $table->morphs('tokenable');
             $table->string('name');
-            $table->enum('status',['0','1'])->default('1');
+            $table->string('token', 64)->unique();
+            $table->text('abilities')->nullable();
+            $table->timestamp('last_used_at')->nullable();
+            $table->timestamp('expires_at')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usergroup_grades');
+        Schema::dropIfExists('personal_access_tokens');
     }
 };

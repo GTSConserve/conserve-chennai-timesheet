@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('skills', function (Blueprint $table) {
+        Schema::connection('mysql_migration')->create('skills', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });

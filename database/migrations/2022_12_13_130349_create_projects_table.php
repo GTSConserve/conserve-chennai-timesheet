@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::connection('mysql_migration')->create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('billable_man_hour')->nullable();

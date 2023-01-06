@@ -13,12 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql_migration')->create('task_links', function (Blueprint $table) {
+        Schema::connection('mysql_local')->create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('project_id')->unsigned()->index();
-            $table->foreign('project_id')->references('id')->on('projects');
-            $table->integer('task_id')->unsigned()->index();
-            $table->foreign('task_id')->references('id')->on('tasks');
+            $table->string('name');
+            $table->string('email')->unique();
+          
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->enum('status',['0','1'])->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_links');
+        Schema::dropIfExists('users');
     }
 };
