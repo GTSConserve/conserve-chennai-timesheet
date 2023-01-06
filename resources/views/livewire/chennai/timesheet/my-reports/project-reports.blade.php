@@ -91,7 +91,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}} hrs" readonly>
                         @endif
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->approved_work_hours}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->approved_work_hours}} hrs" readonly>
                         @endif
                     </div>
                 </div>
@@ -153,64 +153,67 @@
     </div>
     @endif
     @if ($status == 1)
-    <div class="">
-        <div class="card component-card_1 ">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-12" style="background:#78bb33;border:1px solid black;border-bottom:none;">
-                        <h3 class="text-center p-1" style="color:#fff;">
-                            <b>
-                                @if ($project_details->name !="")
-                                    {{$project_details->name}}
-                                @endif
-                            </b>
-                        </h3>
+        <div class="">
+            <div class="card component-card_1 p-4">
+                <div class="card-body">
+                    <div class="row p-3">
+                        <div class="col-sm-12" style="background:#78bb33;border:1px solid black;border-bottom:none;">
+                            <h3 class="text-center p-1" style="color:#fff;">
+                                <b>
+                                    @if ($project_details->name !="")
+                                        {{$project_details->name}}
+                                    @endif
+                                </b>
+                            </h3>
+                        </div>
+                        <div class="col-sm-12" style="border:1px solid black;">
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6 mt-3">
+                                    <div id="myreport_chart" style="height: 300px; width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row" style="border:1px solid black;">
-                    <div class="col-sm-12">
-                        <div class="text-center mt-3" id="myreport_chart" style="height: 300px; "></div>
-                    </div>
-                </div>
-                <div class="p-2"></div>
-                <div class="row">
-                    <h5><b>Time Sheet Details</b></h5>
-                    <table class="table table-striped" >
-                    <thead>
-                        <tr class="text-center p-3">
-                            <th class="table-secondary">S.No</th>
-                            <th class="table-secondary">Date</th>
-                            <th class="table-secondary">Activity Type</th>
-                            <th class="table-secondary">Working Hrs</th>
-                            <th class="table-secondary">Approved Hrs</th>
-                            <th class="table-secondary">Approved By</th>
-                            <th class="table-secondary">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($timesheets)
-                            @foreach ($timesheets as $timesheet)
-                                <tr class="text-center">
-                                    <td>{{$loop->index+1}}</td>
-                                    <td>{{date('d-m-Y',strtotime($timesheet->date))}}</td>
-                                    <td>
-                                        @if ($timesheet->activity->status == 1)
-                                            {{"Billable"}}
-                                        @else
-                                            {{"Non Billable"}}
-                                        @endif
-                                    </td>
-                                    <td>{{$timesheet->work_hours}} hrs</td>
-                                    <td>{{$timesheet->approved_work_hours}} hrs</td>
-                                    <td>{{$timesheet->user->name}}</td>
-                                    <td><button class = "btn btn-primary" wire:click="view({{$timesheet->id}})">View</button></td>
+                    <div class="row">
+                        <h5><b>Time Sheet Details</b></h5>
+                        <table id="zero-config1" class="table mt-2" style="width:100%;">
+                            <thead>
+                                <tr class="text-center p-3">
+                                    <th class="table-secondary">S.No</th>
+                                    <th class="table-secondary">Date</th>
+                                    <th class="table-secondary">Activity Type</th>
+                                    <th class="table-secondary">Working Hrs</th>
+                                    <th class="table-secondary">Approved Hrs</th>
+                                    <th class="table-secondary">Approved By</th>
+                                    <th class="table-secondary">Action</th>
                                 </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
+                            </thead>
+                            <tbody>
+                                @if ($timesheets)
+                                    @foreach ($timesheets as $timesheet)
+                                        <tr class="text-center">
+                                            <td>{{$loop->index+1}}</td>
+                                            <td>{{date('d-m-Y',strtotime($timesheet->date))}}</td>
+                                            <td>
+                                                @if ($timesheet->activity->status == 1)
+                                                    {{"Billable"}}
+                                                @else
+                                                    {{"Non Billable"}}
+                                                @endif
+                                            </td>
+                                            <td>{{$timesheet->work_hours}} hrs</td>
+                                            <td>{{$timesheet->approved_work_hours}} hrs</td>
+                                            <td>{{$timesheet->user->name}}</td>
+                                            <td><button class = "btn btn-primary" wire:click="view({{$timesheet->id}})">View</button></td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-   </div>
     @endif
 </div>

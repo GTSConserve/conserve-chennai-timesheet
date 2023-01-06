@@ -8,7 +8,7 @@
         <fieldset class="mt-3">
             <div class="row">
                 <div class="col-sm-6">
-                    <label id="lable">Date</label>
+                    <label id="lable1">Date</label>
                     <input class = "form_input" wire:model = "date" max="{{date('Y-m-d')}}" type="date">
                     @if ($wrong_date == 1)
                         <span style="color:red">Select Only Current Date</span>
@@ -19,7 +19,7 @@
 
                 </div>
                 <div class="col-sm-6">
-                    <label id="lable">Project</label>
+                    <label id="lable2">Project</label>
                     <select name="" class="form_input" id="" wire:change="project_change($event.target.value)"  wire:model="project_id">
                         <option value="">Select Project</option>
                         @foreach($projects as $project)
@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-sm-6">
 
-                    <label id="lable">Task</label>
+                    <label id="lable3">Task</label>
                     <select name="" class="form_input" id="" wire:change="task_change($event.target.value)"  wire:model="task_id">
                         <option value="">Select Task</option>
                         @if ($tasks)
@@ -45,17 +45,22 @@
                         <span class='error text-danger'>{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-sm-6">
-                    <label id="lable">Sub Task</label>
-                    <select name="" class="form_input" id=""  wire:model="sub_task1_id">
-                        <option value="">Select Sub Task</option>
-                        @if ($subtasks)
-                            @foreach($subtasks as $subtask)
-                                <option value="{{$subtask->id}}">{{$subtask->name}}</option>
-                            @endforeach
-                        @endif
-                    </select>
-                </div>
+                @if ($sub__task == 1)
+                    <div class="col-sm-6">
+                        <label>Sub Task</label>
+                        <select name="" class="form_input" id=""  wire:model="sub_task1_id">
+                            <option value="">Select Sub Task</option>
+                            @if ($subtasks)
+                                @foreach($subtasks as $subtask)
+                                    <option value="{{$subtask->id}}">{{$subtask->name}}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+                @else
+                <div class="col-sm-6"></div>
+                @endif
+
                 {{-- <div class="col-sm-6">
                     <label id="lable">Sub Tasks 2</label>
                     <select name="" class="form_input" id=""  wire:model="sub_task2_id">
@@ -66,7 +71,7 @@
                     </select>
                 </div> --}}
                 <div class="col-sm-6">
-                    <label id="lable">Activity</label>
+                    <label id="lable4">Activity</label>
 
                     <select name="" class="form_input" id=""  wire:model="activity_id">
                         <option value="">Select Activity</option>
@@ -82,7 +87,7 @@
                     @enderror
                 </div>
                 <div class="col-sm-2">
-                    <label id="lable">Working Hours</label>
+                    <label id="lable5">Working Hours</label>
                     <input class="form_input" type="text" wire:model="work_hours" style="width:125px;">
                     @error('work_hours')
                         <span class='error text-danger'>{{ $message }}</span>
@@ -90,7 +95,7 @@
                 </div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6">
-                    <label id="lable">Description</label>
+                    <label id="lable6">Description</label>
                     <textarea name="" class="form_input" wire:model="description" id=""></textarea>
                 </div>
             </div>

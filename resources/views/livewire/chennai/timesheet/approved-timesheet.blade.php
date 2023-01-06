@@ -63,7 +63,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}} hrs" readonly>
                         @endif
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->approved_work_hours}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->approved_work_hours}}  hrs" readonly>
                         @endif
                     </div>
                 </div>
@@ -156,8 +156,8 @@
                                             {{"Non Billable"}}
                                         @endif
                                     </td>
-                                    <td>{{$timesheet->work_hours}}</td>
-                                    <td>{{$timesheet->approved_work_hours}}</td>
+                                    <td>{{$timesheet->work_hours}} hrs</td>
+                                    <td>{{$timesheet->approved_work_hours}} hrs</td>
                                     <td>{{$timesheet->user->name}}</td>
                                     <td><button class = "btn btn-primary" wire:click="view({{$timesheet->id}})">View</button></td>
                                 </tr>

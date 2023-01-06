@@ -59,17 +59,22 @@ class ApprovalTimesheet extends Component
     }
     public function approve($id,$key){
         $approve = Timesheet::where('id',$id)->first();
+        if(array_key_exists($key, $this->approved_work_hours)){
+            if($this->approved_work_hours[$key] != ""){
 
-        if($this->approved_work_hours[$key] != ""){
+                $approve->timesheet_status = '1';
+                $approve->approved_by = Auth::user()->id;
+                $approve->approved_work_hours = $this->approved_work_hours[$key];
+                $approve->approved_date = date('Y-m-d');
 
-            $approve->timesheet_status = '1';
-            $approve->approved_by = Auth::user()->id;
-            $approve->approved_work_hours = $this->approved_work_hours[$key];
-            $approve->approved_date = date('Y-m-d');
-
-            $approve->save();
+                $approve->save();
+                $this->reset();
+            }
+        }else{
+            $this->emit('approved_hours',$key);
+            // $this->dispatchBrowserEvent('approved_hours');
         }
-        $this->reset();
+
 
     }
     public function render()

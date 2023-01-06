@@ -16,6 +16,7 @@ class PendingTimesheet extends Component
     public $view_approval;
     public $edit_project_id, $edit_task_id, $edit_sub_task1_id, $edit_sub_task2_id, $edit_activity_id, $edit_description, $edit_work_hours;
     public $update_pending_id;
+    public $edit__pending;
     public function back(){
         $this->status = 0;
     }
@@ -26,6 +27,8 @@ class PendingTimesheet extends Component
 
     public function edit($id){
         $this->status = 2;
+        $this->edit__pending =  Timesheet::with('project','activity','employee','user_group','sub_task','user')->where('id',$id)->first();
+
         $edit_pending =  Timesheet::where('id',$id)->first();
         $this->edit_project_id = $edit_pending->project_id;
         $this->edit_task_id    = $edit_pending->task_id;

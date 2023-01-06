@@ -175,7 +175,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}} hrs" readonly>
                         @endif
                     </div>
                 </div>
@@ -194,7 +194,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->approved_work_hours}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->approved_work_hours}} hrs" readonly>
                         @endif
                     </div>
                 </div>

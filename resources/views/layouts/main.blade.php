@@ -295,6 +295,11 @@
                padding: '50px'
                });
            });
+           Livewire.on('approved_hours', (id) => {
+                // alert(id);
+                document.getElementById("approved_work_hours"+id).style.border = "1px solid red";
+                // document.getElementById('approved_worrk_hours'+)
+            });
 
        }
    </script>
@@ -392,7 +397,7 @@
             var chart = new CanvasJS.Chart("billable_dashboard_chart", {
                 animationEnabled: true,
                 title: {
-                    text: "Billable hrs-"+ event.detail.total+" hrs"
+                    text: "Billable - "+ event.detail.total+" hrs"
                 },
                 data: [{
                     type: "pie",
@@ -418,7 +423,7 @@
             var chart = new CanvasJS.Chart("non_billable_dashboard_chart", {
                 animationEnabled: true,
                 title: {
-                    text: "Non Billable hrs-"+ event.detail.total_non_billable_hours+" hrs"
+                    text: "Non Billable - "+ event.detail.total_non_billable_hours+" hrs"
                 },
                 data: [{
                     type: "pie",
@@ -444,7 +449,7 @@
             var chart = new CanvasJS.Chart("billablechartContainer", {
                 animationEnabled: true,
                 title: {
-                    text: "Billable hrs-"+ event.detail.total+" hrs"
+                    text: "Billable - "+ event.detail.total+" hrs"
                 },
                 data: [{
                     type: "pie",
@@ -471,7 +476,7 @@
             var chart = new CanvasJS.Chart("non_billablechartContainer", {
                 animationEnabled: true,
                 title: {
-                    text: "Non Billable hrs-"+ event.detail.total+" hrs"
+                    text: "Non Billable - "+ event.detail.total+" hrs"
                 },
                 data: [{
                     type: "pie",
@@ -497,7 +502,7 @@
             var chart = new CanvasJS.Chart("billable_taskchartContainer", {
                 animationEnabled: true,
                 title: {
-                    text: "Billable hrs-"+ event.detail.total+" hrs"
+                    text: "Billable -"+ event.detail.total+" hrs"
                 },
                 data: [{
                     type: "pie",
@@ -523,7 +528,7 @@
             var chart = new CanvasJS.Chart("non_billable_taskchartContainer", {
                 animationEnabled: true,
                 title: {
-                    text: "Non Billable hrs-"+ event.detail.total+" hrs"
+                    text: "Non Billable -"+ event.detail.total+" hrs"
                 },
                 data: [{
                     type: "pie",
@@ -537,79 +542,7 @@
         })
     </script>
     <script>
-        // / Define colors
-        var green =  KTUtil.getCssVariableValue("--kt-success-active");
-        var red =  KTUtil.getCssVariableValue("--kt-danger-active");
 
-        // Initialize Fullcalendar -- for more info please visit the official site: https://fullcalendar.io/demos
-        var calendarEl = document.getElementById("kt_docs_fullcalendar_background_events");
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            headerToolbar: {
-                left: "prev,next today",
-                center: "title",
-                right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
-            },
-            initialDate: "2020-09-12",
-            navLinks: true, // can click day/week names to navigate views
-            businessHours: true, // display business hours
-            editable: true,
-            selectable: true,
-            events: [
-                {
-                    title: "Business Lunch",
-                    start: "2020-09-03T13:00:00",
-                    constraint: "businessHours"
-                },
-                {
-                    title: "Meeting",
-                    start: "2020-09-13T11:00:00",
-                    constraint: "availableForMeeting", // defined below
-                    color: green
-                },
-                {
-                    title: "Conference",
-                    start: "2020-09-18",
-                    end: "2020-09-20"
-                },
-                {
-                    title: "Party",
-                    start: "2020-09-29T20:00:00"
-                },
-
-                // areas where "Meeting" must be dropped
-                {
-                    groupId: "availableForMeeting",
-                    start: "2020-09-11",
-                    end: "2020-09-11",
-                    display: "background",
-                },
-                {
-                    groupId: "availableForMeeting",
-                    start: "2020-09-13",
-                    end: "2020-09-13",
-                    display: "background",
-                },
-
-                // red areas where no events can be dropped
-                {
-                    start: "2020-09-24",
-                    end: "2020-09-28",
-                    overlap: false,
-                    display: "background",
-                    color: red
-                },
-                {
-                    start: "2020-09-06",
-                    end: "2020-09-08",
-                    overlap: false,
-                    display: "background",
-                    color: red
-                }
-            ]
-        });
-
-        calendar.render();
     </script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script>

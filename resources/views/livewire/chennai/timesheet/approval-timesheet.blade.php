@@ -3,7 +3,7 @@
       <div class="">
         <div class="page-header row">
             <div class="col-11">
-                <h3><b>View Approved Timesheet</b></h3>
+                <h3><b>View Approval Timesheet</b></h3>
             </div>
             <div class="col-1">
                 <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
@@ -63,7 +63,7 @@
                     </div>
                     <div class="col-sm-4">
                         @if ($view_approval)
-                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}}" readonly>
+                            <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}} hrs" readonly>
                         @endif
                     </div>
                 </div>
@@ -112,10 +112,10 @@
                     </div>
                     <div class="col-sm-12" style="border:1px solid black;">
                         <div class="row">
-                            <div class="col-sm-6 mt-3">
+                            <div class="col-sm-6 mt-3" wire:ignore>
                                 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                             </div>
-                            <div class="col-sm-6 mt-3">
+                            <div class="col-sm-6 mt-3" wire:ignore>
                                 <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
                             </div>
                         </div>
@@ -163,7 +163,7 @@
                                         {{" Non Billable"}}
                                     @endif</td>
                                     <td>{{$timesheet->work_hours}} hrs</td>
-                                    <td><center><input  wire:model="approved_work_hours.{{$key}}" style="background: #fff;border: none;-webkit-box-shadow: none;box-shadow: none;border-radius: 6px;border: 1px solid #e0e6ed;padding: 6px 1px 8px 14px;height: auto;width:50px;font-size: 12px;" type="text" > hrs</center></td>
+                                    <td><center><input id="approved_work_hours{{$key}}" wire:model="approved_work_hours.{{$key}}" style="background: #fff;-webkit-box-shadow: none;box-shadow: none;border-radius: 6px;border: 1px solid #edeae0;padding: 6px 1px 8px 14px;height: auto;width:50px;font-size: 12px;" type="text" > hrs</center></td>
                                     <td><button class = "btn btn-primary"  wire:click="view({{$timesheet->id}})">View</button><button class = "btn btn-warning" wire:click="approve({{$timesheet->id}},{{$key}})">Approve</button></td>
                                 </tr>
                             @endforeach

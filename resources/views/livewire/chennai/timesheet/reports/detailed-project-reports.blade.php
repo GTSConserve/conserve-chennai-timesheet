@@ -96,7 +96,7 @@
                         </div>
                         <div class="col-sm-4">
                             @if ($view_approval)
-                                <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}}" readonly>
+                                <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}} hrs" readonly>
                             @endif
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                         </div>
                         <div class="col-sm-4">
                             @if ($view_approval)
-                                <input type="text" style="color:black;" class="form_input" value="{{$view_approval->approved_work_hours}}" readonly>
+                                <input type="text" style="color:black;" class="form_input" value="{{$view_approval->approved_work_hours}} hrs" readonly>
                             @endif
                         </div>
                     </div>
@@ -173,8 +173,8 @@
                                 </div>
                             </div>
                             <div class="row p-3">
-                                <div class="col-sm-12" style="background:#78bb33;border:1px solid rgb(17, 16, 16);border-bottom:none;">
-                                    <h3 class="text-center" style="color:#fff;"><b>Over All</b></h3>
+                                <div class="col-sm-12" style="background:#80be41;border:1px solid rgb(17, 16, 16);border-bottom:none;">
+                                    <h3 class="text-center" style="color:#fff;"><b>Overall Details</b></h3>
                                 </div>
                                 <div class="col-sm-12" style="border:1px solid black;">
                                     <div class="row">
@@ -198,7 +198,7 @@
                             {{--  --}}
                             <div class="row p-3">
                                 <div class="col-sm-12" style="background:#78bb33;border:1px solid black;border-bottom:none;">
-                                    <h3 class="text-center" style="color:#fff;"><b>Activity-Wise</b></h3>
+                                    <h3 class="text-center" style="color:#fff;"><b>Activity Details</b></h3>
                                 </div>
                                 <div class="col-sm-12" style="border:1px solid black;">
                                     <div class="row">
@@ -226,7 +226,7 @@
                             {{--  --}}
                             <div class="row p-3">
                                 <div class="col-sm-12" style="background:#78bb33;border:1px solid black;border-bottom:none;">
-                                    <h3 class="text-center" style="color:#fff;"><b>Task-wise</b></h3>
+                                    <h3 class="text-center" style="color:#fff;"><b>Task Details</b></h3>
                                 </div>
                                 <div class="col-sm-12" style="border:1px solid black;">
                                     <div class="row">
@@ -267,8 +267,8 @@
                                                         {{"Non Billable"}}
                                                     @endif
                                                 </td>
-                                                <td>{{$timesheet->work_hours}}</td>
-                                                <td>{{$timesheet->approved_work_hours}}</td>
+                                                <td>{{$timesheet->work_hours}} hrs</td>
+                                                <td>{{$timesheet->approved_work_hours}} hrs</td>
                                                 <td>{{$timesheet->user->name}}</td>
                                                 <td><button class = "btn btn-primary" wire:click="view({{$timesheet->id}})">View</button></td>
                                             </tr>
@@ -290,9 +290,9 @@
                                                 <tr>
                                                     <td>{{$loop->index+1}}</td>
                                                     <td>{{$pmd->user->first_name}}</td>
-                                                    @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
+                                                    {{-- @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
                                                     <td><svg wire:click="pmh_remove({{$pmd->id}})" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></td>
-                                                    @endif
+                                                    @endif --}}
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -312,9 +312,9 @@
                                                 <tr>
                                                     <td>{{$loop->index+1}}</td>
                                                     <td>{{$pm->user->first_name}}</td>
-                                                    @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
+                                                    {{-- @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
                                                     <td><svg wire:click="pm_remove({{$pm->id}})" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></td>
-                                                    @endif
+                                                    @endif --}}
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -336,9 +336,9 @@
                                                 <tr>
                                                     <td>{{$loop->index+1}}</td>
                                                     <td>{{$pl->user->first_name}}</td>
-                                                    @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
+                                                    {{-- @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
                                                         <td><svg wire:click="pl_remove({{$pl->id}})" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></td>
-                                                    @endif
+                                                    @endif --}}
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -358,9 +358,9 @@
                                                 <tr>
                                                     <td>{{$loop->index+1}}</td>
                                                     <td>{{$tl->user->first_name}}</td>
-                                                    @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
+                                                    {{-- @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
                                                     <td><svg wire:click="tl_remove({{$tl->id}})" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></td>
-                                                    @endif
+                                                    @endif --}}
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -383,9 +383,9 @@
                                                 <tr>
                                                     <td>{{$loop->index+1}}</td>
                                                     <td>{{$employee->user->first_name}}</td>
-                                                    @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
+                                                    {{-- @if ($auth_user_group == 1 || $auth_user_group == 2 || $auth_user_group == 5 || $auth_user_group == 6)
                                                     <td><svg wire:click="emp_remove({{$employee->id}})" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></td>
-                                                    @endif
+                                                    @endif --}}
                                                 </tr>
                                                 @endforeach
                                             </tbody>

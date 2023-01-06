@@ -3,7 +3,7 @@
         <div class="">
             <div class="page-header row">
                 <div class="col-11">
-                    <h3><b>View Approved Timesheet</b></h3>
+                    <h3><b>View Pending Timesheet</b></h3>
                 </div>
                 <div class="col-1">
                     <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back" >
@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-sm-4">
                             @if ($view_approval)
-                                <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}}" readonly>
+                                <input type="text" style="color:black;" class="form_input" value="{{$view_approval->work_hours}} hrs" readonly>
                             @endif
                         </div>
                     </div>
@@ -94,7 +94,7 @@
         <div id="msform">
             <fieldset class="mt-3">
                 <div class="row">
-                    <div class="col-sm-6">
+                    {{-- <div class="col-sm-6">
                         <label id="lable">Project</label>
                         <select name="" class="form_input" id="" style="background-color:#e9e9ed;color:black;"  wire:change="project_change($event.target.value)"  wire:model="edit_project_id" readonly>
                             <option value="">Select Project</option>
@@ -104,7 +104,6 @@
                                     @endforeach
                                 @endif
                         </select>
-                        {{-- <input type="text" class="form_input" wire:model="edit_project_id" readonly> --}}
                     </div>
                     <div class="col-sm-6">
                         <label id="lable">Task</label>
@@ -127,7 +126,7 @@
                                 @endforeach
                             @endif
                         </select>
-                    </div>
+                    </div> --}}
                     {{-- <div class="col-sm-6">
                     <label id="lable">Sub Tasks 2</label>
                         <select name="" class="form_input" id=""  wire:model="edit_sub_task2_id">
@@ -137,7 +136,7 @@
                             @endforeach
                         </select>
                     </div> --}}
-                    <div class="col-sm-6">
+                    {{-- <div class="col-sm-6">
                         <label id="lable">Activity</label>
                         <select name="" class="form_input" id=""  wire:model="edit_activity_id">
                             <option value="">Select Activity</option>
@@ -147,13 +146,40 @@
                                 @endforeach
                             @endif
                         </select>
+                    </div> --}}
+                    <div class="col-sm-6">
+                        <label>Project Name</label>
+                        @if ($edit__pending->project)
+                            <input type="text" style="color:black;" class="form_input" value="{{$edit__pending->project->name}}" readonly>
+                        @endif
                     </div>
                     <div class="col-sm-6">
-                    <label id="lable">Description</label>
+                        <label>Activity</label>
+                        @if ($edit__pending->activity)
+                            <input type="text" style="color:black;" class="form_input" value="{{$edit__pending->activity->name}}" readonly>
+                        @endif
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Task</label>
+                        @if ($edit__pending->task)
+                            <input type="text" style="color:black;" class="form_input" value="{{$edit__pending->task->name}}" readonly>
+                        @endif
+                    </div>
+                    @if ($edit__pending->sub_task)
+                        <div class="col-sm-6">
+                            <label>Sub Task</label>
+                            <input type="text" style="color:black;" class="form_input" value="{{$edit__pending->sub_task->name}}" readonly>
+                        </div>
+                    @else
+                        <div class="col-sm-6">
+                        </div>
+                    @endif
+                    <div class="col-sm-6">
+                    <label>Description</label>
                         <input type ="text" class="form_input" type="text" wire:model="edit_description" >
                     </div>
                     <div class="col-sm-6">
-                    <label id="lable">Working Hours</label>
+                    <label>Working Hours</label>
                         <input class="form_input" type="text" wire:model="edit_work_hours">
                     </div>
                 </div>
@@ -204,7 +230,7 @@
                                     @endif
 
                                 </td>
-                                <td>{{$timesheet->work_hours}}</td>
+                                <td>{{$timesheet->work_hours}} hrs</td>
                                 <td><button class = "btn btn-primary" wire:click="view({{$timesheet->id}})">View</button><button class = "btn btn-warning" wire:click="edit({{$timesheet->id}})">Edit</button><button class = "btn btn-danger" wire:click="delete({{$timesheet->id}})">Delete</button></td>
                             </tr>
                             {{-- <tr class="text-center">

@@ -18,6 +18,7 @@ class AddTimesheet extends Component
     public $activity,$status,$view_projects;
     public $date,$project_id,$task_id,$sub_task1_id,$sub_task2_id,$activity_id,$description,$work_hours;
     public $tasks,$activities,$subtasks;
+    public $sub__task = 0;
     public function onload(){
        $this->date = date('Y-m-d');
     }
@@ -26,7 +27,18 @@ class AddTimesheet extends Component
        $this->activities=ActivityLink::with('activity')->where('project_id',$id)->get();
     }
     public function task_change($id){
+        // dd($id);s
         $this->subtasks = SubTask::where('task_id',$id)->get();
+        if($this->subtasks->count() > 0){
+            $this->sub__task = 1;
+        }
+        else{
+            $this->sub__task = 0;
+        }
+        // dd($this->subtasks);
+        // if($this->subtasks != ){
+        //     dd("sub task");
+        // }
     }
     public function submit()
     {
@@ -38,7 +50,14 @@ class AddTimesheet extends Component
                 'task_id' => 'required',
                 'activity_id' => 'required',
                 'work_hours' => 'required',
-            ]);
+            ],
+            [
+                'date.required'=>trans('*mandatory'),
+                'project_id.required'=>trans('*mandatory'),
+                'task_id.required' => trans('*mandatory'),
+                'activity_id.required' => trans('*mandatory'),
+                'work_hours.required' => trans('*mandatory'),
+              ]);
             $addtimesheet=new Timesheet;
             $addtimesheet->user_group_id        = Auth::user()->user_group_id;
             $addtimesheet->user_id              = Auth::user()->id;
