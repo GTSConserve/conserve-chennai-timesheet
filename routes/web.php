@@ -6,6 +6,7 @@ use App\Http\Controllers\Chennai\ProjectController;
 use App\Http\Controllers\Chennai\DashboardController;
 use App\Http\Controllers\Chennai\TimeSheetController;
 use App\Http\Controllers\Chennai\DashboardControllsController;
+use App\Http\Controllers\Chennai\ControlsController;
 
 
 Route::get('/', function () {
@@ -40,6 +41,9 @@ Route::get('/project-wise', [TimeSheetController::class, 'project_wise_report'])
 Route::get('/detailed-project-reports', [TimeSheetController::class, 'detailed_project__report'])->name('location-head-detailed-project-report');
 Route::get('/my-project-reports', [TimeSheetController::class, 'project_wise_my_report'])->name('location-head-project-wise-myreport');
 Route::get('/monthly-project-reports', [TimeSheetController::class, 'monthly_wise_project_reports'])->name('location-head-monthly-wise-my-project-report');
+Route::get('/shift-controls',[ControlsController::class, 'shift'])->name('location-head-controls-shift');
+Route::get('/holiday-controls',[ControlsController::class, 'holiday'])->name('location-head-controls-holidays');
+Route::get('/attendance-status-controls',[ControlsController::class, 'attendance_status'])->name('location-head-controls-attendance_status');
 });
 
 

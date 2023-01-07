@@ -50,6 +50,12 @@
         / text-align: center; /
         position: relative;
         }
+        .msform{
+            / width: 400px; /
+        margin: 10px auto;
+        / text-align: center; /
+        position: relative;
+        }
         #msform fieldset {
         background: white;
         border: 0 none;
@@ -90,6 +96,20 @@
         cursor: pointer;
         padding: 10px 5px;
         margin: 10px 5px;
+        }
+        .action_button{
+            width: 150px;
+            background: #27AE60;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 8px 4px;
+            /* margin: px 5px; */
+        }
+        .action_button:hover{
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
         }
         #msform .action-button:hover, #msform .action-button:focus {
         box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
@@ -243,7 +263,7 @@
     <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
-    
+
     <script>
         $(document).ready(function() {
             App.init();
@@ -264,7 +284,7 @@
 <script src="{{asset('assets/select2/js/select2.full.min.js')}}"></script>
 
 
-{{-- 
+{{--
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 <script src="{{asset('plugins/table/datatable/datatables.js')}}"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

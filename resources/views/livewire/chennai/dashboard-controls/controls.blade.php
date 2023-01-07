@@ -1,7 +1,7 @@
 <div wire:init="onload">
     <div class="page-header row">
         <div class="col-12">
-            <h3><b>Controlls</b></h3>
+            <h3><b>Dashboard Controls</b></h3>
         </div>
     </div>
     <div id="msform">
