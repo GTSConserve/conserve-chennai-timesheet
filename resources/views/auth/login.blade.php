@@ -14,6 +14,24 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            {{-- <div class="row">
+                <div class="col-md-6">
+                <x-jet-label for="country" value="Country" />
+                <select id="country" class="block mt-1 w-full"  name="country" >
+                    <option value="1">
+                        India
+                    </option>
+                </select>
+                </div>
+                <div class="col-md-6">
+                <x-jet-label for="location" value="Location" />
+                <select id="location" class="block mt-1 w-full"  name="location" >
+                    <option value="1">
+                        Chennai
+                     </option>
+                </select>
+                </div>
+            </div> --}}
 
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />

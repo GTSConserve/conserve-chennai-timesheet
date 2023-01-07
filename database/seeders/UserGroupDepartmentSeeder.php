@@ -47,6 +47,12 @@ DB::table("usergroup_departments")->insert([
     'created_at' => date("Y-m-d H:i:s"),
     'updated_at' => date("Y-m-d H:i:s"),
 ]);
+DB::table("usergroup_departments")->insert([
+    'name'=>'Location Head',
+    'status'=>'1',
+    'created_at' => date("Y-m-d H:i:s"),
+    'updated_at' => date("Y-m-d H:i:s"),
+]);
 
     }
 }

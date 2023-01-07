@@ -16,7 +16,6 @@ class ProjectLead
      */
     public function handle($request, Closure $next)
     {
-
         if(Auth::user()->user_group_id==7)
         {
         

@@ -34,7 +34,6 @@ class UserGroupSeeder extends Seeder
             [
                 'name' => "HR-Head",
                 "is_admin"=>"0",
-                'name' => "Super-Admin",
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],

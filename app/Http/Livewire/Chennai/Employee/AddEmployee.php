@@ -96,7 +96,7 @@ class AddEmployee extends Component
             'employee_report_to'=>'required'
         ]);
         }
-        if($this->department==5)
+        if($this->department==5||$this->department==6)
         {
               $this->validate([
             'department' => 'required',
