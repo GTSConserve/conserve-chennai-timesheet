@@ -78,6 +78,19 @@ class ProjectAssign extends Component
         $pl_add->assign_by  = Auth::user()->id;
         $pl_add->save();
     }
+    public function unassign()
+    {
+        $hpm = ProjectManagerHeadLink::where('project_id', $this->selected_project_id)->delete();
+        $pm = ProjectManagerLink::where('project_id', $this->selected_project_id)->delete();
+        $pl_remove = ProjectLeadLink::where('project_id', $this->selected_project_id)->delete();
+        $pl_remove = TeamLeadLink::where('project_id', $this->selected_project_id)->delete();
+        $pl_remove = EmployeeLink::where('project_id', $this->selected_project_id)->delete();
+
+        $this->emit('UpdateEmployee');
+        $this->selected_project_id='';
+        $this->selected_project_manager_head="";
+        $this->selected_project_manager="";
+    }
     public function add_team_lead($id)
     {
         $pl_add = new TeamLeadLink;

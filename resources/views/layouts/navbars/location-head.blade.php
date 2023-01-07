@@ -74,10 +74,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="project_settings" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('location-head-project-assign')}}"><b>Project Assign</b></a>
+                        <a href="{{route('project-assign')}}"><b>Project Assign</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-tree-structure')}}"><b>Tree Structure</b></a>
+                        <a href="{{route('tree-structure')}}"><b>Tree Structure</b></a>
                     </li>
                 </ul>
             </li>
@@ -91,28 +91,28 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="time_sheet" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('location-head-over-view')}}"><b>Over View</b></a>
+                        <a href="{{route('over-view')}}"><b>Over View</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-add-timesheet')}}"><b>Add</b></a>
+                        <a href="{{route('add-timesheet')}}"><b>Add</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-aproved-timesheet')}}"><b>Approved</b></a>
+                        <a href="{{route('approved-timesheet')}}"><b>Approved</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-pending-timesheet')}}"><b>Pending</b></a>
+                        <a href="{{route('pending-timesheet')}}"><b>Pending</b></a>
                     </li>
                     <li>
-                        <a href="{{route('location-head-approval-timesheet')}}"><b>Approval</b></a>
+                        <a href="{{route('approval-timesheet')}}"><b>Approval</b></a>
                     </li>
                     <li class="sub-sub-submenu-list">
                         <a href="#appInvoice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <b>Team Reports</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
                         <ul class="collapse list-unstyled sub-submenu" id="appInvoice" data-parent="#app">
                             <li>
-                                <a href="{{Route('location-head-project-wise-report')}}">Project reports</a>
+                                <a href="{{Route('project-wise-report')}}">Project reports</a>
                             </li>
                             <li>
-                                <a href="{{Route('location-head-detailed-project-report')}}">Detailed Project reports</a>
+                                <a href="{{Route('detailed-project-report')}}">Detailed Project reports</a>
                             </li>
                         </ul>
                     </li>
@@ -120,10 +120,10 @@
                         <a href="#MyReports" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <b>My Reports</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
                         <ul class="collapse list-unstyled sub-submenu" id="MyReports" data-parent="#app">
                             <li>
-                                <a href="{{Route('location-head-project-wise-myreport')}}">Project Reports</a>
+                                <a href="{{Route('project-wise-myreport')}}">Project Reports</a>
                             </li>
                             <li>
-                                <a href="{{Route('location-head-monthly-wise-my-project-report')}}">Monthly Reports</a>
+                                <a href="{{Route('monthly-wise-my-project-report')}}">Monthly Reports</a>
                             </li>
                         </ul>
                     </li>

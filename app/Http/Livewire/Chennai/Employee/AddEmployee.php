@@ -485,11 +485,6 @@ class AddEmployee extends Component
             if (count($user_group_desiginations) == 0) {
                 $user_group_desiginations = UsergroupDesigination::where([['usergroup_department_id', $this->department], ['usergroup_experience_id', NUll]])->get();
             }
-            // if($this->designation){
-            //     $user_group_grd=UsergroupDesigination::where('id',$this->designation)->first();
-            //     $user_group_grades=UsergroupGrade::where('id',$this->designation);
-
-            //    }
         }
         if ($this->designation) {
             if ($this->department == 1) {
@@ -499,11 +494,19 @@ class AddEmployee extends Component
             }
         }
 
-        if ($this->department == 5) {
+        if ($this->department == 6) {
             $this->category = 6;
             $user_group_cat_name = UsergroupCategories::where('id', $this->category)->first();
             $this->category_name = $user_group_cat_name->name . '-' . $user_group_cat_name->type;
+            $this->employee_access=1;
         }
+        if ($this->department == 5) {
+            $this->category = 5;
+            $user_group_cat_name = UsergroupCategories::where('id', $this->category)->first();
+            $this->category_name = $user_group_cat_name->name . '-' . $user_group_cat_name->type;
+            $this->employee_access=2;
+        }
+        
         return view('livewire.chennai.employee.add-employee', [
             'user_groups' => $user_groups, 'user_group_departments' => $user_group_departments, 'user_group_grades' => $user_group_grades, 'user_group_categories' => $user_group_categories, 'user_group_experiences' => $user_group_experiences, 'user_group_desiginations' => $user_group_desiginations, 'category_name' => $this->category_name,
             'reporting_heads' => $this->reporting_heads

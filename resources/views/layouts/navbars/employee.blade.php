@@ -31,6 +31,9 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
                     <li>
+                        <a href="{{route('over-view')}}"><b>Over View</b></a>
+                    </li>
+                    <li>
                         <a href="{{route('add-timesheet')}}"><b>Add</b></a>
                     </li>
                     <li>

@@ -5,7 +5,7 @@ use App\Models\Timesheet;
 use App\Models\Activity;
 use App\Models\Project;
 use Livewire\Component;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 class ApprovalTimesheet extends Component
 {
     public $status=0;
@@ -80,6 +80,7 @@ class ApprovalTimesheet extends Component
     public function render()
     {
         if($this->project_id ==""){
+            if(in_array(Auth::user()->user_group_id,[5,6,7,8]))
             $this->timesheet = Timesheet::with('project','activity','employee','user_group')->where('timesheet_status','0')->get();
         }
 

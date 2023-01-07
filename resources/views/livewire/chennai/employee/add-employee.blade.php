@@ -30,7 +30,7 @@
                     <span class='error text-danger'>{{ $message }}</span>
                     @enderror
                 </div>
-                @if($department&&$department!=5)
+                @if($department&&($department!=5&&$department!=6))
                 <div class="col-sm-3">
                     <label id="experience">Employee Experience</label>
                     <select name="" id="" class="form_input" wire:model="experience">
@@ -44,7 +44,7 @@
                     @enderror
                 </div>
                 @endif
-                @if($department!=5&&$user_group_desiginations)
+                @if(($department!=5&&$department!=6)&&$user_group_desiginations)
                 <div class="col-sm-3">
                     <label id="designation">Employee Designation</label>
                     <select name="" id="" class="form_input" wire:model="designation">
@@ -60,7 +60,7 @@
                     @enderror
                 </div>
                 @endif
-                @if($experience||$department==5)
+                @if($experience||$department==5||$department==6)
                 <div class="col-sm-3">
                     <label id="category">Employee Category</label>
                     {{-- <select name="" id="" class="form_input" wire:model="category">
@@ -78,7 +78,7 @@
                 </div>
 
 
-                @if($department!=5)
+                @if($department!=5&&$department!=6)
                 <div class="col-sm-3">
                     <label id="grade">Employee Grade</label>
                     <select name="" id="" class="form_input" wire:model="grade">

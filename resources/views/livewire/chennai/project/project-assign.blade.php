@@ -1,12 +1,10 @@
 <div>
 
     <div class="page-header row">
-        <div class="col-11">
+        <div class="col-10">
             <h3><b>Project Assign</b></h3>
         </div>
-        <div class="col-1">
-            {{-- <input type="button" name="next" class="btn btn-warning" wire:click="back()" value="Back"> --}}
-        </div>
+     
     </div>
     <div id="msform">
         <fieldset class="">
@@ -22,8 +20,12 @@
                         @endforeach
                     </select>
                 </div>
-
-
+                <div class="col-sm-4"></div>
+                @if($selected_project_id)
+                <div class="col-2">
+                    <input type="button" name="next" class="btn btn-warning" wire:click="unassign()" value="unassign">
+                </div>
+                @endif
             </div>
             @if($selected_project_id)
             <div class="row">
