@@ -162,5 +162,6 @@ class EmployeeTableSeeder extends Seeder
             ],
         );
       
+
     }
 }

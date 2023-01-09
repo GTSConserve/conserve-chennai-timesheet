@@ -6,8 +6,7 @@ use App\Http\Controllers\Chennai\ProjectController;
 use App\Http\Controllers\Chennai\DashboardController;
 use App\Http\Controllers\Chennai\TimeSheetController;
 use App\Http\Controllers\Chennai\DashboardControllsController;
-use App\Http\Middleware\SuperAdmin;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Chennai\ControlsController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -49,9 +48,11 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
   
    
     Route::get('/timesheet', [TimeSheetController::class, 'timesheet'])->name('location-head-timesheet');
-
+    Route::get('/shift-controls',[ControlsController::class, 'shift'])->name('location-head-controls-shift');
+    Route::get('/holiday-controls',[ControlsController::class, 'holiday'])->name('location-head-controls-holidays');
+    Route::get('/attendance-status-controls',[ControlsController::class, 'attendance_status'])->name('location-head-controls-attendance_status');
+    Route::get('/week-off-controls',[ControlsController::class, 'week_off'])->name('location-head-controls-week-off');
    
 
   
 });
-

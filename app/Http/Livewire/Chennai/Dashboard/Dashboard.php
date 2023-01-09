@@ -7,6 +7,7 @@ use App\Models\DashboardHiring;
 use App\Models\DashboardLatestProject;
 use App\Models\DashboardSkilling;
 use App\Models\Employee;
+use App\Models\Attendance;
 use Livewire\Component;
 use Auth;
 use Carbon\Carbon;
@@ -15,6 +16,7 @@ class Dashboard extends Component
     public $time_status;
     public $status=0;
     public $all_birthdays,$all_new_joiners;
+    public $punch_status=0;
     public function new_joiners(){
         $this->status= 1;
         $current_mounth = now()->format('m');
@@ -28,6 +30,33 @@ class Dashboard extends Component
     }
     public function back(){
         $this->status= 0;
+    }
+    public function punch_in(){
+        $user_id = Auth::user()->id;
+        $mytimes = Carbon::now('Asia/Kolkata');
+        $string = $mytimes->toTimeString();
+        $time = strtotime($string);
+        $intime = date('H:i:s', $time);
+        $date = date('Y-m-d');
+
+        $punch_in = new Attendance;
+        $punch_in->user_id =  $user_id;
+        $punch_in->in_time = $intime;
+        $punch_in->date  = $date;
+        $punch_in->punch_status = '0';
+        $punch_in->save();
+    }
+    public function punch_out(){
+        $user_id = Auth::user()->id;
+        $date   = date('Y-m-d');
+        $mytimes = Carbon::now('Asia/Kolkata');
+        $string = $mytimes->toTimeString();
+        $time = strtotime($string);
+        $out_time = date('H:i:s', $time);
+        $punch_out = Attendance::where([['user_id',$user_id],['date',$date],['punch_status','0']])->first();
+        $punch_out->out_time = $out_time;
+        $punch_out->punch_status = '1';
+        $punch_out->save();
     }
     public function render()
     {
@@ -51,11 +80,23 @@ class Dashboard extends Component
 
         $new_joiners  = Employee::with('user_group')->whereMonth('doj',$current_mounth)->get();
         $controls = DashboardControl::all();
-        //dd($controls);
+
         $skillings = DashboardSkilling::all();
         $latest_projects = DashboardLatestProject::all();
         $happenings = DashboardHappening::all();
         $hirings = DashboardHiring::all();
+        $user_id = Auth::user()->id;
+        // $punch_status = Attendance::where([['user_id',$user_id],['date',$todayDate],['punch_status',Null]])->first();
+        $punch_in_status = Attendance::where([['user_id',$user_id],['date',$todayDate]])->first();
+        // $punch_out_status = Attendance::where([['user_id',$user_id],['date',$todayDate],['punch_status','1']])->first();
+        if($punch_in_status != ""){
+            if($punch_in_status->punch_status == '0'){
+                $this->punch_status = 1;
+            }
+            if($punch_in_status->punch_status == '1'){
+                $this->punch_status = 2;
+            }
+        }
 
         return view('livewire.chennai.dashboard.dashboard',['controls'=>$controls,'skillings'=>$skillings,'latest_projects'=>$latest_projects,'happenings'=>$happenings,'hirings'=>$hirings, 'new_joiners' => $new_joiners, 'birthdays'=>$birthdays]);
     }

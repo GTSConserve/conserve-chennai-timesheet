@@ -41,6 +41,7 @@ class UserTableSeeder extends Seeder
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
      
+
         DB::table("users")->insert([
             'name'=>'hrhead',
             'email'=>'hrhead@erp.com',
@@ -233,6 +234,8 @@ class UserTableSeeder extends Seeder
         ]);
         
         
+
+
 
     }
 }
