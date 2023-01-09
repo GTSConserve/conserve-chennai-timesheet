@@ -19,6 +19,7 @@ class UserTableSeeder extends Seeder
                'name'=>'Director',
                'email'=>'director@erp.com',
                'usergroup_category_id'=>6,
+             
                'usergroup_desigination_id'=>44,
                'password'=>bcrypt('user'),
                'current_Team_id'=> 0,
@@ -32,6 +33,7 @@ class UserTableSeeder extends Seeder
             'name'=>'Location',
             'email'=>'location@erp.com',
             'usergroup_category_id'=>5,
+            'usergroup_experience_id'=>11,
             'usergroup_desigination_id'=>43,
             'password'=>bcrypt('user'),
             'current_Team_id'=> 0,

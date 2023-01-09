@@ -88,7 +88,7 @@ DB::table("usergroup_experiences")->insert([
 DB::table("usergroup_experiences")->insert([
     'name'=>'Above 20',
     'usergroup_category_id'=>5,
-    'status'=>'1',
+    'status'=>'0',
     'created_at' => date("Y-m-d H:i:s"),
     'updated_at' => date("Y-m-d H:i:s"),
 ]);

@@ -338,7 +338,14 @@ class AddEmployee extends Component
     }
     public function engReportingHead()
     {
+        if($this->experience == 10)
+        {
+            $this->reporting_heads = User::where('usergroup_department_id','=',NULL);
+
+        }
+        else{
         $this->reporting_heads = User::where('usergroup_department_id', $this->department);
+        }
         if ($this->experience == 11) {
             $this->reporting_heads = $this->reporting_heads->where('usergroup_experience_id','=',NULL)->get();
         }
