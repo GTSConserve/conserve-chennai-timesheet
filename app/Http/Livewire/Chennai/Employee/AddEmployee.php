@@ -474,7 +474,7 @@ class AddEmployee extends Component
         $user_group_departments = UsergroupDepartment::all();
         $user_group_grades = UsergroupGrade::all();
         $user_group_categories = UsergroupCategories::all();
-        $user_group_experiences = UsergroupExperience::all();
+        $user_group_experiences = UsergroupExperience::where('status','1')->get();
         $user_group_desiginations = '';
         if ($this->experience) {
             $experience = UsergroupExperience::where('id', $this->experience)->first();
@@ -504,6 +504,7 @@ class AddEmployee extends Component
             $this->category = 5;
             $user_group_cat_name = UsergroupCategories::where('id', $this->category)->first();
             $this->category_name = $user_group_cat_name->name . '-' . $user_group_cat_name->type;
+            $this->experience = 11;
             $this->employee_access=2;
         }
         
