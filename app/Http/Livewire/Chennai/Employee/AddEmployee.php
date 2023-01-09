@@ -16,7 +16,7 @@ use App\Models\UsergroupDepartment;
 use App\Models\UsergroupExperience;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
+use Illuminate\Support\Facades\Auth;
 class AddEmployee extends Component
 {
     use WithFileUploads;
@@ -42,6 +42,7 @@ class AddEmployee extends Component
 
     public function role()
     {
+        
         $this->basic_active = "";
         $this->status = 0;
     }
@@ -84,6 +85,7 @@ class AddEmployee extends Component
     }
     public function role_next()
     {
+        
         if($this->department!=5)
         {
         $this->validate([
@@ -92,7 +94,7 @@ class AddEmployee extends Component
             'department' => 'required',
             'grade' => 'required',
             'designation' => 'required',
-            'employee_access' => 'required',
+            // 'employee_access' => 'required',
             'employee_report_to'=>'required'
         ]);
         }
@@ -186,9 +188,39 @@ class AddEmployee extends Component
             'employement_status' => 'required',
           //  'employee_access' => 'required',
         ]);
+        if (in_array($this->experience,[8,9,10])) {
+            $this->employee_access=5;
+
+        }
+        if (in_array($this->experience,[5,6,7])) {
+            $this->employee_access=6;
+
+        }
+        if ($this->experience==4) {
+            $this->employee_access=7;
+                }
+                if ($this->experience==3) {
+                    $this->employee_access=8;
+                        }
+                        if ($this->experience==2) {
+                            $this->employee_access=9;
+                                }
+                                if ($this->experience==1) {
+                                    $this->employee_access=9;
+                                        }
+           
+                   
+if ($this->department==5) {
+    $this->employee_access=1;
+        }
+        else{
+            $this->employee_access=2;
+        }
         $user = new User;
         $user->name = $this->first_name;
         $user->email = $this->offical_email;
+        $user->location_id =Auth::user()->location_id;
+        $user->country_id =Auth::user()->country_id;
         $user->user_group_id = $this->employee_access;
         $user->usergroup_department_id = $this->department;
         $user->usergroup_experience_id = $this->experience;
@@ -217,7 +249,8 @@ class AddEmployee extends Component
         //     $addimage->save();
         // dd("end"); =
 
-
+        $user->location_id =Auth::user()->location_id;
+        $user->country_id =Auth::user()->country_id;
         $employee->user_id =  $user->id;
         $employee->first_name = $this->first_name;
         $employee->last_name = $this->last_name;

@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->integer('user_group_id')->unsigned()->index();
+            $table->integer('location_id')->unsigned()->index()->nullable();
+            $table->foreign('location_id')->references('id')->on('locations');
+            $table->integer('country_id')->unsigned()->index()->nullable();
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('user_group_id')->references('id')->on('usergroups');
             $table->integer('usergroup_department_id')->unsigned()->index()->nullable();
             $table->foreign('usergroup_department_id')->references('id')->on('usergroup_departments');

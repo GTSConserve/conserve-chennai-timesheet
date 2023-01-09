@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Chennai\Project;
 use App\Models\Activity;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AddActivity extends Component
@@ -25,6 +26,7 @@ class AddActivity extends Component
         $activity = new Activity;
         $activity->name   = $this->activity_name;
         $activity->status = $this->activity_status;
+        $activity->location_id = Auth::user()->location_id;
         $activity->save();
         $this->reset();
         $this->emit('UpdateEmployee');
@@ -50,7 +52,7 @@ class AddActivity extends Component
     }
     public function render()
     {
-       $activities = Activity::all();
+       $activities = Activity::where('location_id',Auth::user()->location_id)->get();
         return view('livewire.chennai.project.add-activity',['activities'=> $activities]);
     }
 }

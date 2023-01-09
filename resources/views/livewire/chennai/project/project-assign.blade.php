@@ -8,11 +8,10 @@
     </div>
     <div id="msform">
         <fieldset class="">
-            @if ($user_group_id == 2)
-
+            @if ($user_group_id < 9)
             <div class="row ">
                 <div class="col-sm-6">
-                    <label id="lable">Project Name</label>
+                    <label id="selected_project_id">Project Name</label>
                     <select name="" class="form-control" id="" wire:model="selected_project_id">
                         <option>Select Project</option>
                         @foreach ($projects as $project)
@@ -29,8 +28,9 @@
             </div>
             @if($selected_project_id)
             <div class="row">
+                @if($user_group_id <5)
                 <div class="col-md-6" style="text-align:justify;">
-                    <label id="lable">Project Manager Head</label>
+                    <label id="selected_project_manager_head">Project Manager Head</label>
                     <div class="form-group">
                         <select class="form-control" wire:model="selected_project_manager_head">
                             <option>Select Project Manager Head</option>
@@ -43,8 +43,11 @@
                         </select>
                     </div>
                 </div>
+                    @endif
+               
+                @if($user_group_id <6)
                 <div class="col-sm-6">
-                    <label id="lable">Project Manager</label>
+                    <label id="selected_project_manager">Project Manager</label>
                     <div class="form-group">
                         <select name="" class="form-control" wire:model="selected_project_manager">
 
@@ -58,12 +61,9 @@
                         </select>
                     </div>
                 </div>
-
-
-            </div>
-
             @endif
-
+            </div>
+            @endif
             @endif
         </fieldset>
     </div>
@@ -72,6 +72,8 @@
 
         <fieldset class="mt-2">
             <div class="row">
+              
+                @if($user_group_id < 7)
                 <div class="col-2">
                     <table class="table">
                         <thead>
@@ -147,6 +149,9 @@
                         </tbody>
                     </table>
                 </div>
+                @endif
+              
+                @if($user_group_id < 8)
                 <div class="col-2">
 
                     <table class="table">
@@ -223,6 +228,7 @@
                         </tbody>
                     </table>
                 </div>
+                @endif
                 <div class="col-2">
 
                     <table class="table">

@@ -10,9 +10,13 @@ use App\Models\EmployeeTeamLeaderLink;
 use Livewire\Component;
 use App\Models\TeamLeadsProjectLeadsLink;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ProjectManagerHeadLink;
+use App\Models\ProjectManagerLink;
 
 class ProjectTreeStructure extends Component
 {
+    private $projects;
+    public $user_group_id;
     public $team_lead;
     public $project_id = null;
     private $project_leads_dropdown = null;
@@ -58,9 +62,47 @@ class ProjectTreeStructure extends Component
             unset($this->old_emp_ids[$key]);
         }
     }
+    public function filter_project()
+{
+    if($this->user_group_id==2)
+    {
+        $this->projects = Project::all();
+    }
+    if($this->user_group_id==2)
+    {
+    $this->projects = Project::where('location_id',Auth::user()->location_id)->get();
+    }
+    if($this->user_group_id==5)
+    {
+        $hpm = ProjectManagerHeadLink::where('hpm_id',Auth::id())->pluck('project_id');
+      //  dd($hpm);
+    $this->projects = Project::whereIn('id',$hpm)->get();
+    }
+    if($this->user_group_id==6)
+    {
+        $pm = ProjectManagerLink::where('pm_id',Auth::id())->pluck('project_id');
+      //  dd($hpm);
+    $this->projects = Project::whereIn('id',$pm)->get();
+    }
+    if($this->user_group_id==7)
+    {
+        $pl = ProjectLeadLink::where('pl_id',Auth::id())->pluck('project_id');
+      //  dd($hpm);
+    $this->projects = Project::whereIn('id',$pl)->get();
+    }
+    if($this->user_group_id==8)
+    {
+        $tl = TeamLeadLink::where('tl_id',Auth::id())->pluck('project_id');
+      //  dd($hpm);
+    $this->projects = Project::whereIn('id',$tl)->get();
+    }
+}
     public function render()
     {
-        $project = Project::all();
+        $this->user_group_id = Auth::user()->user_group_id;
+
+      
+        $this->filter_project();
         if ($this->project_id) {
             $this->project_leads_dropdown = ProjectLeadLink::with('user')->where('project_id', $this->project_id)->get();
             $this->team_leads_dropdown = TeamLeadLink::with('user')->where('project_id', $this->project_id)->get();
@@ -88,6 +130,6 @@ class ProjectTreeStructure extends Component
                 $this->assigned_emp_ids[$i] = $assigned_emp[$i]->emp_id;
             }
         }
-        return view('livewire.chennai.project.project-tree-structure', ['projects' => $project, 'project_leads_dropdown' => $this->project_leads_dropdown, 'team_leads_dropdown' => $this->team_leads_dropdown, 'team_lead_lists' => $this->team_lead_lists, 'employee_lists' => $this->employee_lists, 'tl_lists' => $this->tl_lists, 'emp_lists' => $this->emp_lists, 'old_tl_ids' => $this->old_tl_ids, 'old_emp_ids' => $this->old_emp_ids,'assigned_tl_ids' => $this->assigned_tl_ids, 'assigned_emp_ids' => $this->assigned_emp_ids]);
+        return view('livewire.chennai.project.project-tree-structure', ['projects' => $this->projects, 'project_leads_dropdown' => $this->project_leads_dropdown, 'team_leads_dropdown' => $this->team_leads_dropdown, 'team_lead_lists' => $this->team_lead_lists, 'employee_lists' => $this->employee_lists, 'tl_lists' => $this->tl_lists, 'emp_lists' => $this->emp_lists, 'old_tl_ids' => $this->old_tl_ids, 'old_emp_ids' => $this->old_emp_ids,'assigned_tl_ids' => $this->assigned_tl_ids, 'assigned_emp_ids' => $this->assigned_emp_ids,'user_group_id'=>$this->user_group_id]);
     }
 }

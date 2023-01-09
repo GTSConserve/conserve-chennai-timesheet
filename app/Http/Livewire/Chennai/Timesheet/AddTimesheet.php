@@ -11,9 +11,17 @@ use App\Models\ActivityLink;
 use App\Models\SubTask;
 use App\Models\SubTasks2;
 use App\Models\Project;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use App\Models\ProjectManagerHeadLink;
+use App\Models\ProjectManagerLink;
+use App\Models\ProjectLeadLink;
+use App\Models\TeamLeadLink;
+use App\Models\EmployeeLink;
+
 class AddTimesheet extends Component
 {
+    public $user_group_id;
+    private $projects;
     public $wrong_date=0;
     public $activity,$status,$view_projects;
     public $date,$project_id,$task_id,$sub_task1_id,$sub_task2_id,$activity_id,$description,$work_hours;
@@ -81,14 +89,59 @@ class AddTimesheet extends Component
         }
         $this->date = date('Y-m-d');
     }
+    public function filter_project()
+    {
+        if($this->user_group_id==2)
+        {
+            $this->projects = Project::all();
+        }
+        if($this->user_group_id==2)
+        {
+        $this->projects = Project::where('location_id',Auth::user()->location_id)->get();
+        }
+        if($this->user_group_id==5)
+        {
+            $hpm = ProjectManagerHeadLink::where('hpm_id',Auth::id())->pluck('project_id');
+          //  dd($hpm);
+        $this->projects = Project::whereIn('id',$hpm)->get();
+        }
+        if($this->user_group_id==6)
+        {
+            $pm = ProjectManagerLink::where('pm_id',Auth::id())->pluck('project_id');
+          //  dd($hpm);
+        $this->projects = Project::whereIn('id',$pm)->get();
+        }
+        if($this->user_group_id==7)
+        {
+            $pl = ProjectLeadLink::where('pl_id',Auth::id())->pluck('project_id');
+          //  dd($hpm);
+        $this->projects = Project::whereIn('id',$pl)->get();
+        }
+        if($this->user_group_id==8)
+        {
+            $tl = TeamLeadLink::where('tl_id',Auth::id())->pluck('project_id');
+          //  dd($hpm);
+        $this->projects = Project::whereIn('id',$tl)->get();
+        }
+        if($this->user_group_id==8)
+        {
+            $emp = EmployeeLink::where('emp_id',Auth::id())->pluck('project_id');
+          //  dd($hpm);
+        $this->projects = Project::whereIn('id',$emp)->get();
+        }
+    }
     public function render()
     {
-        $projects=Project::all();
+       
+        $this->user_group_id = Auth::user()->user_group_id;
+
+        $this->filter_project();
+  
         $subtasks=SubTask::all();
         $subtasks2=SubTasks2::all();
         $timesheets=Timesheet::all();
 
         // Auth::user()->user_group_id
-        return view('livewire.chennai.timesheet.add-timesheet',['projects'=>$projects,'timesheets'=>$timesheets]);
+        return view('livewire.chennai.timesheet.add-timesheet',['projects'=>$this->projects,'timesheets'=>$timesheets]);
     }
 }

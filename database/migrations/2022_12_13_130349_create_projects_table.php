@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('billable_man_hour')->nullable();
             $table->string('non_billable_man_hour')->nullable();
             $table->enum('status',['0','1'])->nullable();
+            $table->integer('location_id')->unsigned()->index()->nullable();
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
             $table->softDeletes();
         });

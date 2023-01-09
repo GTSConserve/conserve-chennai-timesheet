@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Chennai\Project;
 use App\Models\Task;
 use App\Models\SubTask;
-
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AddTask extends Component
@@ -79,6 +79,7 @@ class AddTask extends Component
         $add_task = new Task;
         $add_task->name = $this->task_name;
         $add_task->status = $this->sub_task_status;
+        $add_task->location_id = Auth::user()->location_id;
         $add_task->save();
         if($this->sub_account_name !=""){
             foreach($this->sub_account_name as $key => $value){
@@ -150,7 +151,7 @@ class AddTask extends Component
     }
     public function render()
     {
-        $task_view = Task::with('sub_task_count')->get();
+        $task_view = Task::with('sub_task_count')->where('location_id',Auth::user()->location_id)->get();
         return view('livewire.chennai.project.add-task',['task_views' => $task_view]);
     }
 }

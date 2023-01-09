@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Task;
 use App\Models\ActivityLink;
 use App\Models\TaskLink;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AddProject extends Component
@@ -30,6 +31,8 @@ class AddProject extends Component
         $project->name = $this->name;
         $project->billable_man_hour     = $this->billable_man_hours;
         $project->non_billable_man_hour = $this->non_billable_man_hours;
+        $project->location_id = Auth::user()->location_id;
+
         $project->save();
         if($this->activity_mapping !=""){
             foreach($this->activity_mapping as $key => $value){
@@ -111,14 +114,14 @@ class AddProject extends Component
     }
     public function render()
     {
-        $this->view_projects = Project::with('mapping_view','task_mapping')->get();
+        $this->view_projects = Project::with('mapping_view','task_mapping')->where('location_id',Auth::user()->location_id)->get();
         // foreach($this->view_projects as $key => $value){
 
         //    $view = ActivityLink::where
         // }
         // dd($this->view_projects);
-        $this->activity = Activity::all();
-        $task = Task::all();
+        $this->activity = Activity::where('location_id',Auth::user()->location_id)->get();
+        $task = Task::where('location_id',Auth::user()->location_id)->get();
         return view('livewire.chennai.project.add-project',['view_projects' => $this->view_projects,'activities' => $this->activity , 'tasks' => $task ]);
     }
 }

@@ -100,7 +100,7 @@
                 @if($designation&&$department==2&&$grade)
                 @include('livewire.chennai.employee.admin-reporting-employee')
                 @endif
-                <div class="col-sm-3">
+                {{-- <div class="col-sm-3">
                     <label id="employee_access">Employee Access</label>
                     <select name="" class="form_input" wire:model="employee_access" id="">
                         <option value="">Select Employee Access</option>
@@ -111,7 +111,7 @@
                     @error('employee_access')
                     <span class='error text-danger'>{{ $message }}</span>
                     @enderror
-                </div>
+                </div> --}}
 
                 @endif
                 @endif

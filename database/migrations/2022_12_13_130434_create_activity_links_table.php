@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('activity_id')->unsigned()->index();
             $table->foreign('activity_id')->references('id')->on('activities');
             $table->enum('status',['0','1'])->nullable();
+            $table->integer('location_id')->unsigned()->index()->nullable();
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
             $table->softDeletes();
         });

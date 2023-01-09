@@ -17,6 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->enum('status',['0','1'])->nullable();
+            $table->integer('location_id')->unsigned()->index()->nullable();
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('sub_task_id')->unsigned()->index();
             $table->foreign('sub_task_id')->references('id')->on('sub_tasks');
             $table->enum('status',['0','1'])->nullable();
+            $table->integer('location_id')->unsigned()->index()->nullable();
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
             $table->softDeletes();
         });

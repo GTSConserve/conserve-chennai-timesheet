@@ -8,8 +8,12 @@ use App\Models\Activity;
 use App\Models\Task;
 use App\Models\SubTask;
 use App\Models\Project;
+use Illuminate\Support\Facades\Auth;
+
+
 class TimesheetAdd extends Component
 {
+  
     public $activity,$status,$view_projects;
     public $project_id,$activity_id,$task_id,$sub_task_id,$description,$start_time,$end_time;
     public function submit()
@@ -31,13 +35,15 @@ $this->emit('UpdateEmployee');
     public function back(){
         $this->status= "";
     }
+   
     public function render()
     {
+        
         $projects=Project::all();
         $activities=Activity::all();
         $tasks=Task::all();
         $subtasks=SubTask::all();
         $timesheets=Timesheet::all();
-        return view('livewire.chennai.project.timesheet-add',['projects'=>$projects,'activities'=>$activities,'tasks'=>$tasks,'subtasks'=>$subtasks,'timesheets'=>$timesheets]);
+        return view('livewire.chennai.project.timesheet-add',['projects'=>$this->projects,'activities'=>$activities,'tasks'=>$tasks,'subtasks'=>$subtasks,'timesheets'=>$timesheets]);
     }
 }

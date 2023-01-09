@@ -16,6 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CountrySeeder::class);
         $this->call(LocationSeeder::class);
+        $this->call(ActivitySeeder::class);
+        $this->call(TaskSeeder::class);
+        $this->call(ProjectSeeder::class);
+        $this->call(ActivityLinkSeeder::class);
+        $this->call(TaskLinkSeeder::class);
         $this->call(UserGroupSeeder::class);
         $this->call(UserGroupCategorySeeder::class);
         $this->call(UserGroupExperienceSeeder::class);
