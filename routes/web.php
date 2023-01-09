@@ -44,6 +44,7 @@ Route::get('/monthly-project-reports', [TimeSheetController::class, 'monthly_wis
 Route::get('/shift-controls',[ControlsController::class, 'shift'])->name('location-head-controls-shift');
 Route::get('/holiday-controls',[ControlsController::class, 'holiday'])->name('location-head-controls-holidays');
 Route::get('/attendance-status-controls',[ControlsController::class, 'attendance_status'])->name('location-head-controls-attendance_status');
+Route::get('/week-off-controls',[ControlsController::class, 'week_off'])->name('location-head-controls-week-off');
 });
 
 
