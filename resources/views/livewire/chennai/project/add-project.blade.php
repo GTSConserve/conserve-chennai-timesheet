@@ -237,7 +237,7 @@
             @this.set('activity_mapping',$(this).val())
           });
         })
-        </script>
+    </script>
         <script>
             $(function(){
               $('#task').select2({

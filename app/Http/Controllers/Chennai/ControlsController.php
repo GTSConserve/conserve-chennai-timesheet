@@ -14,6 +14,9 @@ class ControlsController extends Controller
         return view('chennai.controls.holiday');
    }
    public function attendance_status(){
-    return view('chennai.controls.attendance-status');
+        return view('chennai.controls.attendance-status');
+   }
+   public function week_off(){
+    return view('chennai.controls.week-off');
 }
 }

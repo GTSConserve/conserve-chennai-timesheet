@@ -173,6 +173,9 @@
                     <li>
                         <a href="{{Route('location-head-controls-attendance_status')}}">Attendance Status</a>
                     </li>
+                    <li>
+                    <a href="{{Route('location-head-controls-week-off')}}">Week Off</a>
+                </li>
                 </ul>
             </li>
         </ul>
