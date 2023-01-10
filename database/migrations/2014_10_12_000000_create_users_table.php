@@ -22,6 +22,10 @@ return new class extends Migration
             $table->foreign('location_id')->references('id')->on('locations');
             $table->integer('country_id')->unsigned()->index()->nullable();
             $table->foreign('country_id')->references('id')->on('countries');
+            $table->integer('division_id')->unsigned()->index()->nullable();
+            $table->foreign('division_id')->references('id')->on('divisions');
+            $table->integer('shift_id')->unsigned()->index()->nullable();
+            $table->foreign('shift_id')->references('id')->on('divisions');
             $table->foreign('user_group_id')->references('id')->on('usergroups');
             $table->integer('usergroup_department_id')->unsigned()->index()->nullable();
             $table->foreign('usergroup_department_id')->references('id')->on('usergroup_departments');

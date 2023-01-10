@@ -7,6 +7,8 @@ use App\Models\Education;
 use App\Models\Reference;
 use App\Models\Experience;
 use App\Models\Bank;
+use App\Models\Division;
+use App\Models\Shift;
 use App\Models\User;
 use App\Models\Usergroup;
 use App\Models\UsergroupCategories;
@@ -14,6 +16,7 @@ use App\Models\UsergroupDesigination;
 use App\Models\UsergroupGrade;
 use App\Models\UsergroupDepartment;
 use App\Models\UsergroupExperience;
+use App\Models\WeekOff;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +30,11 @@ class AddEmployee extends Component
     public $i = 0;
     public $inputs2 = [];
     public $i2 = 0;
+    private $user_group_divisions;
+    public $division;
+    private $user_shift;
+    public $shift;
+    public $week_off;
     public $employer_name = [], $employer_desigination = [], $employer_from = [], $employer_to = [], $employer_leave_reason = [], $employer_ctc = [];
     public $reference_name = [], $reference_organisation = [], $reference_designation = [], $reference_phone = [];
     // employee table
@@ -86,7 +94,7 @@ class AddEmployee extends Component
     public function role_next()
     {
         
-        if($this->department!=5)
+        if($this->department!=5||$this->department!=6)
         {
         $this->validate([
             'experience' => 'required',
@@ -94,7 +102,8 @@ class AddEmployee extends Component
             'department' => 'required',
             'grade' => 'required',
             'designation' => 'required',
-            // 'employee_access' => 'required',
+            'division' => 'required',
+            'shift' => 'required',
             'employee_report_to'=>'required'
         ]);
         }
@@ -224,6 +233,8 @@ if ($this->department==5) {
         $user->user_group_id = $this->employee_access;
         $user->usergroup_department_id = $this->department;
         $user->usergroup_experience_id = $this->experience;
+        $user->division_id = $this->division;
+        $user->shift_id = $this->shift;
         $user->usergroup_category_id = $this->category;
         $user->usergroup_grade_id = $this->grade;
         $user->usergroup_desigination_id = $this->designation;
@@ -254,6 +265,8 @@ if ($this->department==5) {
         $employee->user_id =  $user->id;
         $employee->first_name = $this->first_name;
         $employee->last_name = $this->last_name;
+        $employee->division_id = $this->division;
+        $employee->shift_id = $this->shift;
         $employee->gender = $this->gender;
         $employee->dob_certificate = $this->certificate_dob;
         $employee->dob_original = $this->orginal_dob;
@@ -508,6 +521,7 @@ if ($this->department==5) {
             }
         }
     }
+
     public function render()
     {
         $user_groups = Usergroup::all();
@@ -515,6 +529,7 @@ if ($this->department==5) {
         $user_group_grades = UsergroupGrade::all();
         $user_group_categories = UsergroupCategories::all();
         $user_group_experiences = UsergroupExperience::where('status','1')->get();
+        $user_week_off = WeekOff::all();
         $user_group_desiginations = '';
         if ($this->experience) {
             $experience = UsergroupExperience::where('id', $this->experience)->first();
@@ -533,6 +548,13 @@ if ($this->department==5) {
                 $this->adminReportingHead();
             }
         }
+        if ($this->department != 5 || $this->department != 6) 
+        {
+            $this->user_group_divisions=Division::where('usergroup_department_id',$this->department)->get();
+            $this->user_shift=Shift::all();
+            $this->emit('departmentemit');
+           // dd($this->user_shift);
+        }
 
         if ($this->department == 6) {
             $this->category = 6;
@@ -550,7 +572,7 @@ if ($this->department==5) {
         
         return view('livewire.chennai.employee.add-employee', [
             'user_groups' => $user_groups, 'user_group_departments' => $user_group_departments, 'user_group_grades' => $user_group_grades, 'user_group_categories' => $user_group_categories, 'user_group_experiences' => $user_group_experiences, 'user_group_desiginations' => $user_group_desiginations, 'category_name' => $this->category_name,
-            'reporting_heads' => $this->reporting_heads
-        ]);
+            'reporting_heads' => $this->reporting_heads,'user_group_divisions'=>$this->user_group_divisions,'division'=>$this->division,'user_shift'=>$this->user_shift,'shift'=>$this->shift,'user_week_off'=>$user_week_off,'week_off'=>$this->week_off]);
     }
+ 
 }

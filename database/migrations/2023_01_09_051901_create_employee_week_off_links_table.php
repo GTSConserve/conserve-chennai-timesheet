@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('week_off_links', function (Blueprint $table) {
+        // Schema::create('employee_week_off_links', function (Blueprint $table) {
         //     // $table->increments('id');
 
         //     // $table->integer('week_off_id')->unsigned()->index();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('week_off_links');
+        Schema::dropIfExists('employee_week_off_links');
     }
 };

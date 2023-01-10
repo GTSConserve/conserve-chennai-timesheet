@@ -1,12 +1,15 @@
 <div>
+   
+      
     <div class="page-header">
         <div class="page-title">
             <h3><b>Add Employee</b></h3>
         </div>
     </div>
+  
     <form id="msform">
         <!-- progressbar -->
-
+      
         <ul id="progressbar">
             <li class="{{$role}}">Role and Desigination</li>
             <li class="{{$basic_active}}">Basic Details</li>
@@ -14,10 +17,15 @@
             <li class="{{$identification_active}}">Identification </li>
             <li class="{{$offical_active}}">Offical</li>
         </ul>
+      
         @if ($status == 0)
+        
         <fieldset>
+         
             <h5 class="text-left p-1"><b>Role and Designation</b></h5>
+            
             <div class="row">
+             
                 <div class="col-sm-3">
                     <label id="Department">Employee Department</label>
                     <select name="" id="" class="form_input" wire:model="department">
@@ -30,6 +38,7 @@
                     <span class='error text-danger'>{{ $message }}</span>
                     @enderror
                 </div>
+             
                 @if($department&&($department!=5&&$department!=6))
                 <div class="col-sm-3">
                     <label id="experience">Employee Experience</label>
@@ -43,7 +52,32 @@
                     <span class='error text-danger'>{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="col-sm-3">
+                    <label id="division">Employee Division</label>
+                    <select name="" class="form_input" wire:model="division" id="">
+                        <option value="">Select Employee Division</option>
+                        @foreach ($user_group_divisions as $groups)
+                        <option value="{{$groups->id}}">{{$groups->name}}</option>
+                        @endforeach
+                    </select>
+                    @error('division')
+                    <span class='error text-danger'>{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-sm-3">
+                    <label id="division">Employee Shift</label>
+                    <select name="" class="form_input" wire:model="shift" id="">
+                        <option value="">Select Employee Shift</option>
+                        @foreach ($user_shift as $shif)
+                        <option value="{{$shif->id}}">{{$shif->shift}}</option>
+                        @endforeach
+                    </select>
+                    @error('shift')
+                    <span class='error text-danger'>{{ $message }}</span>
+                    @enderror
+                </div>
                 @endif
+              
                 @if(($department!=5&&$department!=6)&&$user_group_desiginations)
                 <div class="col-sm-3">
                     <label id="designation">Employee Designation</label>
@@ -60,6 +94,7 @@
                     @enderror
                 </div>
                 @endif
+           
                 @if($experience||$department==5||$department==6)
                 <div class="col-sm-3">
                     <label id="category">Employee Category</label>
@@ -77,6 +112,7 @@
                     @enderror
                 </div>
 
+                
 
                 @if($department!=5&&$department!=6)
                 <div class="col-sm-3">
@@ -100,19 +136,7 @@
                 @if($designation&&$department==2&&$grade)
                 @include('livewire.chennai.employee.admin-reporting-employee')
                 @endif
-                {{-- <div class="col-sm-3">
-                    <label id="employee_access">Employee Access</label>
-                    <select name="" class="form_input" wire:model="employee_access" id="">
-                        <option value="">Select Employee Access</option>
-                        @foreach ($user_groups as $groups)
-                        <option value="{{$groups->id}}">{{$groups->name}}</option>
-                        @endforeach
-                    </select>
-                    @error('employee_access')
-                    <span class='error text-danger'>{{ $message }}</span>
-                    @enderror
-                </div> --}}
-
+       
                 @endif
                 @endif
 
@@ -641,7 +665,15 @@
                     <span class='error text-danger'>{{ $message }}</span>
                     @enderror
                 </div> --}}
-
+                <div class="col-sm-3" wire:ignore>
+                    <label >Employee Week Off</label>
+                    <select name="" class="form_input" style="display:none"id="week_off" wire:model="week_off" multiple="multiple">
+                      
+                        @foreach ($user_week_off as $week)
+                        <option value="{{$week->id}}">{{$week->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="col-sm-3">
                     <label >Employment Type</label>
                     <select name="" class="form_input" wire:model="employement_type" id="">
@@ -807,3 +839,19 @@
         @endif
     </form>
 </div>
+
+
+    @push('js')
+<script>
+
+    $(function(){
+      $('#week_off').select2({
+        theme:'bootstrap4',
+        placeholder:'Select Employee Week-Off'
+      }).on('change',function(){
+        @this.set('week_off',$(this).val())
+      });
+    })
+
+    </script>
+@endpush

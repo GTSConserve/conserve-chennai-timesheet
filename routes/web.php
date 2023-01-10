@@ -55,5 +55,4 @@ Route::group(['prefix' => 'location-head', 'middleware' => [
     Route::get('/week-off-controls',[ControlsController::class, 'week_off'])->name('location-head-controls-week-off');
    
 
-  
 });
